@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE components PUBLIC "-//SEASAR2.1//DTD S2Container//EN"
+    "http://www.seasar.org/dtd/components21.dtd">
+
+<components namespace="dbflute">
+    <include path="j2ee.dicon"/>
+
+    <!-- The components of DBFlute Runtime. -->
+    <component name="introduction" class="org.docksidestage.sqlserver.dbflute.nogen.ExtendedDBFluteInitializer"/>
+    <component name="invokerAssistant" class="org.docksidestage.sqlserver.dbflute.allcommon.ImplementedInvokerAssistant"/>
+    <component name="commonColumnAutoSetupper" class="org.docksidestage.sqlserver.dbflute.allcommon.ImplementedCommonColumnAutoSetupper"/>
+    <component name="behaviorSelector" class="org.docksidestage.sqlserver.dbflute.allcommon.ImplementedBehaviorSelector"/>
+    <component name="behaviorCommandInvoker" class="org.dbflute.bhv.core.BehaviorCommandInvoker"/>
+
+    <!-- The components of Behavior. -->
+    <component name="memberBhv" class="org.docksidestage.sqlserver.dbflute.exbhv.MemberBhv"/>
+    <component name="memberAddressBhv" class="org.docksidestage.sqlserver.dbflute.exbhv.MemberAddressBhv"/>
+    <component name="memberLoginBhv" class="org.docksidestage.sqlserver.dbflute.exbhv.MemberLoginBhv"/>
+    <component name="memberSecurityBhv" class="org.docksidestage.sqlserver.dbflute.exbhv.MemberSecurityBhv"/>
+    <component name="memberServiceBhv" class="org.docksidestage.sqlserver.dbflute.exbhv.MemberServiceBhv"/>
+    <component name="memberStatusBhv" class="org.docksidestage.sqlserver.dbflute.exbhv.MemberStatusBhv"/>
+    <component name="memberWithdrawalBhv" class="org.docksidestage.sqlserver.dbflute.exbhv.MemberWithdrawalBhv"/>
+    <component name="productBhv" class="org.docksidestage.sqlserver.dbflute.exbhv.ProductBhv"/>
+    <component name="productCategoryBhv" class="org.docksidestage.sqlserver.dbflute.exbhv.ProductCategoryBhv"/>
+    <component name="productStatusBhv" class="org.docksidestage.sqlserver.dbflute.exbhv.ProductStatusBhv"/>
+    <component name="purchaseBhv" class="org.docksidestage.sqlserver.dbflute.exbhv.PurchaseBhv"/>
+    <component name="regionBhv" class="org.docksidestage.sqlserver.dbflute.exbhv.RegionBhv"/>
+    <component name="serviceRankBhv" class="org.docksidestage.sqlserver.dbflute.exbhv.ServiceRankBhv"/>
+    <component name="summaryProductBhv" class="org.docksidestage.sqlserver.dbflute.exbhv.SummaryProductBhv"/>
+    <component name="summaryWithdrawalBhv" class="org.docksidestage.sqlserver.dbflute.exbhv.SummaryWithdrawalBhv"/>
+    <component name="vendorCheckBhv" class="org.docksidestage.sqlserver.dbflute.exbhv.VendorCheckBhv"/>
+    <component name="vendorSymmetricBhv" class="org.docksidestage.sqlserver.dbflute.exbhv.VendorSymmetricBhv"/>
+    <component name="whiteDelimiterBhv" class="org.docksidestage.sqlserver.dbflute.exbhv.WhiteDelimiterBhv"/>
+    <component name="withdrawalReasonBhv" class="org.docksidestage.sqlserver.dbflute.exbhv.WithdrawalReasonBhv"/>
+</components>
