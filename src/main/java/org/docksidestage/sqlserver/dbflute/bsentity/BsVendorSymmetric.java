@@ -72,24 +72,16 @@ public abstract class BsVendorSymmetric extends AbstractEntity implements Domain
     protected String _encryptedData;
 
     // ===================================================================================
-    //                                                                          Table Name
-    //                                                                          ==========
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public String getTableDbName() {
+    public DBMeta asDBMeta() {
+        return DBMetaInstanceHandler.findDBMeta(asTableDbName());
+    }
+
+    /** {@inheritDoc} */
+    public String asTableDbName() {
         return "VENDOR_SYMMETRIC";
-    }
-
-    /** {@inheritDoc} */
-    public String getTablePropertyName() {
-        return "vendorSymmetric";
-    }
-
-    // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
-    /** {@inheritDoc} */
-    public DBMeta getDBMeta() {
-        return DBMetaInstanceHandler.findDBMeta(getTableDbName());
     }
 
     // ===================================================================================
@@ -128,7 +120,7 @@ public abstract class BsVendorSymmetric extends AbstractEntity implements Domain
     @Override
     protected int doHashCode(int initial) {
         int hs = initial;
-        hs = xCH(hs, getTableDbName());
+        hs = xCH(hs, asTableDbName());
         hs = xCH(hs, _vendorSymmetricId);
         return hs;
     }

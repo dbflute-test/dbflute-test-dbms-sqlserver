@@ -60,9 +60,9 @@ public class VendorSymmetricDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnVendorSymmetricId = cci("VENDOR_SYMMETRIC_ID", "VENDOR_SYMMETRIC_ID", null, null, Long.class, "vendorSymmetricId", null, true, false, true, "numeric", 16, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnPlainText = cci("PLAIN_TEXT", "PLAIN_TEXT", null, null, String.class, "plainText", null, false, false, false, "nvarchar", 100, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnEncryptedData = cci("ENCRYPTED_DATA", "ENCRYPTED_DATA", null, null, String.class, "encryptedData", null, false, false, false, "varbinary", 2147483647, 0, null, false, null, null, null, null, null);
+    protected final ColumnInfo _columnVendorSymmetricId = cci("VENDOR_SYMMETRIC_ID", "VENDOR_SYMMETRIC_ID", null, null, Long.class, "vendorSymmetricId", null, true, false, true, "numeric", 16, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnPlainText = cci("PLAIN_TEXT", "PLAIN_TEXT", null, null, String.class, "plainText", null, false, false, false, "nvarchar", 100, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnEncryptedData = cci("ENCRYPTED_DATA", "ENCRYPTED_DATA", null, null, String.class, "encryptedData", null, false, false, false, "varbinary", 2147483647, 0, null, false, null, null, null, null, null, false);
 
     /**
      * VENDOR_SYMMETRIC_ID: {PK, NotNull, numeric(16)}

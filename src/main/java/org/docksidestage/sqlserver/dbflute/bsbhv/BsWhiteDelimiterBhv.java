@@ -61,10 +61,12 @@ public abstract class BsWhiteDelimiterBhv extends AbstractBehaviorWritable<White
     /*df:endQueryPath*/
 
     // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public WhiteDelimiterDbm getDBMeta() { return WhiteDelimiterDbm.getInstance(); }
+    public WhiteDelimiterDbm asDBMeta() { return WhiteDelimiterDbm.getInstance(); }
+    /** {@inheritDoc} */
+    public String asTableDbName() { return "WHITE_DELIMITER"; }
 
     /** @return The instance of DBMeta as my table type. (NotNull) */
     public WhiteDelimiterDbm getMyDBMeta() { return WhiteDelimiterDbm.getInstance(); }
@@ -426,7 +428,7 @@ public abstract class BsWhiteDelimiterBhv extends AbstractBehaviorWritable<White
     //                                                                            ========
     @Override
     protected Number doReadNextVal() {
-        String msg = "This table is NOT related to sequence: " + getTableDbName();
+        String msg = "This table is NOT related to sequence: " + asTableDbName();
         throw new UnsupportedOperationException(msg);
     }
 

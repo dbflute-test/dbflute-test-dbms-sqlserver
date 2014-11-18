@@ -62,10 +62,12 @@ public abstract class BsVendorSymmetricBhv extends AbstractBehaviorWritable<Vend
     /*df:endQueryPath*/
 
     // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public VendorSymmetricDbm getDBMeta() { return VendorSymmetricDbm.getInstance(); }
+    public VendorSymmetricDbm asDBMeta() { return VendorSymmetricDbm.getInstance(); }
+    /** {@inheritDoc} */
+    public String asTableDbName() { return "VENDOR_SYMMETRIC"; }
 
     /** @return The instance of DBMeta as my table type. (NotNull) */
     public VendorSymmetricDbm getMyDBMeta() { return VendorSymmetricDbm.getInstance(); }
@@ -427,7 +429,7 @@ public abstract class BsVendorSymmetricBhv extends AbstractBehaviorWritable<Vend
     //                                                                            ========
     @Override
     protected Number doReadNextVal() {
-        String msg = "This table is NOT related to sequence: " + getTableDbName();
+        String msg = "This table is NOT related to sequence: " + asTableDbName();
         throw new UnsupportedOperationException(msg);
     }
 
