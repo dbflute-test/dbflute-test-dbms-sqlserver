@@ -37,7 +37,7 @@ public class WxDisableIdentitySQLServerTest extends UnitContainerTestCase {
         member.setMemberStatusCode_Formalized();
 
         // ## Act ##
-        if (member.getDBMeta().hasIdentity()) { // mainly
+        if (member.asDBMeta().hasIdentity()) { // mainly
             memberBhv.varyingInsert(member, op -> op.disablePrimaryKeyIdentity());
         } else {
             try {

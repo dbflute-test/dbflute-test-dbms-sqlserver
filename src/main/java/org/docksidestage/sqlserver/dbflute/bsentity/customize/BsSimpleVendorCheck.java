@@ -101,24 +101,16 @@ public abstract class BsSimpleVendorCheck extends AbstractEntity implements Cust
     protected java.util.UUID _typeOfUniqueidentifier;
 
     // ===================================================================================
-    //                                                                          Table Name
-    //                                                                          ==========
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public String getTableDbName() {
-        return "SimpleVendorCheck";
-    }
-
-    /** {@inheritDoc} */
-    public String getTablePropertyName() {
-        return "simpleVendorCheck";
-    }
-
-    // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
-    /** {@inheritDoc} */
-    public DBMeta getDBMeta() {
+    public DBMeta asDBMeta() {
         return org.docksidestage.sqlserver.dbflute.bsentity.customize.dbmeta.SimpleVendorCheckDbm.getInstance();
+    }
+
+    /** {@inheritDoc} */
+    public String asTableDbName() {
+        return "SimpleVendorCheck";
     }
 
     // ===================================================================================
@@ -164,7 +156,7 @@ public abstract class BsSimpleVendorCheck extends AbstractEntity implements Cust
     @Override
     protected int doHashCode(int initial) {
         int hs = initial;
-        hs = xCH(hs, getTableDbName());
+        hs = xCH(hs, asTableDbName());
         hs = xCH(hs, _vendorCheckId);
         hs = xCH(hs, _typeOfNumericDecimal);
         hs = xCH(hs, _typeOfNumericInteger);

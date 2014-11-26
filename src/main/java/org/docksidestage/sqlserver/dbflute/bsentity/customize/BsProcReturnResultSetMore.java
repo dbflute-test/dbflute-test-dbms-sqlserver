@@ -122,24 +122,16 @@ public abstract class BsProcReturnResultSetMore extends AbstractEntity implement
     protected Long _versionNo;
 
     // ===================================================================================
-    //                                                                          Table Name
-    //                                                                          ==========
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public String getTableDbName() {
-        return "ProcReturnResultSetMore";
-    }
-
-    /** {@inheritDoc} */
-    public String getTablePropertyName() {
-        return "procReturnResultSetMore";
-    }
-
-    // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
-    /** {@inheritDoc} */
-    public DBMeta getDBMeta() {
+    public DBMeta asDBMeta() {
         return org.docksidestage.sqlserver.dbflute.bsentity.customize.dbmeta.ProcReturnResultSetMoreDbm.getInstance();
+    }
+
+    /** {@inheritDoc} */
+    public String asTableDbName() {
+        return "ProcReturnResultSetMore";
     }
 
     // ===================================================================================
@@ -297,7 +289,7 @@ public abstract class BsProcReturnResultSetMore extends AbstractEntity implement
     @Override
     protected int doHashCode(int initial) {
         int hs = initial;
-        hs = xCH(hs, getTableDbName());
+        hs = xCH(hs, asTableDbName());
         hs = xCH(hs, _memberId);
         hs = xCH(hs, _memberName);
         hs = xCH(hs, _memberAccount);

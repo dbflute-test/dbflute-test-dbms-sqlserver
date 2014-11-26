@@ -122,24 +122,16 @@ public abstract class BsSpReturnResultSetMoreNotParamResult1 extends AbstractEnt
     protected Long _versionNo;
 
     // ===================================================================================
-    //                                                                          Table Name
-    //                                                                          ==========
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public String getTableDbName() {
-        return "SpReturnResultSetMoreNotParamResult1";
-    }
-
-    /** {@inheritDoc} */
-    public String getTablePropertyName() {
-        return "spReturnResultSetMoreNotParamResult1";
-    }
-
-    // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
-    /** {@inheritDoc} */
-    public DBMeta getDBMeta() {
+    public DBMeta asDBMeta() {
         return org.docksidestage.sqlserver.dbflute.bsentity.customize.dbmeta.SpReturnResultSetMoreNotParamResult1Dbm.getInstance();
+    }
+
+    /** {@inheritDoc} */
+    public String asTableDbName() {
+        return "SpReturnResultSetMoreNotParamResult1";
     }
 
     // ===================================================================================
@@ -297,7 +289,7 @@ public abstract class BsSpReturnResultSetMoreNotParamResult1 extends AbstractEnt
     @Override
     protected int doHashCode(int initial) {
         int hs = initial;
-        hs = xCH(hs, getTableDbName());
+        hs = xCH(hs, asTableDbName());
         hs = xCH(hs, _memberId);
         hs = xCH(hs, _memberName);
         hs = xCH(hs, _memberAccount);

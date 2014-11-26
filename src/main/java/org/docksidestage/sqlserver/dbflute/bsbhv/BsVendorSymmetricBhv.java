@@ -62,10 +62,12 @@ public abstract class BsVendorSymmetricBhv extends AbstractBehaviorWritable<Vend
     /*df:endQueryPath*/
 
     // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public VendorSymmetricDbm getDBMeta() { return VendorSymmetricDbm.getInstance(); }
+    public VendorSymmetricDbm asDBMeta() { return VendorSymmetricDbm.getInstance(); }
+    /** {@inheritDoc} */
+    public String asTableDbName() { return "VENDOR_SYMMETRIC"; }
 
     /** @return The instance of DBMeta as my table type. (NotNull) */
     public VendorSymmetricDbm getMyDBMeta() { return VendorSymmetricDbm.getInstance(); }
@@ -427,7 +429,7 @@ public abstract class BsVendorSymmetricBhv extends AbstractBehaviorWritable<Vend
     //                                                                            ========
     @Override
     protected Number doReadNextVal() {
-        String msg = "This table is NOT related to sequence: " + getTableDbName();
+        String msg = "This table is NOT related to sequence: " + asTableDbName();
         throw new UnsupportedOperationException(msg);
     }
 
@@ -553,11 +555,7 @@ public abstract class BsVendorSymmetricBhv extends AbstractBehaviorWritable<Vend
      * <span style="color: #3F7E5E">//vendorSymmetric.set...;</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
      * vendorSymmetric.<span style="color: #CC4747">setVersionNo</span>(value);
-     * try {
-     *     <span style="color: #0000C0">vendorSymmetricBhv</span>.<span style="color: #CC4747">update</span>(vendorSymmetric);
-     * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
-     *     ...
-     * }
+     * <span style="color: #0000C0">vendorSymmetricBhv</span>.<span style="color: #CC4747">update</span>(vendorSymmetric);
      * </pre>
      * @param vendorSymmetric The entity of update. (NotNull, PrimaryKeyNotNull)
      * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
@@ -666,17 +664,15 @@ public abstract class BsVendorSymmetricBhv extends AbstractBehaviorWritable<Vend
      * This method uses executeBatch() of java.sql.PreparedStatement.
      * <pre>
      * <span style="color: #3F7E5E">// e.g. update two columns only</span>
-     * vendorSymmetricBhv.<span style="color: #CC4747">batchUpdate</span>(vendorSymmetricList, new SpecifyQuery&lt;VendorSymmetricCB&gt;() {
-     *     public void specify(VendorSymmetricCB cb) { <span style="color: #3F7E5E">// the two only updated</span>
-     *         cb.specify().<span style="color: #CC4747">columnFooStatusCode()</span>; <span style="color: #3F7E5E">// should be modified in any entities</span>
-     *         cb.specify().<span style="color: #CC4747">columnBarDate()</span>; <span style="color: #3F7E5E">// should be modified in any entities</span>
-     *     }
+     * vendorSymmetricBhv.<span style="color: #CC4747">batchUpdate</span>(vendorSymmetricList, <span style="color: #553000">colCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #3F7E5E">// the two only updated</span>
+     *     <span style="color: #553000">colCB</span>.specify().<span style="color: #CC4747">columnFooStatusCode()</span>; <span style="color: #3F7E5E">// should be modified in any entities</span>
+     *     <span style="color: #553000">colCB</span>.specify().<span style="color: #CC4747">columnBarDate()</span>; <span style="color: #3F7E5E">// should be modified in any entities</span>
      * });
      * <span style="color: #3F7E5E">// e.g. update every column in the table</span>
-     * <span style="color: #0000C0">vendorSymmetricBhv</span>.<span style="color: #CC4747">batchUpdate</span>(vendorSymmetricList, new SpecifyQuery&lt;VendorSymmetricCB&gt;() {
-     *     public void specify(VendorSymmetricCB cb) { <span style="color: #3F7E5E">// all columns are updated</span>
-     *         cb.specify().<span style="color: #CC4747">columnEveryColumn()</span>; <span style="color: #3F7E5E">// no check of modified properties</span>
-     *     }
+     * <span style="color: #0000C0">vendorSymmetricBhv</span>.<span style="color: #CC4747">batchUpdate</span>(vendorSymmetricList, <span style="color: #553000">colCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #3F7E5E">// all columns are updated</span>
+     *     <span style="color: #553000">colCB</span>.specify().<span style="color: #CC4747">columnEveryColumn()</span>; <span style="color: #3F7E5E">// no check of modified properties</span>
      * });
      * </pre>
      * <p>You can specify update columns used on set clause of update statement.
@@ -750,9 +746,9 @@ public abstract class BsVendorSymmetricBhv extends AbstractBehaviorWritable<Vend
      * <span style="color: #3F7E5E">// you don't need to set a value of concurrency column</span>
      * <span style="color: #3F7E5E">// (auto-increment for version number is valid though non-exclusive control)</span>
      * <span style="color: #3F7E5E">//vendorSymmetric.setVersionNo(value);</span>
-     * VendorSymmetricCB cb = <span style="color: #70226C">new</span> VendorSymmetricCB();
-     * cb.query().setFoo...(value);
-     * <span style="color: #0000C0">vendorSymmetricBhv</span>.<span style="color: #CC4747">queryUpdate</span>(vendorSymmetric, cb);
+     * <span style="color: #0000C0">vendorSymmetricBhv</span>.<span style="color: #CC4747">queryUpdate</span>(vendorSymmetric, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * });
      * </pre>
      * @param vendorSymmetric The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
      * @param cbLambda The callback for condition-bean of VendorSymmetric. (NotNull)
@@ -792,9 +788,9 @@ public abstract class BsVendorSymmetricBhv extends AbstractBehaviorWritable<Vend
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * VendorSymmetricCB cb = new VendorSymmetricCB();
-     * cb.query().setFoo...(value);
-     * <span style="color: #0000C0">vendorSymmetricBhv</span>.<span style="color: #CC4747">queryDelete</span>(vendorSymmetric, cb);
+     * <span style="color: #0000C0">vendorSymmetricBhv</span>.<span style="color: #CC4747">queryDelete</span>(vendorSymmetric, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * });
      * </pre>
      * @param cbLambda The callback for condition-bean of VendorSymmetric. (NotNull)
      * @return The deleted count.
@@ -834,10 +830,10 @@ public abstract class BsVendorSymmetricBhv extends AbstractBehaviorWritable<Vend
      * <span style="color: #3F7E5E">// if auto-increment, you don't need to set the PK value</span>
      * vendorSymmetric.setFoo...(value);
      * vendorSymmetric.setBar...(value);
-     * InsertOption&lt;VendorSymmetricCB&gt; option = new InsertOption&lt;VendorSymmetricCB&gt;();
-     * <span style="color: #3F7E5E">// you can insert by your values for common columns</span>
-     * option.disableCommonColumnAutoSetup();
-     * <span style="color: #0000C0">vendorSymmetricBhv</span>.<span style="color: #CC4747">varyingInsert</span>(vendorSymmetric, option);
+     * <span style="color: #0000C0">vendorSymmetricBhv</span>.<span style="color: #CC4747">varyingInsert</span>(vendorSymmetric, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #3F7E5E">// you can insert by your values for common columns</span>
+     *     <span style="color: #553000">op</span>.disableCommonColumnAutoSetup();
+     * });
      * ... = vendorSymmetric.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
      * @param vendorSymmetric The entity of insert. (NotNull, PrimaryKeyNullAllowed: when auto-increment)
@@ -858,18 +854,12 @@ public abstract class BsVendorSymmetricBhv extends AbstractBehaviorWritable<Vend
      * vendorSymmetric.setOther...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
      * vendorSymmetric.<span style="color: #CC4747">setVersionNo</span>(value);
-     * <span style="color: #70226C">try</span> {
-     *     <span style="color: #3F7E5E">// you can update by self calculation values</span>
-     *     UpdateOption&lt;VendorSymmetricCB&gt; option = new UpdateOption&lt;VendorSymmetricCB&gt;();
-     *     option.self(new SpecifyQuery&lt;VendorSymmetricCB&gt;() {
-     *         public void specify(VendorSymmetricCB cb) {
-     *             cb.specify().<span style="color: #CC4747">columnXxxCount()</span>;
-     *         }
+     * <span style="color: #3F7E5E">// you can update by self calculation values</span>
+     * <span style="color: #0000C0">vendorSymmetricBhv</span>.<span style="color: #CC4747">varyingUpdate</span>(vendorSymmetric, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>.self(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">columnXxxCount()</span>;
      *     }).plus(1); <span style="color: #3F7E5E">// XXX_COUNT = XXX_COUNT + 1</span>
-     *     <span style="color: #0000C0">vendorSymmetricBhv</span>.<span style="color: #CC4747">varyingUpdate</span>(vendorSymmetric, option);
-     * } <span style="color: #70226C">catch</span> (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
-     *     ...
-     * }
+     * });
      * </pre>
      * @param vendorSymmetric The entity of update. (NotNull, PrimaryKeyNotNull)
      * @param opLambda The callback for option of update for varying requests. (NotNull)
@@ -978,15 +968,13 @@ public abstract class BsVendorSymmetricBhv extends AbstractBehaviorWritable<Vend
      * <span style="color: #3F7E5E">// you don't need to set a value of concurrency column</span>
      * <span style="color: #3F7E5E">// (auto-increment for version number is valid though non-exclusive control)</span>
      * <span style="color: #3F7E5E">//vendorSymmetric.setVersionNo(value);</span>
-     * VendorSymmetricCB cb = new VendorSymmetricCB();
-     * cb.query().setFoo...(value);
-     * UpdateOption&lt;VendorSymmetricCB&gt; option = <span style="color: #70226C">new</span> UpdateOption&lt;VendorSymmetricCB&gt;();
-     * option.self(new SpecifyQuery&lt;VendorSymmetricCB&gt;() {
-     *     public void specify(VendorSymmetricCB cb) {
-     *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
-     *     }
-     * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * <span style="color: #0000C0">vendorSymmetricBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(vendorSymmetric, cb, option);
+     * <span style="color: #0000C0">vendorSymmetricBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(vendorSymmetric, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * }, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>.self(<span style="color: #553000">colCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">colCB</span>.specify().<span style="color: #CC4747">columnFooCount()</span>;
+     *     }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
+     * });
      * </pre>
      * @param vendorSymmetric The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cbLambda The callback for condition-bean of VendorSymmetric. (NotNull)
@@ -1014,13 +1002,11 @@ public abstract class BsVendorSymmetricBhv extends AbstractBehaviorWritable<Vend
      * <span style="color: #3F7E5E">//vendorSymmetric.setVersionNo(value);</span>
      * VendorSymmetricCB cb = <span style="color: #70226C">new</span> VendorSymmetricCB();
      * cb.query().setFoo...(value);
-     * UpdateOption&lt;VendorSymmetricCB&gt; option = <span style="color: #70226C">new</span> UpdateOption&lt;VendorSymmetricCB&gt;();
-     * option.self(new SpecifyQuery&lt;VendorSymmetricCB&gt;() {
-     *     public void specify(VendorSymmetricCB cb) {
-     *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
-     *     }
-     * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * <span style="color: #0000C0">vendorSymmetricBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(vendorSymmetric, cb, option);
+     * <span style="color: #0000C0">vendorSymmetricBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(vendorSymmetric, cb, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>.self(<span style="color: #553000">colCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">colCB</span>.specify().<span style="color: #CC4747">columnFooCount()</span>;
+     *     }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
+     * });
      * </pre>
      * @param vendorSymmetric The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cb The condition-bean of VendorSymmetric. (NotNull)
@@ -1035,7 +1021,14 @@ public abstract class BsVendorSymmetricBhv extends AbstractBehaviorWritable<Vend
     /**
      * Delete the several entities by query with varying requests non-strictly. <br>
      * For example, allowNonQueryDelete(). <br>
-     * Other specifications are same as batchUpdateNonstrict(entityList).
+     * Other specifications are same as queryDelete(cb).
+     * <pre>
+     * <span style="color: #0000C0">vendorSymmetricBhv</span>.<span style="color: #CC4747">queryDelete</span>(vendorSymmetric, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * }, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>...
+     * });
+     * </pre>
      * @param cbLambda The callback for condition-bean of VendorSymmetric. (NotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The deleted count.
@@ -1048,7 +1041,7 @@ public abstract class BsVendorSymmetricBhv extends AbstractBehaviorWritable<Vend
     /**
      * Delete the several entities by query with varying requests non-strictly. <br>
      * For example, allowNonQueryDelete(). <br>
-     * Other specifications are same as batchUpdateNonstrict(entityList).
+     * Other specifications are same as queryDelete(cb).
      * @param cb The condition-bean of VendorSymmetric. (NotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The deleted count.

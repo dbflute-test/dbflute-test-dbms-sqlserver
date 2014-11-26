@@ -72,24 +72,16 @@ public abstract class BsSimpleTableFunction extends AbstractEntity implements Cu
     protected String _memberStatusCode;
 
     // ===================================================================================
-    //                                                                          Table Name
-    //                                                                          ==========
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public String getTableDbName() {
-        return "SimpleTableFunction";
-    }
-
-    /** {@inheritDoc} */
-    public String getTablePropertyName() {
-        return "simpleTableFunction";
-    }
-
-    // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
-    /** {@inheritDoc} */
-    public DBMeta getDBMeta() {
+    public DBMeta asDBMeta() {
         return org.docksidestage.sqlserver.dbflute.bsentity.customize.dbmeta.SimpleTableFunctionDbm.getInstance();
+    }
+
+    /** {@inheritDoc} */
+    public String asTableDbName() {
+        return "SimpleTableFunction";
     }
 
     // ===================================================================================
@@ -237,7 +229,7 @@ public abstract class BsSimpleTableFunction extends AbstractEntity implements Cu
     @Override
     protected int doHashCode(int initial) {
         int hs = initial;
-        hs = xCH(hs, getTableDbName());
+        hs = xCH(hs, asTableDbName());
         hs = xCH(hs, _memberId);
         hs = xCH(hs, _memberName);
         hs = xCH(hs, _memberStatusCode);

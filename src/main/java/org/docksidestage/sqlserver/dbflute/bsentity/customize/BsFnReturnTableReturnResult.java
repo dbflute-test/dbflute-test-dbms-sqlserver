@@ -72,24 +72,16 @@ public abstract class BsFnReturnTableReturnResult extends AbstractEntity impleme
     protected String _memberStatusCode;
 
     // ===================================================================================
-    //                                                                          Table Name
-    //                                                                          ==========
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public String getTableDbName() {
-        return "FnReturnTableReturnResult";
-    }
-
-    /** {@inheritDoc} */
-    public String getTablePropertyName() {
-        return "fnReturnTableReturnResult";
-    }
-
-    // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
-    /** {@inheritDoc} */
-    public DBMeta getDBMeta() {
+    public DBMeta asDBMeta() {
         return org.docksidestage.sqlserver.dbflute.bsentity.customize.dbmeta.FnReturnTableReturnResultDbm.getInstance();
+    }
+
+    /** {@inheritDoc} */
+    public String asTableDbName() {
+        return "FnReturnTableReturnResult";
     }
 
     // ===================================================================================
@@ -237,7 +229,7 @@ public abstract class BsFnReturnTableReturnResult extends AbstractEntity impleme
     @Override
     protected int doHashCode(int initial) {
         int hs = initial;
-        hs = xCH(hs, getTableDbName());
+        hs = xCH(hs, asTableDbName());
         hs = xCH(hs, _memberId);
         hs = xCH(hs, _memberName);
         hs = xCH(hs, _memberStatusCode);

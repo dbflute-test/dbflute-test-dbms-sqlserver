@@ -61,10 +61,10 @@ public class UnpaidSummaryMemberDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnUnpaidManId = cci("UNPAID_MAN_ID", "UNPAID_MAN_ID", null, null, Integer.class, "unpaidManId", null, true, false, false, "int", 10, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnUnpaidManName = cci("UNPAID_MAN_NAME", "UNPAID_MAN_NAME", null, null, String.class, "unpaidManName", null, false, false, false, "nvarchar", 200, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnUnpaidPriceSummary = cci("UNPAID_PRICE_SUMMARY", "UNPAID_PRICE_SUMMARY", null, null, Integer.class, "unpaidPriceSummary", null, false, false, false, "int", 10, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnStatusName = cci("STATUS_NAME", "STATUS_NAME", null, null, String.class, "statusName", null, false, false, false, "nvarchar", 50, 0, null, false, null, null, null, null, null);
+    protected final ColumnInfo _columnUnpaidManId = cci("UNPAID_MAN_ID", "UNPAID_MAN_ID", null, null, Integer.class, "unpaidManId", null, true, false, false, "int", 10, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnUnpaidManName = cci("UNPAID_MAN_NAME", "UNPAID_MAN_NAME", null, null, String.class, "unpaidManName", null, false, false, false, "nvarchar", 200, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnUnpaidPriceSummary = cci("UNPAID_PRICE_SUMMARY", "UNPAID_PRICE_SUMMARY", null, null, Integer.class, "unpaidPriceSummary", null, false, false, false, "int", 10, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnStatusName = cci("STATUS_NAME", "STATUS_NAME", null, null, String.class, "statusName", null, false, false, false, "nvarchar", 50, 0, null, false, null, null, null, null, null, false);
 
     /**
      * UNPAID_MAN_ID: {PK, int(10), refers to MEMBER}

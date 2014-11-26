@@ -59,8 +59,8 @@ public class RegionDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnRegionId = cci("REGION_ID", "REGION_ID", null, null, Integer.class, "regionId", null, true, false, true, "int", 10, 0, null, false, null, null, null, "memberAddressList", null);
-    protected final ColumnInfo _columnRegionName = cci("REGION_NAME", "REGION_NAME", null, null, String.class, "regionName", null, false, false, true, "nvarchar", 50, 0, null, false, null, null, null, null, null);
+    protected final ColumnInfo _columnRegionId = cci("REGION_ID", "REGION_ID", null, null, Integer.class, "regionId", null, true, false, true, "int", 10, 0, null, false, null, null, null, "memberAddressList", null, false);
+    protected final ColumnInfo _columnRegionName = cci("REGION_NAME", "REGION_NAME", null, null, String.class, "regionName", null, false, false, true, "nvarchar", 50, 0, null, false, null, null, null, null, null, false);
 
     /**
      * REGION_ID: {PK, NotNull, int(10)}

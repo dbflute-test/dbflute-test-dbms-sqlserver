@@ -61,10 +61,12 @@ public abstract class BsMemberLoginBhv extends AbstractBehaviorWritable<MemberLo
     /*df:endQueryPath*/
 
     // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public MemberLoginDbm getDBMeta() { return MemberLoginDbm.getInstance(); }
+    public MemberLoginDbm asDBMeta() { return MemberLoginDbm.getInstance(); }
+    /** {@inheritDoc} */
+    public String asTableDbName() { return "MEMBER_LOGIN"; }
 
     /** @return The instance of DBMeta as my table type. (NotNull) */
     public MemberLoginDbm getMyDBMeta() { return MemberLoginDbm.getInstance(); }
@@ -426,7 +428,7 @@ public abstract class BsMemberLoginBhv extends AbstractBehaviorWritable<MemberLo
     //                                                                            ========
     @Override
     protected Number doReadNextVal() {
-        String msg = "This table is NOT related to sequence: " + getTableDbName();
+        String msg = "This table is NOT related to sequence: " + asTableDbName();
         throw new UnsupportedOperationException(msg);
     }
 
@@ -568,11 +570,7 @@ public abstract class BsMemberLoginBhv extends AbstractBehaviorWritable<MemberLo
      * <span style="color: #3F7E5E">//memberLogin.set...;</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
      * memberLogin.<span style="color: #CC4747">setVersionNo</span>(value);
-     * try {
-     *     <span style="color: #0000C0">memberLoginBhv</span>.<span style="color: #CC4747">update</span>(memberLogin);
-     * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
-     *     ...
-     * }
+     * <span style="color: #0000C0">memberLoginBhv</span>.<span style="color: #CC4747">update</span>(memberLogin);
      * </pre>
      * @param memberLogin The entity of update. (NotNull, PrimaryKeyNotNull)
      * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
@@ -681,17 +679,15 @@ public abstract class BsMemberLoginBhv extends AbstractBehaviorWritable<MemberLo
      * This method uses executeBatch() of java.sql.PreparedStatement.
      * <pre>
      * <span style="color: #3F7E5E">// e.g. update two columns only</span>
-     * memberLoginBhv.<span style="color: #CC4747">batchUpdate</span>(memberLoginList, new SpecifyQuery&lt;MemberLoginCB&gt;() {
-     *     public void specify(MemberLoginCB cb) { <span style="color: #3F7E5E">// the two only updated</span>
-     *         cb.specify().<span style="color: #CC4747">columnFooStatusCode()</span>; <span style="color: #3F7E5E">// should be modified in any entities</span>
-     *         cb.specify().<span style="color: #CC4747">columnBarDate()</span>; <span style="color: #3F7E5E">// should be modified in any entities</span>
-     *     }
+     * memberLoginBhv.<span style="color: #CC4747">batchUpdate</span>(memberLoginList, <span style="color: #553000">colCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #3F7E5E">// the two only updated</span>
+     *     <span style="color: #553000">colCB</span>.specify().<span style="color: #CC4747">columnFooStatusCode()</span>; <span style="color: #3F7E5E">// should be modified in any entities</span>
+     *     <span style="color: #553000">colCB</span>.specify().<span style="color: #CC4747">columnBarDate()</span>; <span style="color: #3F7E5E">// should be modified in any entities</span>
      * });
      * <span style="color: #3F7E5E">// e.g. update every column in the table</span>
-     * <span style="color: #0000C0">memberLoginBhv</span>.<span style="color: #CC4747">batchUpdate</span>(memberLoginList, new SpecifyQuery&lt;MemberLoginCB&gt;() {
-     *     public void specify(MemberLoginCB cb) { <span style="color: #3F7E5E">// all columns are updated</span>
-     *         cb.specify().<span style="color: #CC4747">columnEveryColumn()</span>; <span style="color: #3F7E5E">// no check of modified properties</span>
-     *     }
+     * <span style="color: #0000C0">memberLoginBhv</span>.<span style="color: #CC4747">batchUpdate</span>(memberLoginList, <span style="color: #553000">colCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #3F7E5E">// all columns are updated</span>
+     *     <span style="color: #553000">colCB</span>.specify().<span style="color: #CC4747">columnEveryColumn()</span>; <span style="color: #3F7E5E">// no check of modified properties</span>
      * });
      * </pre>
      * <p>You can specify update columns used on set clause of update statement.
@@ -765,9 +761,9 @@ public abstract class BsMemberLoginBhv extends AbstractBehaviorWritable<MemberLo
      * <span style="color: #3F7E5E">// you don't need to set a value of concurrency column</span>
      * <span style="color: #3F7E5E">// (auto-increment for version number is valid though non-exclusive control)</span>
      * <span style="color: #3F7E5E">//memberLogin.setVersionNo(value);</span>
-     * MemberLoginCB cb = <span style="color: #70226C">new</span> MemberLoginCB();
-     * cb.query().setFoo...(value);
-     * <span style="color: #0000C0">memberLoginBhv</span>.<span style="color: #CC4747">queryUpdate</span>(memberLogin, cb);
+     * <span style="color: #0000C0">memberLoginBhv</span>.<span style="color: #CC4747">queryUpdate</span>(memberLogin, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * });
      * </pre>
      * @param memberLogin The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
      * @param cbLambda The callback for condition-bean of MemberLogin. (NotNull)
@@ -807,9 +803,9 @@ public abstract class BsMemberLoginBhv extends AbstractBehaviorWritable<MemberLo
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * MemberLoginCB cb = new MemberLoginCB();
-     * cb.query().setFoo...(value);
-     * <span style="color: #0000C0">memberLoginBhv</span>.<span style="color: #CC4747">queryDelete</span>(memberLogin, cb);
+     * <span style="color: #0000C0">memberLoginBhv</span>.<span style="color: #CC4747">queryDelete</span>(memberLogin, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * });
      * </pre>
      * @param cbLambda The callback for condition-bean of MemberLogin. (NotNull)
      * @return The deleted count.
@@ -849,10 +845,10 @@ public abstract class BsMemberLoginBhv extends AbstractBehaviorWritable<MemberLo
      * <span style="color: #3F7E5E">// if auto-increment, you don't need to set the PK value</span>
      * memberLogin.setFoo...(value);
      * memberLogin.setBar...(value);
-     * InsertOption&lt;MemberLoginCB&gt; option = new InsertOption&lt;MemberLoginCB&gt;();
-     * <span style="color: #3F7E5E">// you can insert by your values for common columns</span>
-     * option.disableCommonColumnAutoSetup();
-     * <span style="color: #0000C0">memberLoginBhv</span>.<span style="color: #CC4747">varyingInsert</span>(memberLogin, option);
+     * <span style="color: #0000C0">memberLoginBhv</span>.<span style="color: #CC4747">varyingInsert</span>(memberLogin, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #3F7E5E">// you can insert by your values for common columns</span>
+     *     <span style="color: #553000">op</span>.disableCommonColumnAutoSetup();
+     * });
      * ... = memberLogin.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
      * @param memberLogin The entity of insert. (NotNull, PrimaryKeyNullAllowed: when auto-increment)
@@ -873,18 +869,12 @@ public abstract class BsMemberLoginBhv extends AbstractBehaviorWritable<MemberLo
      * memberLogin.setOther...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
      * memberLogin.<span style="color: #CC4747">setVersionNo</span>(value);
-     * <span style="color: #70226C">try</span> {
-     *     <span style="color: #3F7E5E">// you can update by self calculation values</span>
-     *     UpdateOption&lt;MemberLoginCB&gt; option = new UpdateOption&lt;MemberLoginCB&gt;();
-     *     option.self(new SpecifyQuery&lt;MemberLoginCB&gt;() {
-     *         public void specify(MemberLoginCB cb) {
-     *             cb.specify().<span style="color: #CC4747">columnXxxCount()</span>;
-     *         }
+     * <span style="color: #3F7E5E">// you can update by self calculation values</span>
+     * <span style="color: #0000C0">memberLoginBhv</span>.<span style="color: #CC4747">varyingUpdate</span>(memberLogin, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>.self(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">columnXxxCount()</span>;
      *     }).plus(1); <span style="color: #3F7E5E">// XXX_COUNT = XXX_COUNT + 1</span>
-     *     <span style="color: #0000C0">memberLoginBhv</span>.<span style="color: #CC4747">varyingUpdate</span>(memberLogin, option);
-     * } <span style="color: #70226C">catch</span> (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
-     *     ...
-     * }
+     * });
      * </pre>
      * @param memberLogin The entity of update. (NotNull, PrimaryKeyNotNull)
      * @param opLambda The callback for option of update for varying requests. (NotNull)
@@ -993,15 +983,13 @@ public abstract class BsMemberLoginBhv extends AbstractBehaviorWritable<MemberLo
      * <span style="color: #3F7E5E">// you don't need to set a value of concurrency column</span>
      * <span style="color: #3F7E5E">// (auto-increment for version number is valid though non-exclusive control)</span>
      * <span style="color: #3F7E5E">//memberLogin.setVersionNo(value);</span>
-     * MemberLoginCB cb = new MemberLoginCB();
-     * cb.query().setFoo...(value);
-     * UpdateOption&lt;MemberLoginCB&gt; option = <span style="color: #70226C">new</span> UpdateOption&lt;MemberLoginCB&gt;();
-     * option.self(new SpecifyQuery&lt;MemberLoginCB&gt;() {
-     *     public void specify(MemberLoginCB cb) {
-     *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
-     *     }
-     * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * <span style="color: #0000C0">memberLoginBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(memberLogin, cb, option);
+     * <span style="color: #0000C0">memberLoginBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(memberLogin, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * }, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>.self(<span style="color: #553000">colCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">colCB</span>.specify().<span style="color: #CC4747">columnFooCount()</span>;
+     *     }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
+     * });
      * </pre>
      * @param memberLogin The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cbLambda The callback for condition-bean of MemberLogin. (NotNull)
@@ -1029,13 +1017,11 @@ public abstract class BsMemberLoginBhv extends AbstractBehaviorWritable<MemberLo
      * <span style="color: #3F7E5E">//memberLogin.setVersionNo(value);</span>
      * MemberLoginCB cb = <span style="color: #70226C">new</span> MemberLoginCB();
      * cb.query().setFoo...(value);
-     * UpdateOption&lt;MemberLoginCB&gt; option = <span style="color: #70226C">new</span> UpdateOption&lt;MemberLoginCB&gt;();
-     * option.self(new SpecifyQuery&lt;MemberLoginCB&gt;() {
-     *     public void specify(MemberLoginCB cb) {
-     *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
-     *     }
-     * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * <span style="color: #0000C0">memberLoginBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(memberLogin, cb, option);
+     * <span style="color: #0000C0">memberLoginBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(memberLogin, cb, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>.self(<span style="color: #553000">colCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">colCB</span>.specify().<span style="color: #CC4747">columnFooCount()</span>;
+     *     }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
+     * });
      * </pre>
      * @param memberLogin The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cb The condition-bean of MemberLogin. (NotNull)
@@ -1050,7 +1036,14 @@ public abstract class BsMemberLoginBhv extends AbstractBehaviorWritable<MemberLo
     /**
      * Delete the several entities by query with varying requests non-strictly. <br>
      * For example, allowNonQueryDelete(). <br>
-     * Other specifications are same as batchUpdateNonstrict(entityList).
+     * Other specifications are same as queryDelete(cb).
+     * <pre>
+     * <span style="color: #0000C0">memberLoginBhv</span>.<span style="color: #CC4747">queryDelete</span>(memberLogin, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * }, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>...
+     * });
+     * </pre>
      * @param cbLambda The callback for condition-bean of MemberLogin. (NotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The deleted count.
@@ -1063,7 +1056,7 @@ public abstract class BsMemberLoginBhv extends AbstractBehaviorWritable<MemberLo
     /**
      * Delete the several entities by query with varying requests non-strictly. <br>
      * For example, allowNonQueryDelete(). <br>
-     * Other specifications are same as batchUpdateNonstrict(entityList).
+     * Other specifications are same as queryDelete(cb).
      * @param cb The condition-bean of MemberLogin. (NotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The deleted count.
