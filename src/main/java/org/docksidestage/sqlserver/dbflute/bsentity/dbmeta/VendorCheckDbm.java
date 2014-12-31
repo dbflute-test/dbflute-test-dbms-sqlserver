@@ -28,6 +28,9 @@ public class VendorCheckDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                       Current DBDef
     //                                                                       =============
+    public String getProjectName() { return DBCurrent.getInstance().projectName(); }
+    public String getProjectPrefix() { return DBCurrent.getInstance().projectPrefix(); }
+    public String getGenerationGapBasePrefix() { return DBCurrent.getInstance().generationGapBasePrefix(); }
     public DBDef getCurrentDBDef() { return DBCurrent.getInstance().currentDBDef(); }
 
     // ===================================================================================
@@ -51,8 +54,8 @@ public class VendorCheckDbm extends AbstractDBMeta {
         setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfBigint(), (et, vl) -> ((VendorCheck)et).setTypeOfBigint(ctl(vl)), "typeOfBigint");
         setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfMoney(), (et, vl) -> ((VendorCheck)et).setTypeOfMoney(ctb(vl)), "typeOfMoney");
         setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfSmallmoney(), (et, vl) -> ((VendorCheck)et).setTypeOfSmallmoney(ctb(vl)), "typeOfSmallmoney");
-        setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfDatetime(), (et, vl) -> ((VendorCheck)et).setTypeOfDatetime((java.sql.Timestamp)vl), "typeOfDatetime");
-        setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfSmalldatetime(), (et, vl) -> ((VendorCheck)et).setTypeOfSmalldatetime((java.sql.Timestamp)vl), "typeOfSmalldatetime");
+        setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfDatetime(), (et, vl) -> ((VendorCheck)et).setTypeOfDatetime(cttp(vl)), "typeOfDatetime");
+        setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfSmalldatetime(), (et, vl) -> ((VendorCheck)et).setTypeOfSmalldatetime(cttp(vl)), "typeOfSmalldatetime");
         setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfBit(), (et, vl) -> ((VendorCheck)et).setTypeOfBit((Boolean)vl), "typeOfBit");
         setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfBinary(), (et, vl) -> ((VendorCheck)et).setTypeOfBinary((byte[])vl), "typeOfBinary");
         setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfVarbinary(), (et, vl) -> ((VendorCheck)et).setTypeOfVarbinary((byte[])vl), "typeOfVarbinary");

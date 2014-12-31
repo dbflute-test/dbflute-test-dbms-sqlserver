@@ -14,9 +14,9 @@
 
 	<properties>
 		<seasar.version>2.4.46</seasar.version>
-		<dbflute.version>1.1.0-RC1</dbflute.version>
+		<dbflute.version>1.1.0-RC5</dbflute.version>
 		<sqlserver.jdbc.version>1.0.0</sqlserver.jdbc.version>
-		<utflute.version>0.5.0-RC1</utflute.version>
+		<utflute.version>0.5.0-RC5</utflute.version>
 	</properties>
 
 	<licenses>
@@ -118,6 +118,14 @@
 					</execution>
 				</executions>
 			</plugin>
+			<plugin>
+				<groupId>org.dbflute</groupId>
+				<artifactId>dbflute-maven-plugin</artifactId>
+				<version>1.1.0-RC1</version>
+				<configuration>
+					<clientProject>maihamadb</clientProject>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 
@@ -146,19 +154,6 @@
 	      <url>http://maven.seasar.org/maven2-snapshot</url>
 	    </repository>
 	</repositories>
-
-	<pluginRepositories>
-		<pluginRepository>
-			<id>mave.seaser.org</id>
-			<name>The Seasar Foundation Maven2 Repository</name>
-			<url>http://maven.seasar.org/maven2</url>
-		</pluginRepository>
-		<pluginRepository>
-			<id>snapshot.mave.seaser.org</id>
-			<name>The Seasar Foundation Maven2 Repository</name>
-			<url>http://maven.seasar.org/maven2-snapshot</url>
-		</pluginRepository>
-	</pluginRepositories>
 
 	<dependencies>
 		<!-- = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = -->

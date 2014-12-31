@@ -28,6 +28,9 @@ public class SimpleVendorCheckDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                       Current DBDef
     //                                                                       =============
+    public String getProjectName() { return DBCurrent.getInstance().projectName(); }
+    public String getProjectPrefix() { return DBCurrent.getInstance().projectPrefix(); }
+    public String getGenerationGapBasePrefix() { return DBCurrent.getInstance().generationGapBasePrefix(); }
     public DBDef getCurrentDBDef() { return DBCurrent.getInstance().currentDBDef(); }
 
     // ===================================================================================
@@ -44,8 +47,8 @@ public class SimpleVendorCheckDbm extends AbstractDBMeta {
         setupEpg(_epgMap, et -> ((SimpleVendorCheck)et).getTypeOfNumericInteger(), (et, vl) -> ((SimpleVendorCheck)et).setTypeOfNumericInteger(cti(vl)), "typeOfNumericInteger");
         setupEpg(_epgMap, et -> ((SimpleVendorCheck)et).getTypeOfNumericBigint(), (et, vl) -> ((SimpleVendorCheck)et).setTypeOfNumericBigint(ctl(vl)), "typeOfNumericBigint");
         setupEpg(_epgMap, et -> ((SimpleVendorCheck)et).getTypeOfText(), (et, vl) -> ((SimpleVendorCheck)et).setTypeOfText((String)vl), "typeOfText");
-        setupEpg(_epgMap, et -> ((SimpleVendorCheck)et).getTypeOfDatetime(), (et, vl) -> ((SimpleVendorCheck)et).setTypeOfDatetime((java.sql.Timestamp)vl), "typeOfDatetime");
-        setupEpg(_epgMap, et -> ((SimpleVendorCheck)et).getTypeOfSmalldatetime(), (et, vl) -> ((SimpleVendorCheck)et).setTypeOfSmalldatetime((java.sql.Timestamp)vl), "typeOfSmalldatetime");
+        setupEpg(_epgMap, et -> ((SimpleVendorCheck)et).getTypeOfDatetime(), (et, vl) -> ((SimpleVendorCheck)et).setTypeOfDatetime(cttp(vl)), "typeOfDatetime");
+        setupEpg(_epgMap, et -> ((SimpleVendorCheck)et).getTypeOfSmalldatetime(), (et, vl) -> ((SimpleVendorCheck)et).setTypeOfSmalldatetime(cttp(vl)), "typeOfSmalldatetime");
         setupEpg(_epgMap, et -> ((SimpleVendorCheck)et).getTypeOfBit(), (et, vl) -> ((SimpleVendorCheck)et).setTypeOfBit((Boolean)vl), "typeOfBit");
         setupEpg(_epgMap, et -> ((SimpleVendorCheck)et).getTypeOfUniqueidentifier(), (et, vl) -> ((SimpleVendorCheck)et).setTypeOfUniqueidentifier((java.util.UUID)vl), "typeOfUniqueidentifier");
     }

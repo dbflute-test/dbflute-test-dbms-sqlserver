@@ -28,6 +28,9 @@ public class SpReturnResultSetWithNotParamResult1Dbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                       Current DBDef
     //                                                                       =============
+    public String getProjectName() { return DBCurrent.getInstance().projectName(); }
+    public String getProjectPrefix() { return DBCurrent.getInstance().projectPrefix(); }
+    public String getGenerationGapBasePrefix() { return DBCurrent.getInstance().generationGapBasePrefix(); }
     public DBDef getCurrentDBDef() { return DBCurrent.getInstance().currentDBDef(); }
 
     // ===================================================================================
@@ -43,12 +46,12 @@ public class SpReturnResultSetWithNotParamResult1Dbm extends AbstractDBMeta {
         setupEpg(_epgMap, et -> ((SpReturnResultSetWithNotParamResult1)et).getMemberName(), (et, vl) -> ((SpReturnResultSetWithNotParamResult1)et).setMemberName((String)vl), "memberName");
         setupEpg(_epgMap, et -> ((SpReturnResultSetWithNotParamResult1)et).getMemberAccount(), (et, vl) -> ((SpReturnResultSetWithNotParamResult1)et).setMemberAccount((String)vl), "memberAccount");
         setupEpg(_epgMap, et -> ((SpReturnResultSetWithNotParamResult1)et).getMemberStatusCode(), (et, vl) -> ((SpReturnResultSetWithNotParamResult1)et).setMemberStatusCode((String)vl), "memberStatusCode");
-        setupEpg(_epgMap, et -> ((SpReturnResultSetWithNotParamResult1)et).getFormalizedDatetime(), (et, vl) -> ((SpReturnResultSetWithNotParamResult1)et).setFormalizedDatetime((java.sql.Timestamp)vl), "formalizedDatetime");
-        setupEpg(_epgMap, et -> ((SpReturnResultSetWithNotParamResult1)et).getBirthdate(), (et, vl) -> ((SpReturnResultSetWithNotParamResult1)et).setBirthdate((java.util.Date)vl), "birthdate");
-        setupEpg(_epgMap, et -> ((SpReturnResultSetWithNotParamResult1)et).getRegisterDatetime(), (et, vl) -> ((SpReturnResultSetWithNotParamResult1)et).setRegisterDatetime((java.sql.Timestamp)vl), "registerDatetime");
+        setupEpg(_epgMap, et -> ((SpReturnResultSetWithNotParamResult1)et).getFormalizedDatetime(), (et, vl) -> ((SpReturnResultSetWithNotParamResult1)et).setFormalizedDatetime(cttp(vl)), "formalizedDatetime");
+        setupEpg(_epgMap, et -> ((SpReturnResultSetWithNotParamResult1)et).getBirthdate(), (et, vl) -> ((SpReturnResultSetWithNotParamResult1)et).setBirthdate(ctdt(vl)), "birthdate");
+        setupEpg(_epgMap, et -> ((SpReturnResultSetWithNotParamResult1)et).getRegisterDatetime(), (et, vl) -> ((SpReturnResultSetWithNotParamResult1)et).setRegisterDatetime(cttp(vl)), "registerDatetime");
         setupEpg(_epgMap, et -> ((SpReturnResultSetWithNotParamResult1)et).getRegisterUser(), (et, vl) -> ((SpReturnResultSetWithNotParamResult1)et).setRegisterUser((String)vl), "registerUser");
         setupEpg(_epgMap, et -> ((SpReturnResultSetWithNotParamResult1)et).getRegisterProcess(), (et, vl) -> ((SpReturnResultSetWithNotParamResult1)et).setRegisterProcess((String)vl), "registerProcess");
-        setupEpg(_epgMap, et -> ((SpReturnResultSetWithNotParamResult1)et).getUpdateDatetime(), (et, vl) -> ((SpReturnResultSetWithNotParamResult1)et).setUpdateDatetime((java.sql.Timestamp)vl), "updateDatetime");
+        setupEpg(_epgMap, et -> ((SpReturnResultSetWithNotParamResult1)et).getUpdateDatetime(), (et, vl) -> ((SpReturnResultSetWithNotParamResult1)et).setUpdateDatetime(cttp(vl)), "updateDatetime");
         setupEpg(_epgMap, et -> ((SpReturnResultSetWithNotParamResult1)et).getUpdateUser(), (et, vl) -> ((SpReturnResultSetWithNotParamResult1)et).setUpdateUser((String)vl), "updateUser");
         setupEpg(_epgMap, et -> ((SpReturnResultSetWithNotParamResult1)et).getUpdateProcess(), (et, vl) -> ((SpReturnResultSetWithNotParamResult1)et).setUpdateProcess((String)vl), "updateProcess");
         setupEpg(_epgMap, et -> ((SpReturnResultSetWithNotParamResult1)et).getVersionNo(), (et, vl) -> ((SpReturnResultSetWithNotParamResult1)et).setVersionNo(ctl(vl)), "versionNo");

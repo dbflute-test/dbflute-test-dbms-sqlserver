@@ -28,6 +28,9 @@ public class CommonColumnMemberDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                       Current DBDef
     //                                                                       =============
+    public String getProjectName() { return DBCurrent.getInstance().projectName(); }
+    public String getProjectPrefix() { return DBCurrent.getInstance().projectPrefix(); }
+    public String getGenerationGapBasePrefix() { return DBCurrent.getInstance().generationGapBasePrefix(); }
     public DBDef getCurrentDBDef() { return DBCurrent.getInstance().currentDBDef(); }
 
     // ===================================================================================
@@ -41,10 +44,10 @@ public class CommonColumnMemberDbm extends AbstractDBMeta {
     protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((CommonColumnMember)et).getMemberId(), (et, vl) -> ((CommonColumnMember)et).setMemberId(cti(vl)), "memberId");
         setupEpg(_epgMap, et -> ((CommonColumnMember)et).getMemberName(), (et, vl) -> ((CommonColumnMember)et).setMemberName((String)vl), "memberName");
-        setupEpg(_epgMap, et -> ((CommonColumnMember)et).getRegisterDatetime(), (et, vl) -> ((CommonColumnMember)et).setRegisterDatetime((java.sql.Timestamp)vl), "registerDatetime");
+        setupEpg(_epgMap, et -> ((CommonColumnMember)et).getRegisterDatetime(), (et, vl) -> ((CommonColumnMember)et).setRegisterDatetime(cttp(vl)), "registerDatetime");
         setupEpg(_epgMap, et -> ((CommonColumnMember)et).getRegisterUser(), (et, vl) -> ((CommonColumnMember)et).setRegisterUser((String)vl), "registerUser");
         setupEpg(_epgMap, et -> ((CommonColumnMember)et).getRegisterProcess(), (et, vl) -> ((CommonColumnMember)et).setRegisterProcess((String)vl), "registerProcess");
-        setupEpg(_epgMap, et -> ((CommonColumnMember)et).getUpdateDatetime(), (et, vl) -> ((CommonColumnMember)et).setUpdateDatetime((java.sql.Timestamp)vl), "updateDatetime");
+        setupEpg(_epgMap, et -> ((CommonColumnMember)et).getUpdateDatetime(), (et, vl) -> ((CommonColumnMember)et).setUpdateDatetime(cttp(vl)), "updateDatetime");
         setupEpg(_epgMap, et -> ((CommonColumnMember)et).getUpdateUser(), (et, vl) -> ((CommonColumnMember)et).setUpdateUser((String)vl), "updateUser");
         setupEpg(_epgMap, et -> ((CommonColumnMember)et).getUpdateProcess(), (et, vl) -> ((CommonColumnMember)et).setUpdateProcess((String)vl), "updateProcess");
     }
