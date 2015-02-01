@@ -33,10 +33,8 @@ public class BehaviorSelectorTest extends UnitContainerTestCase {
     //                                                                              ======
     /**
      * テーブル名からBehaviorを取得して、テーブルのプロパティ名を取得する。
-     * 
-     * @throws Exception
      */
-    public void test_BehaviorSelector_byName_and_getTablePropertyName() throws Exception {
+    public void test_BehaviorSelector_byName_and_getTablePropertyName() {
         // ## Arrange ##
         final String tableDbName = "MEMBER";
 
@@ -55,10 +53,8 @@ public class BehaviorSelectorTest extends UnitContainerTestCase {
 
     /**
      * テーブル名からBehaviorを取得して、ConditionBeanを生成して(条件なし)、件数を検索する。
-     * 
-     * @throws Exception
      */
-    public void test_BehaviorSelector_byName_and_readCount() throws Exception {
+    public void test_BehaviorSelector_byName_and_readCount() {
         // ## Arrange ##
         final String tableDbName = "MEMBER";
 
@@ -76,10 +72,8 @@ public class BehaviorSelectorTest extends UnitContainerTestCase {
 
     /**
      * テーブル名からBehaviorを取得して、ConditionBeanを生成して(ソート条件のみ)、リストを検索する。
-     * 
-     * @throws Exception
      */
-    public void test_BehaviorSelector_byName_and_readList() throws Exception {
+    public void test_BehaviorSelector_byName_and_readList() {
         // ## Arrange ##
         final String tableDbName = "MEMBER";
 
