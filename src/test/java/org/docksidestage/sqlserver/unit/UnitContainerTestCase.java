@@ -29,13 +29,13 @@ public abstract class UnitContainerTestCase extends ContainerTestCase {
 
     protected void deleteMemberReferrer() {
         deleteAll(MemberAddressBhv.class);
-        // TODO jflute test: MemberFollowing in SQLServer
+        // TODO jflute test: SQLServer, MemberFollowing
         //deleteAll(MemberFollowingBhv.class);
         deleteAll(MemberLoginBhv.class);
         deleteAll(MemberServiceBhv.class);
         deleteAll(MemberSecurityBhv.class);
         deleteAll(MemberWithdrawalBhv.class);
-        // TODO jflute test: PurchasePayment in SQLServer
+        // TODO jflute test: SQLServer, PurchasePayment
         //deleteAll(PurchasePaymentBhv.class);
         deleteAll(PurchaseBhv.class);
     }

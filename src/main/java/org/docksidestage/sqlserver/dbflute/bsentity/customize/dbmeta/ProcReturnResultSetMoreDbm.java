@@ -28,6 +28,9 @@ public class ProcReturnResultSetMoreDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                       Current DBDef
     //                                                                       =============
+    public String getProjectName() { return DBCurrent.getInstance().projectName(); }
+    public String getProjectPrefix() { return DBCurrent.getInstance().projectPrefix(); }
+    public String getGenerationGapBasePrefix() { return DBCurrent.getInstance().generationGapBasePrefix(); }
     public DBDef getCurrentDBDef() { return DBCurrent.getInstance().currentDBDef(); }
 
     // ===================================================================================
@@ -43,12 +46,12 @@ public class ProcReturnResultSetMoreDbm extends AbstractDBMeta {
         setupEpg(_epgMap, et -> ((ProcReturnResultSetMore)et).getMemberName(), (et, vl) -> ((ProcReturnResultSetMore)et).setMemberName((String)vl), "memberName");
         setupEpg(_epgMap, et -> ((ProcReturnResultSetMore)et).getMemberAccount(), (et, vl) -> ((ProcReturnResultSetMore)et).setMemberAccount((String)vl), "memberAccount");
         setupEpg(_epgMap, et -> ((ProcReturnResultSetMore)et).getMemberStatusCode(), (et, vl) -> ((ProcReturnResultSetMore)et).setMemberStatusCode((String)vl), "memberStatusCode");
-        setupEpg(_epgMap, et -> ((ProcReturnResultSetMore)et).getFormalizedDatetime(), (et, vl) -> ((ProcReturnResultSetMore)et).setFormalizedDatetime((java.sql.Timestamp)vl), "formalizedDatetime");
-        setupEpg(_epgMap, et -> ((ProcReturnResultSetMore)et).getBirthdate(), (et, vl) -> ((ProcReturnResultSetMore)et).setBirthdate((java.util.Date)vl), "birthdate");
-        setupEpg(_epgMap, et -> ((ProcReturnResultSetMore)et).getRegisterDatetime(), (et, vl) -> ((ProcReturnResultSetMore)et).setRegisterDatetime((java.sql.Timestamp)vl), "registerDatetime");
+        setupEpg(_epgMap, et -> ((ProcReturnResultSetMore)et).getFormalizedDatetime(), (et, vl) -> ((ProcReturnResultSetMore)et).setFormalizedDatetime(cttp(vl)), "formalizedDatetime");
+        setupEpg(_epgMap, et -> ((ProcReturnResultSetMore)et).getBirthdate(), (et, vl) -> ((ProcReturnResultSetMore)et).setBirthdate(ctdt(vl)), "birthdate");
+        setupEpg(_epgMap, et -> ((ProcReturnResultSetMore)et).getRegisterDatetime(), (et, vl) -> ((ProcReturnResultSetMore)et).setRegisterDatetime(cttp(vl)), "registerDatetime");
         setupEpg(_epgMap, et -> ((ProcReturnResultSetMore)et).getRegisterUser(), (et, vl) -> ((ProcReturnResultSetMore)et).setRegisterUser((String)vl), "registerUser");
         setupEpg(_epgMap, et -> ((ProcReturnResultSetMore)et).getRegisterProcess(), (et, vl) -> ((ProcReturnResultSetMore)et).setRegisterProcess((String)vl), "registerProcess");
-        setupEpg(_epgMap, et -> ((ProcReturnResultSetMore)et).getUpdateDatetime(), (et, vl) -> ((ProcReturnResultSetMore)et).setUpdateDatetime((java.sql.Timestamp)vl), "updateDatetime");
+        setupEpg(_epgMap, et -> ((ProcReturnResultSetMore)et).getUpdateDatetime(), (et, vl) -> ((ProcReturnResultSetMore)et).setUpdateDatetime(cttp(vl)), "updateDatetime");
         setupEpg(_epgMap, et -> ((ProcReturnResultSetMore)et).getUpdateUser(), (et, vl) -> ((ProcReturnResultSetMore)et).setUpdateUser((String)vl), "updateUser");
         setupEpg(_epgMap, et -> ((ProcReturnResultSetMore)et).getUpdateProcess(), (et, vl) -> ((ProcReturnResultSetMore)et).setUpdateProcess((String)vl), "updateProcess");
         setupEpg(_epgMap, et -> ((ProcReturnResultSetMore)et).getVersionNo(), (et, vl) -> ((ProcReturnResultSetMore)et).setVersionNo(ctl(vl)), "versionNo");
@@ -60,10 +63,12 @@ public class ProcReturnResultSetMoreDbm extends AbstractDBMeta {
     //                                                                          Table Info
     //                                                                          ==========
     protected final String _tableDbName = "ProcReturnResultSetMore";
+    protected final String _tableDispName = "ProcReturnResultSetMore";
     protected final String _tablePropertyName = "procReturnResultSetMore";
     protected final TableSqlName _tableSqlName = new TableSqlName("ProcReturnResultSetMore", _tableDbName);
     { _tableSqlName.xacceptFilter(DBFluteConfig.getInstance().getTableSqlNameFilter()); }
     public String getTableDbName() { return _tableDbName; }
+    public String getTableDispName() { return _tableDispName; }
     public String getTablePropertyName() { return _tablePropertyName; }
     public TableSqlName getTableSqlName() { return _tableSqlName; }
 

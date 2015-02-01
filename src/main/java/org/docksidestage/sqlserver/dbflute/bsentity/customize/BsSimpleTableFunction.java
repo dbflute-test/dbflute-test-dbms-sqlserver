@@ -85,8 +85,8 @@ public abstract class BsSimpleTableFunction extends AbstractEntity implements Cu
     }
 
     // ===================================================================================
-    //                                                                         Primary Key
-    //                                                                         ===========
+    //                                                                        Key Handling
+    //                                                                        ============
     /** {@inheritDoc} */
     public boolean hasPrimaryKeyValue() {
         return false;

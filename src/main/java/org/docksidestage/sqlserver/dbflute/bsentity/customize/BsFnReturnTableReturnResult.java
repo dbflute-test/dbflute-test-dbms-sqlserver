@@ -85,8 +85,8 @@ public abstract class BsFnReturnTableReturnResult extends AbstractEntity impleme
     }
 
     // ===================================================================================
-    //                                                                         Primary Key
-    //                                                                         ===========
+    //                                                                        Key Handling
+    //                                                                        ============
     /** {@inheritDoc} */
     public boolean hasPrimaryKeyValue() {
         return false;

@@ -85,8 +85,8 @@ public abstract class BsVendorSymmetric extends AbstractEntity implements Domain
     }
 
     // ===================================================================================
-    //                                                                         Primary Key
-    //                                                                         ===========
+    //                                                                        Key Handling
+    //                                                                        ============
     /** {@inheritDoc} */
     public boolean hasPrimaryKeyValue() {
         if (_vendorSymmetricId == null) { return false; }

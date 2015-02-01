@@ -142,8 +142,8 @@ public abstract class BsPurchase extends AbstractEntity implements DomainEntity,
     }
 
     // ===================================================================================
-    //                                                                         Primary Key
-    //                                                                         ===========
+    //                                                                        Key Handling
+    //                                                                        ============
     /** {@inheritDoc} */
     public boolean hasPrimaryKeyValue() {
         if (_purchaseId == null) { return false; }

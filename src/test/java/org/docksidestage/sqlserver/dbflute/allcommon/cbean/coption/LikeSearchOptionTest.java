@@ -1,6 +1,5 @@
 package org.docksidestage.sqlserver.dbflute.allcommon.cbean.coption;
 
-
 import org.dbflute.cbean.coption.LikeSearchOption;
 import org.docksidestage.sqlserver.unit.UnitContainerTestCase;
 
@@ -18,10 +17,8 @@ public class LikeSearchOptionTest extends UnitContainerTestCase {
     /**
      * 後ろ(Rear)のOptionを取得するメソッド。主にはescape処理である。<br />
      * 基本的には内部メソッドではあるが、単なるユーティリティとしても利用可能である。
-     * 
-     * @throws Exception
      */
-    public void test_getRearOption() throws Exception {
+    public void test_getRearOption() {
         // ## Arrange ##
         final LikeSearchOption option = new LikeSearchOption();
         option.escapeByPipeLine();
@@ -39,10 +36,8 @@ public class LikeSearchOptionTest extends UnitContainerTestCase {
     /**
      * OptionでValueが変化する場合の“本当の値”を生成するメソッド。<br />
      * 基本的には内部メソッドではあるが、単なるユーティリティとしても利用可能である。
-     * 
-     * @throws Exception
      */
-    public void test_generateRealValue() throws Exception {
+    public void test_generateRealValue() {
         final String inputValue = "abc%def_ghi";
         {
             // ## Arrange ##
