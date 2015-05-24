@@ -84,7 +84,6 @@ public class DBFluteConfig {
     protected PhysicalConnectionDigger _physicalConnectionDigger;
     protected SQLExceptionDigger _sqlExceptionDigger;
     protected String _outsideSqlPackage = null;
-    protected boolean _useSqlLogRegistry = false;
     protected MappingDateTimeZoneProvider _mappingDateTimeZoneProvider;
 
     // extension
@@ -589,22 +588,6 @@ public class DBFluteConfig {
         _outsideSqlPackage = outsideSqlPackage;
     }
 
-    // [DBFlute-0.8.2]
-    // ===================================================================================
-    //                                                                    SQL Log Registry
-    //                                                                    ================
-    public boolean isUseSqlLogRegistry() {
-        return _useSqlLogRegistry;
-    }
-
-    public void setUseSqlLogRegistry(boolean useSqlLogRegistry) {
-        assertUnlocked();
-        if (_log.isInfoEnabled()) {
-            _log.info("...Setting useSqlLogRegistry: " + useSqlLogRegistry);
-        }
-        _useSqlLogRegistry = useSqlLogRegistry;
-    }
-
     // [DBFlute-1.1.0]
     // ===================================================================================
     //                                                               Mapping Date TimeZone
@@ -843,7 +826,7 @@ public class DBFluteConfig {
 
         public Connection digUp(Connection conn) throws SQLException {
             Connection digged = unwrap(conn);
-            digged = resolveS2DBCP(digged);
+            digged = resolveLaDBCP(digged);
             digged = resolveCommonsDBCP(digged);
             return digged;
         }
@@ -855,7 +838,7 @@ public class DBFluteConfig {
             return conn;
         }
 
-        protected Connection resolveS2DBCP(Connection conn) {
+        protected Connection resolveLaDBCP(Connection conn) {
             if (conn instanceof ConnectionWrapper) {
                 return ((ConnectionWrapper)conn).getPhysicalConnection();
             }
@@ -885,7 +868,7 @@ public class DBFluteConfig {
     public static class ImplementedSQLExceptionDigger implements SQLExceptionDigger {
 
         public SQLException digUp(Throwable cause) {
-            SQLException s2found = resolveS2DBCP(cause);
+            SQLException s2found = resolveLaDBCP(cause);
             if (s2found != null) {
                 return s2found;
             }
@@ -896,7 +879,7 @@ public class DBFluteConfig {
             return null;
         }
 
-        protected SQLException resolveS2DBCP(Throwable cause) {
+        protected SQLException resolveLaDBCP(Throwable cause) {
             if (cause instanceof SQLRuntimeException) {
                 Throwable nestedCause = ((SQLRuntimeException)cause).getCause();
                 if (nestedCause instanceof SQLException) {
