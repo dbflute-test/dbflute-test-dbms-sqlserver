@@ -138,8 +138,8 @@ public abstract class BsServiceRankBhv extends AbstractBehaviorWritable<ServiceR
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
-    public ServiceRank selectEntity(CBCall<ServiceRankCB> cbLambda) {
-        return facadeSelectEntity(createCB(cbLambda));
+    public OptionalEntity<ServiceRank> selectEntity(CBCall<ServiceRankCB> cbLambda) {
+        return doSelectOptionalEntity(createCB(cbLambda), typeOfSelectedEntity());
     }
 
     /**

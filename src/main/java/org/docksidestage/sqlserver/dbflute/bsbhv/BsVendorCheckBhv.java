@@ -144,8 +144,8 @@ public abstract class BsVendorCheckBhv extends AbstractBehaviorWritable<VendorCh
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
-    public VendorCheck selectEntity(CBCall<VendorCheckCB> cbLambda) {
-        return facadeSelectEntity(createCB(cbLambda));
+    public OptionalEntity<VendorCheck> selectEntity(CBCall<VendorCheckCB> cbLambda) {
+        return doSelectOptionalEntity(createCB(cbLambda), typeOfSelectedEntity());
     }
 
     /**

@@ -137,8 +137,8 @@ public abstract class BsSummaryWithdrawalBhv extends AbstractBehaviorReadable<Su
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
-    public SummaryWithdrawal selectEntity(CBCall<SummaryWithdrawalCB> cbLambda) {
-        return facadeSelectEntity(createCB(cbLambda));
+    public OptionalEntity<SummaryWithdrawal> selectEntity(CBCall<SummaryWithdrawalCB> cbLambda) {
+        return doSelectOptionalEntity(createCB(cbLambda), typeOfSelectedEntity());
     }
 
     /**

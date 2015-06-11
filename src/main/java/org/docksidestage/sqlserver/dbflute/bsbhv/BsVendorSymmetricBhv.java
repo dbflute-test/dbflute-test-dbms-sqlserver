@@ -139,8 +139,8 @@ public abstract class BsVendorSymmetricBhv extends AbstractBehaviorWritable<Vend
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
-    public VendorSymmetric selectEntity(CBCall<VendorSymmetricCB> cbLambda) {
-        return facadeSelectEntity(createCB(cbLambda));
+    public OptionalEntity<VendorSymmetric> selectEntity(CBCall<VendorSymmetricCB> cbLambda) {
+        return doSelectOptionalEntity(createCB(cbLambda), typeOfSelectedEntity());
     }
 
     /**

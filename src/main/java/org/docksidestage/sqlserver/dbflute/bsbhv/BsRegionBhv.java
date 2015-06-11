@@ -138,8 +138,8 @@ public abstract class BsRegionBhv extends AbstractBehaviorWritable<Region, Regio
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
-    public Region selectEntity(CBCall<RegionCB> cbLambda) {
-        return facadeSelectEntity(createCB(cbLambda));
+    public OptionalEntity<Region> selectEntity(CBCall<RegionCB> cbLambda) {
+        return doSelectOptionalEntity(createCB(cbLambda), typeOfSelectedEntity());
     }
 
     /**
