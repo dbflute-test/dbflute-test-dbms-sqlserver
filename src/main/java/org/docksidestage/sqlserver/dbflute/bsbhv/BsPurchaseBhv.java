@@ -138,8 +138,8 @@ public abstract class BsPurchaseBhv extends AbstractBehaviorWritable<Purchase, P
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
-    public Purchase selectEntity(CBCall<PurchaseCB> cbLambda) {
-        return facadeSelectEntity(createCB(cbLambda));
+    public OptionalEntity<Purchase> selectEntity(CBCall<PurchaseCB> cbLambda) {
+        return doSelectOptionalEntity(createCB(cbLambda), typeOfSelectedEntity());
     }
 
     /**

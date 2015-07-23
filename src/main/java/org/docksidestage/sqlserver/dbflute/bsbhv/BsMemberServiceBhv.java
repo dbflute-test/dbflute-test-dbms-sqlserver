@@ -138,8 +138,8 @@ public abstract class BsMemberServiceBhv extends AbstractBehaviorWritable<Member
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
-    public MemberService selectEntity(CBCall<MemberServiceCB> cbLambda) {
-        return facadeSelectEntity(createCB(cbLambda));
+    public OptionalEntity<MemberService> selectEntity(CBCall<MemberServiceCB> cbLambda) {
+        return doSelectOptionalEntity(createCB(cbLambda), typeOfSelectedEntity());
     }
 
     /**

@@ -138,8 +138,8 @@ public abstract class BsMemberWithdrawalBhv extends AbstractBehaviorWritable<Mem
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
-    public MemberWithdrawal selectEntity(CBCall<MemberWithdrawalCB> cbLambda) {
-        return facadeSelectEntity(createCB(cbLambda));
+    public OptionalEntity<MemberWithdrawal> selectEntity(CBCall<MemberWithdrawalCB> cbLambda) {
+        return doSelectOptionalEntity(createCB(cbLambda), typeOfSelectedEntity());
     }
 
     /**
@@ -1334,7 +1334,7 @@ public abstract class BsMemberWithdrawalBhv extends AbstractBehaviorWritable<Mem
     //                                                                     Filter Override
     //                                                                     ===============
     @Override
-    protected void filterEntityOfInsert(Entity tgt, InsertOption<? extends ConditionBean> op) {
+    protected void filterEntityOfInsert(Entity tgt, org.dbflute.optional.OptionalThing<InsertOption<? extends ConditionBean>> op) {
         super.filterEntityOfInsert(tgt, op);
         MemberWithdrawal et = downcast(tgt);
         et.setWithdrawalDatetime(org.dbflute.hook.AccessContext.getAccessTimestampOnThread());

@@ -138,8 +138,8 @@ public abstract class BsWhiteDelimiterBhv extends AbstractBehaviorWritable<White
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
-    public WhiteDelimiter selectEntity(CBCall<WhiteDelimiterCB> cbLambda) {
-        return facadeSelectEntity(createCB(cbLambda));
+    public OptionalEntity<WhiteDelimiter> selectEntity(CBCall<WhiteDelimiterCB> cbLambda) {
+        return doSelectOptionalEntity(createCB(cbLambda), typeOfSelectedEntity());
     }
 
     /**

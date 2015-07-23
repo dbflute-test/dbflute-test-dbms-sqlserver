@@ -138,8 +138,8 @@ public abstract class BsProductCategoryBhv extends AbstractBehaviorWritable<Prod
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
-    public ProductCategory selectEntity(CBCall<ProductCategoryCB> cbLambda) {
-        return facadeSelectEntity(createCB(cbLambda));
+    public OptionalEntity<ProductCategory> selectEntity(CBCall<ProductCategoryCB> cbLambda) {
+        return doSelectOptionalEntity(createCB(cbLambda), typeOfSelectedEntity());
     }
 
     /**
