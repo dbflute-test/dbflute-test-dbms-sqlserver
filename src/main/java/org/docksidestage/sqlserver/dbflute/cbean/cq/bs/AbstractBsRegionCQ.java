@@ -46,7 +46,7 @@ public abstract class AbstractBsRegionCQ extends AbstractConditionQuery {
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * REGION_ID: {PK, NotNull, int(10)}
-     * @param regionId The value of regionId as equal. (NullAllowed: if null, no condition)
+     * @param regionId The value of regionId as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setRegionId_Equal(Integer regionId) {
         doSetRegionId_Equal(regionId);
@@ -59,7 +59,7 @@ public abstract class AbstractBsRegionCQ extends AbstractConditionQuery {
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * REGION_ID: {PK, NotNull, int(10)}
-     * @param regionId The value of regionId as greaterThan. (NullAllowed: if null, no condition)
+     * @param regionId The value of regionId as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setRegionId_GreaterThan(Integer regionId) {
         regRegionId(CK_GT, regionId);
@@ -68,7 +68,7 @@ public abstract class AbstractBsRegionCQ extends AbstractConditionQuery {
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * REGION_ID: {PK, NotNull, int(10)}
-     * @param regionId The value of regionId as lessThan. (NullAllowed: if null, no condition)
+     * @param regionId The value of regionId as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setRegionId_LessThan(Integer regionId) {
         regRegionId(CK_LT, regionId);
@@ -77,7 +77,7 @@ public abstract class AbstractBsRegionCQ extends AbstractConditionQuery {
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * REGION_ID: {PK, NotNull, int(10)}
-     * @param regionId The value of regionId as greaterEqual. (NullAllowed: if null, no condition)
+     * @param regionId The value of regionId as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setRegionId_GreaterEqual(Integer regionId) {
         regRegionId(CK_GE, regionId);
@@ -86,7 +86,7 @@ public abstract class AbstractBsRegionCQ extends AbstractConditionQuery {
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * REGION_ID: {PK, NotNull, int(10)}
-     * @param regionId The value of regionId as lessEqual. (NullAllowed: if null, no condition)
+     * @param regionId The value of regionId as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setRegionId_LessEqual(Integer regionId) {
         regRegionId(CK_LE, regionId);

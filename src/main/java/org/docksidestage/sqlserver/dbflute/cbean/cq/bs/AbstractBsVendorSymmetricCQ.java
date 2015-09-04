@@ -46,7 +46,7 @@ public abstract class AbstractBsVendorSymmetricCQ extends AbstractConditionQuery
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * VENDOR_SYMMETRIC_ID: {PK, NotNull, numeric(16)}
-     * @param vendorSymmetricId The value of vendorSymmetricId as equal. (NullAllowed: if null, no condition)
+     * @param vendorSymmetricId The value of vendorSymmetricId as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setVendorSymmetricId_Equal(Long vendorSymmetricId) {
         doSetVendorSymmetricId_Equal(vendorSymmetricId);
@@ -59,7 +59,7 @@ public abstract class AbstractBsVendorSymmetricCQ extends AbstractConditionQuery
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * VENDOR_SYMMETRIC_ID: {PK, NotNull, numeric(16)}
-     * @param vendorSymmetricId The value of vendorSymmetricId as greaterThan. (NullAllowed: if null, no condition)
+     * @param vendorSymmetricId The value of vendorSymmetricId as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setVendorSymmetricId_GreaterThan(Long vendorSymmetricId) {
         regVendorSymmetricId(CK_GT, vendorSymmetricId);
@@ -68,7 +68,7 @@ public abstract class AbstractBsVendorSymmetricCQ extends AbstractConditionQuery
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * VENDOR_SYMMETRIC_ID: {PK, NotNull, numeric(16)}
-     * @param vendorSymmetricId The value of vendorSymmetricId as lessThan. (NullAllowed: if null, no condition)
+     * @param vendorSymmetricId The value of vendorSymmetricId as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setVendorSymmetricId_LessThan(Long vendorSymmetricId) {
         regVendorSymmetricId(CK_LT, vendorSymmetricId);
@@ -77,7 +77,7 @@ public abstract class AbstractBsVendorSymmetricCQ extends AbstractConditionQuery
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * VENDOR_SYMMETRIC_ID: {PK, NotNull, numeric(16)}
-     * @param vendorSymmetricId The value of vendorSymmetricId as greaterEqual. (NullAllowed: if null, no condition)
+     * @param vendorSymmetricId The value of vendorSymmetricId as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setVendorSymmetricId_GreaterEqual(Long vendorSymmetricId) {
         regVendorSymmetricId(CK_GE, vendorSymmetricId);
@@ -86,7 +86,7 @@ public abstract class AbstractBsVendorSymmetricCQ extends AbstractConditionQuery
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * VENDOR_SYMMETRIC_ID: {PK, NotNull, numeric(16)}
-     * @param vendorSymmetricId The value of vendorSymmetricId as lessEqual. (NullAllowed: if null, no condition)
+     * @param vendorSymmetricId The value of vendorSymmetricId as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setVendorSymmetricId_LessEqual(Long vendorSymmetricId) {
         regVendorSymmetricId(CK_LE, vendorSymmetricId);
