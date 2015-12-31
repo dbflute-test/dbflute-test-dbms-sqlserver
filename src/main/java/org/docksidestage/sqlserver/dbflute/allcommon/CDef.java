@@ -72,7 +72,7 @@ public interface CDef extends Classification {
 
         /**
          * Get the list of all classification elements. (returns new copied list)
-         * @return The list of all classification elements. (NotNull)
+         * @return The snapshot list of all classification elements. (NotNull)
          */
         public static List<Flg> listAll() {
             return new ArrayList<Flg>(Arrays.asList(values()));
@@ -81,7 +81,7 @@ public interface CDef extends Classification {
         /**
          * Get the list of classification elements in the specified group. (returns new copied list) <br>
          * @param groupName The string of group name, which is case-sensitive. (NullAllowed: if null, returns empty list)
-         * @return The list of classification elements in the group. (NotNull)
+         * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if the group is not found)
          */
         public static List<Flg> groupOf(String groupName) {
             return new ArrayList<Flg>(4);
@@ -145,7 +145,7 @@ public interface CDef extends Classification {
 
         /**
          * Get the list of all classification elements. (returns new copied list)
-         * @return The list of all classification elements. (NotNull)
+         * @return The snapshot list of all classification elements. (NotNull)
          */
         public static List<MemberStatus> listAll() {
             return new ArrayList<MemberStatus>(Arrays.asList(values()));
@@ -154,7 +154,7 @@ public interface CDef extends Classification {
         /**
          * Get the list of classification elements in the specified group. (returns new copied list) <br>
          * @param groupName The string of group name, which is case-sensitive. (NullAllowed: if null, returns empty list)
-         * @return The list of classification elements in the group. (NotNull)
+         * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if the group is not found)
          */
         public static List<MemberStatus> groupOf(String groupName) {
             return new ArrayList<MemberStatus>(4);
@@ -213,6 +213,13 @@ public interface CDef extends Classification {
             if ("Flg".equals(name())) { return ClassificationUndefinedHandlingType.LOGGING; }
             if ("MemberStatus".equals(name())) { return ClassificationUndefinedHandlingType.LOGGING; }
             return ClassificationUndefinedHandlingType.LOGGING; // as default
+        }
+
+        public static CDef.DefMeta meta(String classificationName) { // instead of valueOf()
+            if (classificationName == null) { throw new IllegalArgumentException("The argument 'classificationName' should not be null."); }
+            if ("Flg".equalsIgnoreCase(classificationName)) { return CDef.DefMeta.Flg; }
+            if ("MemberStatus".equalsIgnoreCase(classificationName)) { return CDef.DefMeta.MemberStatus; }
+            throw new IllegalStateException("Unknown classification: " + classificationName);
         }
     }
 }

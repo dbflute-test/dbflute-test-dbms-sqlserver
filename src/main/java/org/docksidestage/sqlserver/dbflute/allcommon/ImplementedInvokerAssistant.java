@@ -1,5 +1,6 @@
 package org.docksidestage.sqlserver.dbflute.allcommon;
 
+import javax.annotation.Resource;
 import javax.sql.DataSource;
 
 import org.dbflute.bhv.core.InvokerAssistant;
@@ -503,6 +504,7 @@ public class ImplementedInvokerAssistant implements InvokerAssistant {
     // ===================================================================================
     //                                                                            Accessor
     //                                                                            ========
+    @Resource
     public void setDataSource(DataSource dataSource) {
         _dataSource = dataSource;
     }
@@ -511,6 +513,7 @@ public class ImplementedInvokerAssistant implements InvokerAssistant {
     // when the initializer is extended by DBFlute property
     // so this variable is actually unused in this class
     // (needs to be injected only when the DI container is set by its DI setting file)
+    @Resource
     public void setIntroduction(DBFluteInitializer introduction) {
         _introduction = introduction;
     }
