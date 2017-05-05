@@ -407,7 +407,7 @@ public class VendorFunctionTest extends UnitContainerTestCase {
                 subCB.specify().columnPurchaseDatetime();
             }
         }, op -> op.addYear(-80).addMonth(3).addDay(7).addHour(5).addMinute(20).addSecond(50))
-                .lessThan(toDate("1970/06/25"));
+                .lessThan(toUtilDate("1970/06/25"));
 
         // ## Act ##
         ListResultBean<Member> memberList = memberBhv.selectList(cb); // expect no exception
