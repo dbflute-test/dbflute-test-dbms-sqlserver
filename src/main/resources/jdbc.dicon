@@ -15,7 +15,9 @@
 			@org.docksidestage.sqlserver.JdbcDiconResolver@resolveUrl("jdbc:sqlserver://localhost:1433;DatabaseName=maihamadb;")
 		</property>
 		<property name="user">"maihamadb"</property>
-		<property name="password">"maihamadb"</property>
+		<property name="password">
+			@org.docksidestage.sqlserver.JdbcDiconResolver@resolvePassword("maihamadb")
+		</property>
 		<destroyMethod>
 			@org.seasar.framework.util.DriverManagerUtil@deregisterAllDrivers()
 		</destroyMethod>

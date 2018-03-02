@@ -13,7 +13,7 @@ map:{
 	; url			= df:dfprop/local-url.txt|jdbc:sqlserver://localhost:1433;databaseName=maihamadb;
 	; schema		= dbo
 	; user			= maihamadb
-	; password		= maihamadb
+	; password		= df:dfprop/local-password.txt|maihamadb
 
     # /- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     # o propertiesMap: (NotRequired - Default 'map:{}')
