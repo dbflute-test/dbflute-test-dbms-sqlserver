@@ -38,7 +38,7 @@ map:{
     # 
     ; database = sqlserver
     # you can set for SQLServer LocalDB
-    #; subTypeOfDatabase = localdb
+    #; subTypeOnDatabase = localdb
     # - - - - - - - - - -/
 
     # /- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
