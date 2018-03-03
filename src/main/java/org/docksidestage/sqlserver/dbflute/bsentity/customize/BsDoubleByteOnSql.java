@@ -13,31 +13,31 @@ import org.docksidestage.sqlserver.dbflute.exentity.customize.*;
  * <pre>
  * [primary-key]
  *     
- * 
+ *
  * [column]
  *     MEMBER_ID, MEMBER_NAME_WITH_SPACE, MEMBER_STATUS_NAME
- * 
+ *
  * [sequence]
  *     
- * 
+ *
  * [identity]
  *     
- * 
+ *
  * [version-no]
  *     
- * 
+ *
  * [foreign table]
  *     
- * 
+ *
  * [referrer table]
  *     
- * 
+ *
  * [foreign property]
  *     
- * 
+ *
  * [referrer property]
  *     
- * 
+ *
  * [get/set template]
  * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
  * Integer memberId = entity.getMemberId();
@@ -64,7 +64,7 @@ public abstract class BsDoubleByteOnSql extends AbstractEntity implements Custom
     /** MEMBER_ID: {int(10)} */
     protected Integer _memberId;
 
-    /** MEMBER_NAME_WITH_SPACE: {nvarchar(202)} */
+    /** MEMBER_NAME_WITH_SPACE: {nvarchar(201)} */
     protected String _memberNameWithSpace;
 
     /** MEMBER_STATUS_NAME: {nvarchar(50)} */
@@ -97,7 +97,7 @@ public abstract class BsDoubleByteOnSql extends AbstractEntity implements Custom
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-    protected <ELEMENT> List<ELEMENT> newReferrerList() {
+    protected <ELEMENT> List<ELEMENT> newReferrerList() { // overriding to import
         return new ArrayList<ELEMENT>();
     }
 
@@ -177,7 +177,7 @@ public abstract class BsDoubleByteOnSql extends AbstractEntity implements Custom
     }
 
     /**
-     * [get] MEMBER_NAME_WITH_SPACE: {nvarchar(202)} <br>
+     * [get] MEMBER_NAME_WITH_SPACE: {nvarchar(201)} <br>
      * @return The value of the column 'MEMBER_NAME_WITH_SPACE'. (NullAllowed even if selected: for no constraint)
      */
     public String getMemberNameWithSpace() {
@@ -186,7 +186,7 @@ public abstract class BsDoubleByteOnSql extends AbstractEntity implements Custom
     }
 
     /**
-     * [set] MEMBER_NAME_WITH_SPACE: {nvarchar(202)} <br>
+     * [set] MEMBER_NAME_WITH_SPACE: {nvarchar(201)} <br>
      * @param memberNameWithSpace The value of the column 'MEMBER_NAME_WITH_SPACE'. (NullAllowed: null update allowed for no constraint)
      */
     public void setMemberNameWithSpace(String memberNameWithSpace) {

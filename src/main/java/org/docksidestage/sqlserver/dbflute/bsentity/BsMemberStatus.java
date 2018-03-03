@@ -15,31 +15,31 @@ import org.docksidestage.sqlserver.dbflute.exentity.*;
  * <pre>
  * [primary-key]
  *     MEMBER_STATUS_CODE
- * 
+ *
  * [column]
  *     MEMBER_STATUS_CODE, MEMBER_STATUS_NAME, DESCRIPTION, DISPLAY_ORDER
- * 
+ *
  * [sequence]
  *     
- * 
+ *
  * [identity]
  *     
- * 
+ *
  * [version-no]
  *     
- * 
+ *
  * [foreign table]
  *     
- * 
+ *
  * [referrer table]
  *     MEMBER, MEMBER_LOGIN
- * 
+ *
  * [foreign property]
  *     
- * 
+ *
  * [referrer property]
  *     memberList, memberLoginList
- * 
+ *
  * [get/set template]
  * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
  * String memberStatusCode = entity.getMemberStatusCode();
@@ -264,7 +264,7 @@ public abstract class BsMemberStatus extends AbstractEntity implements DomainEnt
         _memberLoginList = memberLoginList;
     }
 
-    protected <ELEMENT> List<ELEMENT> newReferrerList() {
+    protected <ELEMENT> List<ELEMENT> newReferrerList() { // overriding to import
         return new ArrayList<ELEMENT>();
     }
 

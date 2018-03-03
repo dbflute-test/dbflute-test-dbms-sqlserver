@@ -57,6 +57,19 @@ public abstract class AbstractBsWhiteDelimiterCQ extends AbstractConditionQuery 
     }
 
     /**
+     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * DELIMITER_ID: {PK, ID, NotNull, bigint identity(19)}
+     * @param delimiterId The value of delimiterId as notEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setDelimiterId_NotEqual(Long delimiterId) {
+        doSetDelimiterId_NotEqual(delimiterId);
+    }
+
+    protected void doSetDelimiterId_NotEqual(Long delimiterId) {
+        regDelimiterId(CK_NES, delimiterId);
+    }
+
+    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * DELIMITER_ID: {PK, ID, NotNull, bigint identity(19)}
      * @param delimiterId The value of delimiterId as greaterThan. (basically NotNull: error as default, or no condition as option)
@@ -97,8 +110,8 @@ public abstract class AbstractBsWhiteDelimiterCQ extends AbstractConditionQuery 
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * DELIMITER_ID: {PK, ID, NotNull, bigint identity(19)}
-     * @param minNumber The min number of delimiterId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of delimiterId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of delimiterId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of delimiterId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setDelimiterId_RangeOf(Long minNumber, Long maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -110,8 +123,8 @@ public abstract class AbstractBsWhiteDelimiterCQ extends AbstractConditionQuery 
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * DELIMITER_ID: {PK, ID, NotNull, bigint identity(19)}
-     * @param minNumber The min number of delimiterId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of delimiterId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of delimiterId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of delimiterId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setDelimiterId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
@@ -121,7 +134,7 @@ public abstract class AbstractBsWhiteDelimiterCQ extends AbstractConditionQuery 
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * DELIMITER_ID: {PK, ID, NotNull, bigint identity(19)}
-     * @param delimiterIdList The collection of delimiterId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param delimiterIdList The collection of delimiterId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setDelimiterId_InScope(Collection<Long> delimiterIdList) {
         doSetDelimiterId_InScope(delimiterIdList);
@@ -134,7 +147,7 @@ public abstract class AbstractBsWhiteDelimiterCQ extends AbstractConditionQuery 
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * DELIMITER_ID: {PK, ID, NotNull, bigint identity(19)}
-     * @param delimiterIdList The collection of delimiterId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param delimiterIdList The collection of delimiterId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setDelimiterId_NotInScope(Collection<Long> delimiterIdList) {
         doSetDelimiterId_NotInScope(delimiterIdList);
@@ -170,6 +183,19 @@ public abstract class AbstractBsWhiteDelimiterCQ extends AbstractConditionQuery 
 
     protected void doSetNumberNullable_Equal(Integer numberNullable) {
         regNumberNullable(CK_EQ, numberNullable);
+    }
+
+    /**
+     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * NUMBER_NULLABLE: {int(10)}
+     * @param numberNullable The value of numberNullable as notEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setNumberNullable_NotEqual(Integer numberNullable) {
+        doSetNumberNullable_NotEqual(numberNullable);
+    }
+
+    protected void doSetNumberNullable_NotEqual(Integer numberNullable) {
+        regNumberNullable(CK_NES, numberNullable);
     }
 
     /**
@@ -213,8 +239,8 @@ public abstract class AbstractBsWhiteDelimiterCQ extends AbstractConditionQuery 
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * NUMBER_NULLABLE: {int(10)}
-     * @param minNumber The min number of numberNullable. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of numberNullable. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of numberNullable. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of numberNullable. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setNumberNullable_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -226,8 +252,8 @@ public abstract class AbstractBsWhiteDelimiterCQ extends AbstractConditionQuery 
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * NUMBER_NULLABLE: {int(10)}
-     * @param minNumber The min number of numberNullable. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of numberNullable. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of numberNullable. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of numberNullable. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setNumberNullable_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
@@ -237,7 +263,7 @@ public abstract class AbstractBsWhiteDelimiterCQ extends AbstractConditionQuery 
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * NUMBER_NULLABLE: {int(10)}
-     * @param numberNullableList The collection of numberNullable as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param numberNullableList The collection of numberNullable as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setNumberNullable_InScope(Collection<Integer> numberNullableList) {
         doSetNumberNullable_InScope(numberNullableList);
@@ -250,7 +276,7 @@ public abstract class AbstractBsWhiteDelimiterCQ extends AbstractConditionQuery 
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * NUMBER_NULLABLE: {int(10)}
-     * @param numberNullableList The collection of numberNullable as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param numberNullableList The collection of numberNullable as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setNumberNullable_NotInScope(Collection<Integer> numberNullableList) {
         doSetNumberNullable_NotInScope(numberNullableList);
@@ -278,7 +304,7 @@ public abstract class AbstractBsWhiteDelimiterCQ extends AbstractConditionQuery 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * STRING_CONVERTED: {NotNull, varchar(200)}
-     * @param stringConverted The value of stringConverted as equal. (NullAllowed: if null (or empty), no condition)
+     * @param stringConverted The value of stringConverted as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setStringConverted_Equal(String stringConverted) {
         doSetStringConverted_Equal(fRES(stringConverted));
@@ -291,7 +317,7 @@ public abstract class AbstractBsWhiteDelimiterCQ extends AbstractConditionQuery 
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * STRING_CONVERTED: {NotNull, varchar(200)}
-     * @param stringConverted The value of stringConverted as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param stringConverted The value of stringConverted as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setStringConverted_NotEqual(String stringConverted) {
         doSetStringConverted_NotEqual(fRES(stringConverted));
@@ -302,9 +328,45 @@ public abstract class AbstractBsWhiteDelimiterCQ extends AbstractConditionQuery 
     }
 
     /**
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
+     * STRING_CONVERTED: {NotNull, varchar(200)}
+     * @param stringConverted The value of stringConverted as greaterThan. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setStringConverted_GreaterThan(String stringConverted) {
+        regStringConverted(CK_GT, fRES(stringConverted));
+    }
+
+    /**
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
+     * STRING_CONVERTED: {NotNull, varchar(200)}
+     * @param stringConverted The value of stringConverted as lessThan. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setStringConverted_LessThan(String stringConverted) {
+        regStringConverted(CK_LT, fRES(stringConverted));
+    }
+
+    /**
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
+     * STRING_CONVERTED: {NotNull, varchar(200)}
+     * @param stringConverted The value of stringConverted as greaterEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setStringConverted_GreaterEqual(String stringConverted) {
+        regStringConverted(CK_GE, fRES(stringConverted));
+    }
+
+    /**
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
+     * STRING_CONVERTED: {NotNull, varchar(200)}
+     * @param stringConverted The value of stringConverted as lessEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setStringConverted_LessEqual(String stringConverted) {
+        regStringConverted(CK_LE, fRES(stringConverted));
+    }
+
+    /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * STRING_CONVERTED: {NotNull, varchar(200)}
-     * @param stringConvertedList The collection of stringConverted as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param stringConvertedList The collection of stringConverted as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setStringConverted_InScope(Collection<String> stringConvertedList) {
         doSetStringConverted_InScope(stringConvertedList);
@@ -317,7 +379,7 @@ public abstract class AbstractBsWhiteDelimiterCQ extends AbstractConditionQuery 
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * STRING_CONVERTED: {NotNull, varchar(200)}
-     * @param stringConvertedList The collection of stringConverted as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param stringConvertedList The collection of stringConverted as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setStringConverted_NotInScope(Collection<String> stringConvertedList) {
         doSetStringConverted_NotInScope(stringConvertedList);
@@ -331,7 +393,7 @@ public abstract class AbstractBsWhiteDelimiterCQ extends AbstractConditionQuery 
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * STRING_CONVERTED: {NotNull, varchar(200)} <br>
      * <pre>e.g. setStringConverted_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param stringConverted The value of stringConverted as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param stringConverted The value of stringConverted as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setStringConverted_LikeSearch(String stringConverted, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -342,7 +404,7 @@ public abstract class AbstractBsWhiteDelimiterCQ extends AbstractConditionQuery 
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * STRING_CONVERTED: {NotNull, varchar(200)} <br>
      * <pre>e.g. setStringConverted_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param stringConverted The value of stringConverted as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param stringConverted The value of stringConverted as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setStringConverted_LikeSearch(String stringConverted, LikeSearchOption likeSearchOption) {
@@ -353,7 +415,7 @@ public abstract class AbstractBsWhiteDelimiterCQ extends AbstractConditionQuery 
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * STRING_CONVERTED: {NotNull, varchar(200)}
-     * @param stringConverted The value of stringConverted as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param stringConverted The value of stringConverted as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setStringConverted_NotLikeSearch(String stringConverted, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -364,7 +426,7 @@ public abstract class AbstractBsWhiteDelimiterCQ extends AbstractConditionQuery 
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * STRING_CONVERTED: {NotNull, varchar(200)}
-     * @param stringConverted The value of stringConverted as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param stringConverted The value of stringConverted as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setStringConverted_NotLikeSearch(String stringConverted, LikeSearchOption likeSearchOption) {
@@ -374,7 +436,7 @@ public abstract class AbstractBsWhiteDelimiterCQ extends AbstractConditionQuery 
     /**
      * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * STRING_CONVERTED: {NotNull, varchar(200)}
-     * @param stringConverted The value of stringConverted as prefixSearch. (NullAllowed: if null (or empty), no condition)
+     * @param stringConverted The value of stringConverted as prefixSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setStringConverted_PrefixSearch(String stringConverted) {
         setStringConverted_LikeSearch(stringConverted, xcLSOPPre());
@@ -386,7 +448,7 @@ public abstract class AbstractBsWhiteDelimiterCQ extends AbstractConditionQuery 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * STRING_NON_CONVERTED: {varchar(200)}
-     * @param stringNonConverted The value of stringNonConverted as equal. (NullAllowed: if null (or empty), no condition)
+     * @param stringNonConverted The value of stringNonConverted as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setStringNonConverted_Equal(String stringNonConverted) {
         doSetStringNonConverted_Equal(fRES(stringNonConverted));
@@ -399,7 +461,7 @@ public abstract class AbstractBsWhiteDelimiterCQ extends AbstractConditionQuery 
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * STRING_NON_CONVERTED: {varchar(200)}
-     * @param stringNonConverted The value of stringNonConverted as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param stringNonConverted The value of stringNonConverted as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setStringNonConverted_NotEqual(String stringNonConverted) {
         doSetStringNonConverted_NotEqual(fRES(stringNonConverted));
@@ -410,9 +472,45 @@ public abstract class AbstractBsWhiteDelimiterCQ extends AbstractConditionQuery 
     }
 
     /**
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
+     * STRING_NON_CONVERTED: {varchar(200)}
+     * @param stringNonConverted The value of stringNonConverted as greaterThan. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setStringNonConverted_GreaterThan(String stringNonConverted) {
+        regStringNonConverted(CK_GT, fRES(stringNonConverted));
+    }
+
+    /**
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
+     * STRING_NON_CONVERTED: {varchar(200)}
+     * @param stringNonConverted The value of stringNonConverted as lessThan. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setStringNonConverted_LessThan(String stringNonConverted) {
+        regStringNonConverted(CK_LT, fRES(stringNonConverted));
+    }
+
+    /**
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
+     * STRING_NON_CONVERTED: {varchar(200)}
+     * @param stringNonConverted The value of stringNonConverted as greaterEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setStringNonConverted_GreaterEqual(String stringNonConverted) {
+        regStringNonConverted(CK_GE, fRES(stringNonConverted));
+    }
+
+    /**
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
+     * STRING_NON_CONVERTED: {varchar(200)}
+     * @param stringNonConverted The value of stringNonConverted as lessEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setStringNonConverted_LessEqual(String stringNonConverted) {
+        regStringNonConverted(CK_LE, fRES(stringNonConverted));
+    }
+
+    /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * STRING_NON_CONVERTED: {varchar(200)}
-     * @param stringNonConvertedList The collection of stringNonConverted as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param stringNonConvertedList The collection of stringNonConverted as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setStringNonConverted_InScope(Collection<String> stringNonConvertedList) {
         doSetStringNonConverted_InScope(stringNonConvertedList);
@@ -425,7 +523,7 @@ public abstract class AbstractBsWhiteDelimiterCQ extends AbstractConditionQuery 
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * STRING_NON_CONVERTED: {varchar(200)}
-     * @param stringNonConvertedList The collection of stringNonConverted as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param stringNonConvertedList The collection of stringNonConverted as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setStringNonConverted_NotInScope(Collection<String> stringNonConvertedList) {
         doSetStringNonConverted_NotInScope(stringNonConvertedList);
@@ -439,7 +537,7 @@ public abstract class AbstractBsWhiteDelimiterCQ extends AbstractConditionQuery 
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * STRING_NON_CONVERTED: {varchar(200)} <br>
      * <pre>e.g. setStringNonConverted_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param stringNonConverted The value of stringNonConverted as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param stringNonConverted The value of stringNonConverted as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setStringNonConverted_LikeSearch(String stringNonConverted, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -450,7 +548,7 @@ public abstract class AbstractBsWhiteDelimiterCQ extends AbstractConditionQuery 
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * STRING_NON_CONVERTED: {varchar(200)} <br>
      * <pre>e.g. setStringNonConverted_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param stringNonConverted The value of stringNonConverted as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param stringNonConverted The value of stringNonConverted as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setStringNonConverted_LikeSearch(String stringNonConverted, LikeSearchOption likeSearchOption) {
@@ -461,7 +559,7 @@ public abstract class AbstractBsWhiteDelimiterCQ extends AbstractConditionQuery 
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * STRING_NON_CONVERTED: {varchar(200)}
-     * @param stringNonConverted The value of stringNonConverted as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param stringNonConverted The value of stringNonConverted as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setStringNonConverted_NotLikeSearch(String stringNonConverted, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -472,7 +570,7 @@ public abstract class AbstractBsWhiteDelimiterCQ extends AbstractConditionQuery 
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * STRING_NON_CONVERTED: {varchar(200)}
-     * @param stringNonConverted The value of stringNonConverted as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param stringNonConverted The value of stringNonConverted as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setStringNonConverted_NotLikeSearch(String stringNonConverted, LikeSearchOption likeSearchOption) {
@@ -482,7 +580,7 @@ public abstract class AbstractBsWhiteDelimiterCQ extends AbstractConditionQuery 
     /**
      * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * STRING_NON_CONVERTED: {varchar(200)}
-     * @param stringNonConverted The value of stringNonConverted as prefixSearch. (NullAllowed: if null (or empty), no condition)
+     * @param stringNonConverted The value of stringNonConverted as prefixSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setStringNonConverted_PrefixSearch(String stringNonConverted) {
         setStringNonConverted_LikeSearch(stringNonConverted, xcLSOPPre());
@@ -559,8 +657,8 @@ public abstract class AbstractBsWhiteDelimiterCQ extends AbstractConditionQuery 
      * And NullIgnored, OnlyOnceRegistered. <br>
      * DATE_DEFAULT: {NotNull, datetime(23, 3)}
      * <pre>e.g. setDateDefault_FromTo(fromDate, toDate, op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">compareAsDate()</span>);</pre>
-     * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of dateDefault. (NullAllowed: if null, no from-condition)
-     * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of dateDefault. (NullAllowed: if null, no to-condition)
+     * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of dateDefault. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of dateDefault. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of from-to. (NotNull)
      */
     public void setDateDefault_FromTo(Date fromDatetime, Date toDatetime, ConditionOptionCall<FromToOption> opLambda) {
@@ -572,8 +670,8 @@ public abstract class AbstractBsWhiteDelimiterCQ extends AbstractConditionQuery 
      * And NullIgnored, OnlyOnceRegistered. <br>
      * DATE_DEFAULT: {NotNull, datetime(23, 3)}
      * <pre>e.g. setDateDefault_FromTo(fromDate, toDate, new <span style="color: #CC4747">FromToOption</span>().compareAsDate());</pre>
-     * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of dateDefault. (NullAllowed: if null, no from-condition)
-     * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of dateDefault. (NullAllowed: if null, no to-condition)
+     * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of dateDefault. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of dateDefault. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param fromToOption The option of from-to. (NotNull)
      */
     public void setDateDefault_FromTo(Date fromDatetime, Date toDatetime, FromToOption fromToOption) {
@@ -588,37 +686,11 @@ public abstract class AbstractBsWhiteDelimiterCQ extends AbstractConditionQuery 
      * e.g. from:{2007/04/10 08:24:53} to:{2007/04/16 14:36:29}
      *  column &gt;= '2007/04/10 00:00:00' and column <span style="color: #CC4747">&lt; '2007/04/17 00:00:00'</span>
      * </pre>
-     * @param fromDate The from-date(yyyy/MM/dd) of dateDefault. (NullAllowed: if null, no from-condition)
-     * @param toDate The to-date(yyyy/MM/dd) of dateDefault. (NullAllowed: if null, no to-condition)
+     * @param fromDate The from-date(yyyy/MM/dd) of dateDefault. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param toDate The to-date(yyyy/MM/dd) of dateDefault. (basically NotNull: if op.allowOneSide(), null allowed)
      */
     public void setDateDefault_DateFromTo(Date fromDate, Date toDate) {
         setDateDefault_FromTo(fromDate, toDate, xcDFTOP());
-    }
-
-    /**
-     * InScope {in ('1965-03-03', '1966-09-15')}. And NullOrEmptyIgnored, NullElementIgnored, SeveralRegistered. <br>
-     * DATE_DEFAULT: {NotNull, datetime(23, 3)}
-     * @param dateDefaultList The collection of dateDefault as inScope. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setDateDefault_InScope(Collection<java.sql.Timestamp> dateDefaultList) {
-        doSetDateDefault_InScope(dateDefaultList);
-    }
-
-    protected void doSetDateDefault_InScope(Collection<java.sql.Timestamp> dateDefaultList) {
-        regINS(CK_INS, cTL(dateDefaultList), xgetCValueDateDefault(), "DATE_DEFAULT");
-    }
-
-    /**
-     * NotInScope {not in ('1965-03-03', '1966-09-15')}. And NullOrEmptyIgnored, NullElementIgnored, SeveralRegistered. <br>
-     * DATE_DEFAULT: {NotNull, datetime(23, 3)}
-     * @param dateDefaultList The collection of dateDefault as notInScope. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setDateDefault_NotInScope(Collection<java.sql.Timestamp> dateDefaultList) {
-        doSetDateDefault_NotInScope(dateDefaultList);
-    }
-
-    protected void doSetDateDefault_NotInScope(Collection<java.sql.Timestamp> dateDefaultList) {
-        regINS(CK_NINS, cTL(dateDefaultList), xgetCValueDateDefault(), "DATE_DEFAULT");
     }
 
     protected void regDateDefault(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueDateDefault(), "DATE_DEFAULT"); }
@@ -635,7 +707,7 @@ public abstract class AbstractBsWhiteDelimiterCQ extends AbstractConditionQuery 
      *     <span style="color: #553000">purchaseCB</span>.specify().<span style="color: #CC4747">columnPurchasePrice</span>(); <span style="color: #3F7E5E">// *Point!</span>
      *     <span style="color: #553000">purchaseCB</span>.query().setPaymentCompleteFlg_Equal_True();
      * });
-     * </pre> 
+     * </pre>
      * @return The object to set up a function. (NotNull)
      */
     public HpSLCFunction<WhiteDelimiterCB> scalar_Equal() {
@@ -650,7 +722,7 @@ public abstract class AbstractBsWhiteDelimiterCQ extends AbstractConditionQuery 
      *     <span style="color: #553000">purchaseCB</span>.specify().<span style="color: #CC4747">columnPurchasePrice</span>(); <span style="color: #3F7E5E">// *Point!</span>
      *     <span style="color: #553000">purchaseCB</span>.query().setPaymentCompleteFlg_Equal_True();
      * });
-     * </pre> 
+     * </pre>
      * @return The object to set up a function. (NotNull)
      */
     public HpSLCFunction<WhiteDelimiterCB> scalar_NotEqual() {
@@ -665,7 +737,6 @@ public abstract class AbstractBsWhiteDelimiterCQ extends AbstractConditionQuery 
      *     <span style="color: #553000">purchaseCB</span>.specify().<span style="color: #CC4747">columnPurchasePrice</span>(); <span style="color: #3F7E5E">// *Point!</span>
      *     <span style="color: #553000">purchaseCB</span>.query().setPaymentCompleteFlg_Equal_True();
      * });
-     * </pre> 
      * </pre>
      * @return The object to set up a function. (NotNull)
      */
@@ -681,7 +752,6 @@ public abstract class AbstractBsWhiteDelimiterCQ extends AbstractConditionQuery 
      *     <span style="color: #553000">purchaseCB</span>.specify().<span style="color: #CC4747">columnPurchasePrice</span>(); <span style="color: #3F7E5E">// *Point!</span>
      *     <span style="color: #553000">purchaseCB</span>.query().setPaymentCompleteFlg_Equal_True();
      * });
-     * </pre> 
      * </pre>
      * @return The object to set up a function. (NotNull)
      */
@@ -697,7 +767,7 @@ public abstract class AbstractBsWhiteDelimiterCQ extends AbstractConditionQuery 
      *     <span style="color: #553000">purchaseCB</span>.specify().<span style="color: #CC4747">columnPurchasePrice</span>(); <span style="color: #3F7E5E">// *Point!</span>
      *     <span style="color: #553000">purchaseCB</span>.query().setPaymentCompleteFlg_Equal_True();
      * });
-     * </pre> 
+     * </pre>
      * @return The object to set up a function. (NotNull)
      */
     public HpSLCFunction<WhiteDelimiterCB> scalar_GreaterEqual() {
@@ -800,7 +870,6 @@ public abstract class AbstractBsWhiteDelimiterCQ extends AbstractConditionQuery 
      * <span style="color: #3F7E5E">//   end asc, ...</span>
      *
      * cb.query().addOrderBy_MemberStatusCode_Asc().<span style="color: #CC4747">withManualOrder</span>(<span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-     *     <span style="color: #553000">op</span>.<span style="color: #CC4747">when_GreaterEqual</span>(priorityDate); <span style="color: #3F7E5E">// e.g. 2000/01/01</span>
      *     <span style="color: #553000">op</span>.<span style="color: #CC4747">when_Equal</span>(CDef.MemberStatus.Withdrawal);
      *     <span style="color: #553000">op</span>.<span style="color: #CC4747">when_Equal</span>(CDef.MemberStatus.Formalized);
      *     <span style="color: #553000">op</span>.<span style="color: #CC4747">when_Equal</span>(CDef.MemberStatus.Provisional);

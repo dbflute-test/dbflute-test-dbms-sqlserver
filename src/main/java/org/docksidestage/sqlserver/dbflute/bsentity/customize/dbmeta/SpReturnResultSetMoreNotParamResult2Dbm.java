@@ -66,10 +66,10 @@ public class SpReturnResultSetMoreNotParamResult2Dbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnMemberStatusCode = cci("MEMBER_STATUS_CODE", "MEMBER_STATUS_CODE", null, null, String.class, "memberStatusCode", null, false, false, false, "char", 3, 0, null, false, null, null, null, null, CDef.DefMeta.MemberStatus, false);
-    protected final ColumnInfo _columnMemberStatusName = cci("MEMBER_STATUS_NAME", "MEMBER_STATUS_NAME", null, null, String.class, "memberStatusName", null, false, false, false, "nvarchar", 50, 0, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnDescription = cci("DESCRIPTION", "DESCRIPTION", null, null, String.class, "description", null, false, false, false, "nvarchar", 200, 0, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnDisplayOrder = cci("DISPLAY_ORDER", "DISPLAY_ORDER", null, null, Integer.class, "displayOrder", null, false, false, false, "int", 10, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnMemberStatusCode = cci("MEMBER_STATUS_CODE", "MEMBER_STATUS_CODE", null, null, String.class, "memberStatusCode", null, false, false, false, "char", 3, 0, null, null, false, null, null, null, null, CDef.DefMeta.MemberStatus, false);
+    protected final ColumnInfo _columnMemberStatusName = cci("MEMBER_STATUS_NAME", "MEMBER_STATUS_NAME", null, null, String.class, "memberStatusName", null, false, false, false, "nvarchar", 50, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnDescription = cci("DESCRIPTION", "DESCRIPTION", null, null, String.class, "description", null, false, false, false, "nvarchar", 200, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnDisplayOrder = cci("DISPLAY_ORDER", "DISPLAY_ORDER", null, null, Integer.class, "displayOrder", null, false, false, false, "int", 10, 0, null, null, false, null, null, null, null, null, false);
 
     /**
      * MEMBER_STATUS_CODE: {char(3), classification=MemberStatus}

@@ -57,6 +57,19 @@ public abstract class AbstractBsVendorSymmetricCQ extends AbstractConditionQuery
     }
 
     /**
+     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * VENDOR_SYMMETRIC_ID: {PK, NotNull, numeric(16)}
+     * @param vendorSymmetricId The value of vendorSymmetricId as notEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setVendorSymmetricId_NotEqual(Long vendorSymmetricId) {
+        doSetVendorSymmetricId_NotEqual(vendorSymmetricId);
+    }
+
+    protected void doSetVendorSymmetricId_NotEqual(Long vendorSymmetricId) {
+        regVendorSymmetricId(CK_NES, vendorSymmetricId);
+    }
+
+    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * VENDOR_SYMMETRIC_ID: {PK, NotNull, numeric(16)}
      * @param vendorSymmetricId The value of vendorSymmetricId as greaterThan. (basically NotNull: error as default, or no condition as option)
@@ -97,8 +110,8 @@ public abstract class AbstractBsVendorSymmetricCQ extends AbstractConditionQuery
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * VENDOR_SYMMETRIC_ID: {PK, NotNull, numeric(16)}
-     * @param minNumber The min number of vendorSymmetricId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of vendorSymmetricId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of vendorSymmetricId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of vendorSymmetricId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setVendorSymmetricId_RangeOf(Long minNumber, Long maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -110,8 +123,8 @@ public abstract class AbstractBsVendorSymmetricCQ extends AbstractConditionQuery
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * VENDOR_SYMMETRIC_ID: {PK, NotNull, numeric(16)}
-     * @param minNumber The min number of vendorSymmetricId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of vendorSymmetricId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of vendorSymmetricId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of vendorSymmetricId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setVendorSymmetricId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
@@ -121,7 +134,7 @@ public abstract class AbstractBsVendorSymmetricCQ extends AbstractConditionQuery
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * VENDOR_SYMMETRIC_ID: {PK, NotNull, numeric(16)}
-     * @param vendorSymmetricIdList The collection of vendorSymmetricId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param vendorSymmetricIdList The collection of vendorSymmetricId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setVendorSymmetricId_InScope(Collection<Long> vendorSymmetricIdList) {
         doSetVendorSymmetricId_InScope(vendorSymmetricIdList);
@@ -134,7 +147,7 @@ public abstract class AbstractBsVendorSymmetricCQ extends AbstractConditionQuery
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * VENDOR_SYMMETRIC_ID: {PK, NotNull, numeric(16)}
-     * @param vendorSymmetricIdList The collection of vendorSymmetricId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param vendorSymmetricIdList The collection of vendorSymmetricId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setVendorSymmetricId_NotInScope(Collection<Long> vendorSymmetricIdList) {
         doSetVendorSymmetricId_NotInScope(vendorSymmetricIdList);
@@ -162,7 +175,7 @@ public abstract class AbstractBsVendorSymmetricCQ extends AbstractConditionQuery
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * PLAIN_TEXT: {nvarchar(100)}
-     * @param plainText The value of plainText as equal. (NullAllowed: if null (or empty), no condition)
+     * @param plainText The value of plainText as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPlainText_Equal(String plainText) {
         doSetPlainText_Equal(fRES(plainText));
@@ -175,7 +188,7 @@ public abstract class AbstractBsVendorSymmetricCQ extends AbstractConditionQuery
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * PLAIN_TEXT: {nvarchar(100)}
-     * @param plainText The value of plainText as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param plainText The value of plainText as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPlainText_NotEqual(String plainText) {
         doSetPlainText_NotEqual(fRES(plainText));
@@ -186,9 +199,45 @@ public abstract class AbstractBsVendorSymmetricCQ extends AbstractConditionQuery
     }
 
     /**
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
+     * PLAIN_TEXT: {nvarchar(100)}
+     * @param plainText The value of plainText as greaterThan. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setPlainText_GreaterThan(String plainText) {
+        regPlainText(CK_GT, fRES(plainText));
+    }
+
+    /**
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
+     * PLAIN_TEXT: {nvarchar(100)}
+     * @param plainText The value of plainText as lessThan. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setPlainText_LessThan(String plainText) {
+        regPlainText(CK_LT, fRES(plainText));
+    }
+
+    /**
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
+     * PLAIN_TEXT: {nvarchar(100)}
+     * @param plainText The value of plainText as greaterEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setPlainText_GreaterEqual(String plainText) {
+        regPlainText(CK_GE, fRES(plainText));
+    }
+
+    /**
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
+     * PLAIN_TEXT: {nvarchar(100)}
+     * @param plainText The value of plainText as lessEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setPlainText_LessEqual(String plainText) {
+        regPlainText(CK_LE, fRES(plainText));
+    }
+
+    /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * PLAIN_TEXT: {nvarchar(100)}
-     * @param plainTextList The collection of plainText as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param plainTextList The collection of plainText as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPlainText_InScope(Collection<String> plainTextList) {
         doSetPlainText_InScope(plainTextList);
@@ -201,7 +250,7 @@ public abstract class AbstractBsVendorSymmetricCQ extends AbstractConditionQuery
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * PLAIN_TEXT: {nvarchar(100)}
-     * @param plainTextList The collection of plainText as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param plainTextList The collection of plainText as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPlainText_NotInScope(Collection<String> plainTextList) {
         doSetPlainText_NotInScope(plainTextList);
@@ -215,7 +264,7 @@ public abstract class AbstractBsVendorSymmetricCQ extends AbstractConditionQuery
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * PLAIN_TEXT: {nvarchar(100)} <br>
      * <pre>e.g. setPlainText_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param plainText The value of plainText as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param plainText The value of plainText as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setPlainText_LikeSearch(String plainText, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -226,7 +275,7 @@ public abstract class AbstractBsVendorSymmetricCQ extends AbstractConditionQuery
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * PLAIN_TEXT: {nvarchar(100)} <br>
      * <pre>e.g. setPlainText_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param plainText The value of plainText as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param plainText The value of plainText as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setPlainText_LikeSearch(String plainText, LikeSearchOption likeSearchOption) {
@@ -237,7 +286,7 @@ public abstract class AbstractBsVendorSymmetricCQ extends AbstractConditionQuery
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * PLAIN_TEXT: {nvarchar(100)}
-     * @param plainText The value of plainText as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param plainText The value of plainText as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setPlainText_NotLikeSearch(String plainText, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -248,7 +297,7 @@ public abstract class AbstractBsVendorSymmetricCQ extends AbstractConditionQuery
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * PLAIN_TEXT: {nvarchar(100)}
-     * @param plainText The value of plainText as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param plainText The value of plainText as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setPlainText_NotLikeSearch(String plainText, LikeSearchOption likeSearchOption) {
@@ -258,7 +307,7 @@ public abstract class AbstractBsVendorSymmetricCQ extends AbstractConditionQuery
     /**
      * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * PLAIN_TEXT: {nvarchar(100)}
-     * @param plainText The value of plainText as prefixSearch. (NullAllowed: if null (or empty), no condition)
+     * @param plainText The value of plainText as prefixSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPlainText_PrefixSearch(String plainText) {
         setPlainText_LikeSearch(plainText, xcLSOPPre());
@@ -288,7 +337,7 @@ public abstract class AbstractBsVendorSymmetricCQ extends AbstractConditionQuery
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * ENCRYPTED_DATA: {varbinary(2147483647)}
-     * @param encryptedData The value of encryptedData as equal. (NullAllowed: if null (or empty), no condition)
+     * @param encryptedData The value of encryptedData as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setEncryptedData_Equal(String encryptedData) {
         doSetEncryptedData_Equal(fRES(encryptedData));
@@ -301,7 +350,7 @@ public abstract class AbstractBsVendorSymmetricCQ extends AbstractConditionQuery
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * ENCRYPTED_DATA: {varbinary(2147483647)}
-     * @param encryptedData The value of encryptedData as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param encryptedData The value of encryptedData as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setEncryptedData_NotEqual(String encryptedData) {
         doSetEncryptedData_NotEqual(fRES(encryptedData));
@@ -312,9 +361,45 @@ public abstract class AbstractBsVendorSymmetricCQ extends AbstractConditionQuery
     }
 
     /**
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
+     * ENCRYPTED_DATA: {varbinary(2147483647)}
+     * @param encryptedData The value of encryptedData as greaterThan. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setEncryptedData_GreaterThan(String encryptedData) {
+        regEncryptedData(CK_GT, fRES(encryptedData));
+    }
+
+    /**
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
+     * ENCRYPTED_DATA: {varbinary(2147483647)}
+     * @param encryptedData The value of encryptedData as lessThan. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setEncryptedData_LessThan(String encryptedData) {
+        regEncryptedData(CK_LT, fRES(encryptedData));
+    }
+
+    /**
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
+     * ENCRYPTED_DATA: {varbinary(2147483647)}
+     * @param encryptedData The value of encryptedData as greaterEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setEncryptedData_GreaterEqual(String encryptedData) {
+        regEncryptedData(CK_GE, fRES(encryptedData));
+    }
+
+    /**
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
+     * ENCRYPTED_DATA: {varbinary(2147483647)}
+     * @param encryptedData The value of encryptedData as lessEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setEncryptedData_LessEqual(String encryptedData) {
+        regEncryptedData(CK_LE, fRES(encryptedData));
+    }
+
+    /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * ENCRYPTED_DATA: {varbinary(2147483647)}
-     * @param encryptedDataList The collection of encryptedData as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param encryptedDataList The collection of encryptedData as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setEncryptedData_InScope(Collection<String> encryptedDataList) {
         doSetEncryptedData_InScope(encryptedDataList);
@@ -327,7 +412,7 @@ public abstract class AbstractBsVendorSymmetricCQ extends AbstractConditionQuery
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * ENCRYPTED_DATA: {varbinary(2147483647)}
-     * @param encryptedDataList The collection of encryptedData as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param encryptedDataList The collection of encryptedData as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setEncryptedData_NotInScope(Collection<String> encryptedDataList) {
         doSetEncryptedData_NotInScope(encryptedDataList);
@@ -341,7 +426,7 @@ public abstract class AbstractBsVendorSymmetricCQ extends AbstractConditionQuery
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * ENCRYPTED_DATA: {varbinary(2147483647)} <br>
      * <pre>e.g. setEncryptedData_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param encryptedData The value of encryptedData as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param encryptedData The value of encryptedData as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setEncryptedData_LikeSearch(String encryptedData, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -352,7 +437,7 @@ public abstract class AbstractBsVendorSymmetricCQ extends AbstractConditionQuery
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * ENCRYPTED_DATA: {varbinary(2147483647)} <br>
      * <pre>e.g. setEncryptedData_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param encryptedData The value of encryptedData as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param encryptedData The value of encryptedData as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setEncryptedData_LikeSearch(String encryptedData, LikeSearchOption likeSearchOption) {
@@ -363,7 +448,7 @@ public abstract class AbstractBsVendorSymmetricCQ extends AbstractConditionQuery
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * ENCRYPTED_DATA: {varbinary(2147483647)}
-     * @param encryptedData The value of encryptedData as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param encryptedData The value of encryptedData as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setEncryptedData_NotLikeSearch(String encryptedData, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -374,7 +459,7 @@ public abstract class AbstractBsVendorSymmetricCQ extends AbstractConditionQuery
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * ENCRYPTED_DATA: {varbinary(2147483647)}
-     * @param encryptedData The value of encryptedData as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param encryptedData The value of encryptedData as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setEncryptedData_NotLikeSearch(String encryptedData, LikeSearchOption likeSearchOption) {
@@ -384,7 +469,7 @@ public abstract class AbstractBsVendorSymmetricCQ extends AbstractConditionQuery
     /**
      * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * ENCRYPTED_DATA: {varbinary(2147483647)}
-     * @param encryptedData The value of encryptedData as prefixSearch. (NullAllowed: if null (or empty), no condition)
+     * @param encryptedData The value of encryptedData as prefixSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setEncryptedData_PrefixSearch(String encryptedData) {
         setEncryptedData_LikeSearch(encryptedData, xcLSOPPre());
@@ -422,7 +507,7 @@ public abstract class AbstractBsVendorSymmetricCQ extends AbstractConditionQuery
      *     <span style="color: #553000">purchaseCB</span>.specify().<span style="color: #CC4747">columnPurchasePrice</span>(); <span style="color: #3F7E5E">// *Point!</span>
      *     <span style="color: #553000">purchaseCB</span>.query().setPaymentCompleteFlg_Equal_True();
      * });
-     * </pre> 
+     * </pre>
      * @return The object to set up a function. (NotNull)
      */
     public HpSLCFunction<VendorSymmetricCB> scalar_Equal() {
@@ -437,7 +522,7 @@ public abstract class AbstractBsVendorSymmetricCQ extends AbstractConditionQuery
      *     <span style="color: #553000">purchaseCB</span>.specify().<span style="color: #CC4747">columnPurchasePrice</span>(); <span style="color: #3F7E5E">// *Point!</span>
      *     <span style="color: #553000">purchaseCB</span>.query().setPaymentCompleteFlg_Equal_True();
      * });
-     * </pre> 
+     * </pre>
      * @return The object to set up a function. (NotNull)
      */
     public HpSLCFunction<VendorSymmetricCB> scalar_NotEqual() {
@@ -452,7 +537,6 @@ public abstract class AbstractBsVendorSymmetricCQ extends AbstractConditionQuery
      *     <span style="color: #553000">purchaseCB</span>.specify().<span style="color: #CC4747">columnPurchasePrice</span>(); <span style="color: #3F7E5E">// *Point!</span>
      *     <span style="color: #553000">purchaseCB</span>.query().setPaymentCompleteFlg_Equal_True();
      * });
-     * </pre> 
      * </pre>
      * @return The object to set up a function. (NotNull)
      */
@@ -468,7 +552,6 @@ public abstract class AbstractBsVendorSymmetricCQ extends AbstractConditionQuery
      *     <span style="color: #553000">purchaseCB</span>.specify().<span style="color: #CC4747">columnPurchasePrice</span>(); <span style="color: #3F7E5E">// *Point!</span>
      *     <span style="color: #553000">purchaseCB</span>.query().setPaymentCompleteFlg_Equal_True();
      * });
-     * </pre> 
      * </pre>
      * @return The object to set up a function. (NotNull)
      */
@@ -484,7 +567,7 @@ public abstract class AbstractBsVendorSymmetricCQ extends AbstractConditionQuery
      *     <span style="color: #553000">purchaseCB</span>.specify().<span style="color: #CC4747">columnPurchasePrice</span>(); <span style="color: #3F7E5E">// *Point!</span>
      *     <span style="color: #553000">purchaseCB</span>.query().setPaymentCompleteFlg_Equal_True();
      * });
-     * </pre> 
+     * </pre>
      * @return The object to set up a function. (NotNull)
      */
     public HpSLCFunction<VendorSymmetricCB> scalar_GreaterEqual() {
@@ -587,7 +670,6 @@ public abstract class AbstractBsVendorSymmetricCQ extends AbstractConditionQuery
      * <span style="color: #3F7E5E">//   end asc, ...</span>
      *
      * cb.query().addOrderBy_MemberStatusCode_Asc().<span style="color: #CC4747">withManualOrder</span>(<span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-     *     <span style="color: #553000">op</span>.<span style="color: #CC4747">when_GreaterEqual</span>(priorityDate); <span style="color: #3F7E5E">// e.g. 2000/01/01</span>
      *     <span style="color: #553000">op</span>.<span style="color: #CC4747">when_Equal</span>(CDef.MemberStatus.Withdrawal);
      *     <span style="color: #553000">op</span>.<span style="color: #CC4747">when_Equal</span>(CDef.MemberStatus.Formalized);
      *     <span style="color: #553000">op</span>.<span style="color: #CC4747">when_Equal</span>(CDef.MemberStatus.Provisional);

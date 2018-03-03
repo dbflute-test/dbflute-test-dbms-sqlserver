@@ -79,7 +79,13 @@ public class BsMemberSecurityCQ extends AbstractBsMemberSecurityCQ {
       return _memberId; }
     protected ConditionValue xgetCValueMemberId() { return xdfgetMemberId(); }
 
-    /** 
+    public Map<String, MemberCQ> getMemberId_InScopeRelation_Member() { return xgetSQueMap("memberId_InScopeRelation_Member"); }
+    public String keepMemberId_InScopeRelation_Member(MemberCQ sq) { return xkeepSQue("memberId_InScopeRelation_Member", sq); }
+
+    public Map<String, MemberCQ> getMemberId_NotInScopeRelation_Member() { return xgetSQueMap("memberId_NotInScopeRelation_Member"); }
+    public String keepMemberId_NotInScopeRelation_Member(MemberCQ sq) { return xkeepSQue("memberId_NotInScopeRelation_Member", sq); }
+
+    /**
      * Add order-by as ascend. <br>
      * MEMBER_ID: {PK, NotNull, int(10), FK to MEMBER}
      * @return this. (NotNull)
@@ -99,7 +105,7 @@ public class BsMemberSecurityCQ extends AbstractBsMemberSecurityCQ {
       return _loginPassword; }
     protected ConditionValue xgetCValueLoginPassword() { return xdfgetLoginPassword(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * LOGIN_PASSWORD: {NotNull, nvarchar(50)}
      * @return this. (NotNull)
@@ -119,7 +125,7 @@ public class BsMemberSecurityCQ extends AbstractBsMemberSecurityCQ {
       return _reminderQuestion; }
     protected ConditionValue xgetCValueReminderQuestion() { return xdfgetReminderQuestion(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * REMINDER_QUESTION: {NotNull, nvarchar(50)}
      * @return this. (NotNull)
@@ -139,7 +145,7 @@ public class BsMemberSecurityCQ extends AbstractBsMemberSecurityCQ {
       return _reminderAnswer; }
     protected ConditionValue xgetCValueReminderAnswer() { return xdfgetReminderAnswer(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * REMINDER_ANSWER: {NotNull, nvarchar(50)}
      * @return this. (NotNull)
@@ -159,7 +165,7 @@ public class BsMemberSecurityCQ extends AbstractBsMemberSecurityCQ {
       return _reminderUseCount; }
     protected ConditionValue xgetCValueReminderUseCount() { return xdfgetReminderUseCount(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * REMINDER_USE_COUNT: {NotNull, int(10)}
      * @return this. (NotNull)
@@ -179,7 +185,7 @@ public class BsMemberSecurityCQ extends AbstractBsMemberSecurityCQ {
       return _registerDatetime; }
     protected ConditionValue xgetCValueRegisterDatetime() { return xdfgetRegisterDatetime(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * REGISTER_DATETIME: {NotNull, datetime(23, 3)}
      * @return this. (NotNull)
@@ -199,7 +205,7 @@ public class BsMemberSecurityCQ extends AbstractBsMemberSecurityCQ {
       return _registerProcess; }
     protected ConditionValue xgetCValueRegisterProcess() { return xdfgetRegisterProcess(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * REGISTER_PROCESS: {NotNull, nvarchar(200)}
      * @return this. (NotNull)
@@ -219,7 +225,7 @@ public class BsMemberSecurityCQ extends AbstractBsMemberSecurityCQ {
       return _registerUser; }
     protected ConditionValue xgetCValueRegisterUser() { return xdfgetRegisterUser(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * REGISTER_USER: {NotNull, nvarchar(200)}
      * @return this. (NotNull)
@@ -239,7 +245,7 @@ public class BsMemberSecurityCQ extends AbstractBsMemberSecurityCQ {
       return _updateDatetime; }
     protected ConditionValue xgetCValueUpdateDatetime() { return xdfgetUpdateDatetime(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * UPDATE_DATETIME: {NotNull, datetime(23, 3)}
      * @return this. (NotNull)
@@ -259,7 +265,7 @@ public class BsMemberSecurityCQ extends AbstractBsMemberSecurityCQ {
       return _updateProcess; }
     protected ConditionValue xgetCValueUpdateProcess() { return xdfgetUpdateProcess(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * UPDATE_PROCESS: {NotNull, nvarchar(200)}
      * @return this. (NotNull)
@@ -279,7 +285,7 @@ public class BsMemberSecurityCQ extends AbstractBsMemberSecurityCQ {
       return _updateUser; }
     protected ConditionValue xgetCValueUpdateUser() { return xdfgetUpdateUser(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * UPDATE_USER: {NotNull, nvarchar(200)}
      * @return this. (NotNull)
@@ -299,7 +305,7 @@ public class BsMemberSecurityCQ extends AbstractBsMemberSecurityCQ {
       return _versionNo; }
     protected ConditionValue xgetCValueVersionNo() { return xdfgetVersionNo(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * VERSION_NO: {NotNull, bigint(19)}
      * @return this. (NotNull)

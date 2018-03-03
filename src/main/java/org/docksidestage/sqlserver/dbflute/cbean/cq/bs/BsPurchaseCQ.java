@@ -79,7 +79,7 @@ public class BsPurchaseCQ extends AbstractBsPurchaseCQ {
       return _purchaseId; }
     protected ConditionValue xgetCValuePurchaseId() { return xdfgetPurchaseId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * PURCHASE_ID: {PK, ID, NotNull, bigint identity(19)}
      * @return this. (NotNull)
@@ -99,7 +99,13 @@ public class BsPurchaseCQ extends AbstractBsPurchaseCQ {
       return _memberId; }
     protected ConditionValue xgetCValueMemberId() { return xdfgetMemberId(); }
 
-    /** 
+    public Map<String, MemberCQ> getMemberId_InScopeRelation_Member() { return xgetSQueMap("memberId_InScopeRelation_Member"); }
+    public String keepMemberId_InScopeRelation_Member(MemberCQ sq) { return xkeepSQue("memberId_InScopeRelation_Member", sq); }
+
+    public Map<String, MemberCQ> getMemberId_NotInScopeRelation_Member() { return xgetSQueMap("memberId_NotInScopeRelation_Member"); }
+    public String keepMemberId_NotInScopeRelation_Member(MemberCQ sq) { return xkeepSQue("memberId_NotInScopeRelation_Member", sq); }
+
+    /**
      * Add order-by as ascend. <br>
      * MEMBER_ID: {NotNull, int(10), FK to MEMBER}
      * @return this. (NotNull)
@@ -119,7 +125,13 @@ public class BsPurchaseCQ extends AbstractBsPurchaseCQ {
       return _productId; }
     protected ConditionValue xgetCValueProductId() { return xdfgetProductId(); }
 
-    /** 
+    public Map<String, ProductCQ> getProductId_InScopeRelation_Product() { return xgetSQueMap("productId_InScopeRelation_Product"); }
+    public String keepProductId_InScopeRelation_Product(ProductCQ sq) { return xkeepSQue("productId_InScopeRelation_Product", sq); }
+
+    public Map<String, ProductCQ> getProductId_NotInScopeRelation_Product() { return xgetSQueMap("productId_NotInScopeRelation_Product"); }
+    public String keepProductId_NotInScopeRelation_Product(ProductCQ sq) { return xkeepSQue("productId_NotInScopeRelation_Product", sq); }
+
+    /**
      * Add order-by as ascend. <br>
      * PRODUCT_ID: {NotNull, int(10), FK to PRODUCT}
      * @return this. (NotNull)
@@ -139,7 +151,7 @@ public class BsPurchaseCQ extends AbstractBsPurchaseCQ {
       return _purchaseDatetime; }
     protected ConditionValue xgetCValuePurchaseDatetime() { return xdfgetPurchaseDatetime(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * PURCHASE_DATETIME: {NotNull, datetime(23, 3)}
      * @return this. (NotNull)
@@ -159,7 +171,7 @@ public class BsPurchaseCQ extends AbstractBsPurchaseCQ {
       return _purchaseCount; }
     protected ConditionValue xgetCValuePurchaseCount() { return xdfgetPurchaseCount(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * PURCHASE_COUNT: {NotNull, int(10)}
      * @return this. (NotNull)
@@ -179,7 +191,7 @@ public class BsPurchaseCQ extends AbstractBsPurchaseCQ {
       return _purchasePrice; }
     protected ConditionValue xgetCValuePurchasePrice() { return xdfgetPurchasePrice(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * PURCHASE_PRICE: {NotNull, int(10)}
      * @return this. (NotNull)
@@ -199,7 +211,7 @@ public class BsPurchaseCQ extends AbstractBsPurchaseCQ {
       return _paymentCompleteFlg; }
     protected ConditionValue xgetCValuePaymentCompleteFlg() { return xdfgetPaymentCompleteFlg(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * PAYMENT_COMPLETE_FLG: {NotNull, int(10), classification=Flg}
      * @return this. (NotNull)
@@ -219,7 +231,7 @@ public class BsPurchaseCQ extends AbstractBsPurchaseCQ {
       return _registerDatetime; }
     protected ConditionValue xgetCValueRegisterDatetime() { return xdfgetRegisterDatetime(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * REGISTER_DATETIME: {NotNull, datetime(23, 3)}
      * @return this. (NotNull)
@@ -239,7 +251,7 @@ public class BsPurchaseCQ extends AbstractBsPurchaseCQ {
       return _registerUser; }
     protected ConditionValue xgetCValueRegisterUser() { return xdfgetRegisterUser(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * REGISTER_USER: {NotNull, nvarchar(200)}
      * @return this. (NotNull)
@@ -259,7 +271,7 @@ public class BsPurchaseCQ extends AbstractBsPurchaseCQ {
       return _registerProcess; }
     protected ConditionValue xgetCValueRegisterProcess() { return xdfgetRegisterProcess(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * REGISTER_PROCESS: {NotNull, nvarchar(200)}
      * @return this. (NotNull)
@@ -279,7 +291,7 @@ public class BsPurchaseCQ extends AbstractBsPurchaseCQ {
       return _updateDatetime; }
     protected ConditionValue xgetCValueUpdateDatetime() { return xdfgetUpdateDatetime(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * UPDATE_DATETIME: {NotNull, datetime(23, 3)}
      * @return this. (NotNull)
@@ -299,7 +311,7 @@ public class BsPurchaseCQ extends AbstractBsPurchaseCQ {
       return _updateUser; }
     protected ConditionValue xgetCValueUpdateUser() { return xdfgetUpdateUser(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * UPDATE_USER: {NotNull, nvarchar(200)}
      * @return this. (NotNull)
@@ -319,7 +331,7 @@ public class BsPurchaseCQ extends AbstractBsPurchaseCQ {
       return _updateProcess; }
     protected ConditionValue xgetCValueUpdateProcess() { return xdfgetUpdateProcess(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * UPDATE_PROCESS: {NotNull, nvarchar(200)}
      * @return this. (NotNull)
@@ -339,7 +351,7 @@ public class BsPurchaseCQ extends AbstractBsPurchaseCQ {
       return _versionNo; }
     protected ConditionValue xgetCValueVersionNo() { return xdfgetVersionNo(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * VERSION_NO: {NotNull, bigint(19)}
      * @return this. (NotNull)

@@ -57,6 +57,19 @@ public abstract class AbstractBsRegionCQ extends AbstractConditionQuery {
     }
 
     /**
+     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * REGION_ID: {PK, NotNull, int(10)}
+     * @param regionId The value of regionId as notEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setRegionId_NotEqual(Integer regionId) {
+        doSetRegionId_NotEqual(regionId);
+    }
+
+    protected void doSetRegionId_NotEqual(Integer regionId) {
+        regRegionId(CK_NES, regionId);
+    }
+
+    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * REGION_ID: {PK, NotNull, int(10)}
      * @param regionId The value of regionId as greaterThan. (basically NotNull: error as default, or no condition as option)
@@ -97,8 +110,8 @@ public abstract class AbstractBsRegionCQ extends AbstractConditionQuery {
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * REGION_ID: {PK, NotNull, int(10)}
-     * @param minNumber The min number of regionId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of regionId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of regionId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of regionId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setRegionId_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -110,8 +123,8 @@ public abstract class AbstractBsRegionCQ extends AbstractConditionQuery {
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * REGION_ID: {PK, NotNull, int(10)}
-     * @param minNumber The min number of regionId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of regionId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of regionId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of regionId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setRegionId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
@@ -121,7 +134,7 @@ public abstract class AbstractBsRegionCQ extends AbstractConditionQuery {
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * REGION_ID: {PK, NotNull, int(10)}
-     * @param regionIdList The collection of regionId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param regionIdList The collection of regionId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setRegionId_InScope(Collection<Integer> regionIdList) {
         doSetRegionId_InScope(regionIdList);
@@ -134,7 +147,7 @@ public abstract class AbstractBsRegionCQ extends AbstractConditionQuery {
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * REGION_ID: {PK, NotNull, int(10)}
-     * @param regionIdList The collection of regionId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param regionIdList The collection of regionId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setRegionId_NotInScope(Collection<Integer> regionIdList) {
         doSetRegionId_NotInScope(regionIdList);
@@ -235,7 +248,7 @@ public abstract class AbstractBsRegionCQ extends AbstractConditionQuery {
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * REGION_NAME: {NotNull, nvarchar(50)}
-     * @param regionName The value of regionName as equal. (NullAllowed: if null (or empty), no condition)
+     * @param regionName The value of regionName as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setRegionName_Equal(String regionName) {
         doSetRegionName_Equal(fRES(regionName));
@@ -248,7 +261,7 @@ public abstract class AbstractBsRegionCQ extends AbstractConditionQuery {
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * REGION_NAME: {NotNull, nvarchar(50)}
-     * @param regionName The value of regionName as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param regionName The value of regionName as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setRegionName_NotEqual(String regionName) {
         doSetRegionName_NotEqual(fRES(regionName));
@@ -259,9 +272,45 @@ public abstract class AbstractBsRegionCQ extends AbstractConditionQuery {
     }
 
     /**
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
+     * REGION_NAME: {NotNull, nvarchar(50)}
+     * @param regionName The value of regionName as greaterThan. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setRegionName_GreaterThan(String regionName) {
+        regRegionName(CK_GT, fRES(regionName));
+    }
+
+    /**
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
+     * REGION_NAME: {NotNull, nvarchar(50)}
+     * @param regionName The value of regionName as lessThan. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setRegionName_LessThan(String regionName) {
+        regRegionName(CK_LT, fRES(regionName));
+    }
+
+    /**
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
+     * REGION_NAME: {NotNull, nvarchar(50)}
+     * @param regionName The value of regionName as greaterEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setRegionName_GreaterEqual(String regionName) {
+        regRegionName(CK_GE, fRES(regionName));
+    }
+
+    /**
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
+     * REGION_NAME: {NotNull, nvarchar(50)}
+     * @param regionName The value of regionName as lessEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setRegionName_LessEqual(String regionName) {
+        regRegionName(CK_LE, fRES(regionName));
+    }
+
+    /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * REGION_NAME: {NotNull, nvarchar(50)}
-     * @param regionNameList The collection of regionName as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param regionNameList The collection of regionName as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setRegionName_InScope(Collection<String> regionNameList) {
         doSetRegionName_InScope(regionNameList);
@@ -274,7 +323,7 @@ public abstract class AbstractBsRegionCQ extends AbstractConditionQuery {
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * REGION_NAME: {NotNull, nvarchar(50)}
-     * @param regionNameList The collection of regionName as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param regionNameList The collection of regionName as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setRegionName_NotInScope(Collection<String> regionNameList) {
         doSetRegionName_NotInScope(regionNameList);
@@ -288,7 +337,7 @@ public abstract class AbstractBsRegionCQ extends AbstractConditionQuery {
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * REGION_NAME: {NotNull, nvarchar(50)} <br>
      * <pre>e.g. setRegionName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param regionName The value of regionName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param regionName The value of regionName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setRegionName_LikeSearch(String regionName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -299,7 +348,7 @@ public abstract class AbstractBsRegionCQ extends AbstractConditionQuery {
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * REGION_NAME: {NotNull, nvarchar(50)} <br>
      * <pre>e.g. setRegionName_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param regionName The value of regionName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param regionName The value of regionName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setRegionName_LikeSearch(String regionName, LikeSearchOption likeSearchOption) {
@@ -310,7 +359,7 @@ public abstract class AbstractBsRegionCQ extends AbstractConditionQuery {
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * REGION_NAME: {NotNull, nvarchar(50)}
-     * @param regionName The value of regionName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param regionName The value of regionName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setRegionName_NotLikeSearch(String regionName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -321,7 +370,7 @@ public abstract class AbstractBsRegionCQ extends AbstractConditionQuery {
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * REGION_NAME: {NotNull, nvarchar(50)}
-     * @param regionName The value of regionName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param regionName The value of regionName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setRegionName_NotLikeSearch(String regionName, LikeSearchOption likeSearchOption) {
@@ -331,7 +380,7 @@ public abstract class AbstractBsRegionCQ extends AbstractConditionQuery {
     /**
      * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * REGION_NAME: {NotNull, nvarchar(50)}
-     * @param regionName The value of regionName as prefixSearch. (NullAllowed: if null (or empty), no condition)
+     * @param regionName The value of regionName as prefixSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setRegionName_PrefixSearch(String regionName) {
         setRegionName_LikeSearch(regionName, xcLSOPPre());
@@ -351,7 +400,7 @@ public abstract class AbstractBsRegionCQ extends AbstractConditionQuery {
      *     <span style="color: #553000">purchaseCB</span>.specify().<span style="color: #CC4747">columnPurchasePrice</span>(); <span style="color: #3F7E5E">// *Point!</span>
      *     <span style="color: #553000">purchaseCB</span>.query().setPaymentCompleteFlg_Equal_True();
      * });
-     * </pre> 
+     * </pre>
      * @return The object to set up a function. (NotNull)
      */
     public HpSLCFunction<RegionCB> scalar_Equal() {
@@ -366,7 +415,7 @@ public abstract class AbstractBsRegionCQ extends AbstractConditionQuery {
      *     <span style="color: #553000">purchaseCB</span>.specify().<span style="color: #CC4747">columnPurchasePrice</span>(); <span style="color: #3F7E5E">// *Point!</span>
      *     <span style="color: #553000">purchaseCB</span>.query().setPaymentCompleteFlg_Equal_True();
      * });
-     * </pre> 
+     * </pre>
      * @return The object to set up a function. (NotNull)
      */
     public HpSLCFunction<RegionCB> scalar_NotEqual() {
@@ -381,7 +430,6 @@ public abstract class AbstractBsRegionCQ extends AbstractConditionQuery {
      *     <span style="color: #553000">purchaseCB</span>.specify().<span style="color: #CC4747">columnPurchasePrice</span>(); <span style="color: #3F7E5E">// *Point!</span>
      *     <span style="color: #553000">purchaseCB</span>.query().setPaymentCompleteFlg_Equal_True();
      * });
-     * </pre> 
      * </pre>
      * @return The object to set up a function. (NotNull)
      */
@@ -397,7 +445,6 @@ public abstract class AbstractBsRegionCQ extends AbstractConditionQuery {
      *     <span style="color: #553000">purchaseCB</span>.specify().<span style="color: #CC4747">columnPurchasePrice</span>(); <span style="color: #3F7E5E">// *Point!</span>
      *     <span style="color: #553000">purchaseCB</span>.query().setPaymentCompleteFlg_Equal_True();
      * });
-     * </pre> 
      * </pre>
      * @return The object to set up a function. (NotNull)
      */
@@ -413,7 +460,7 @@ public abstract class AbstractBsRegionCQ extends AbstractConditionQuery {
      *     <span style="color: #553000">purchaseCB</span>.specify().<span style="color: #CC4747">columnPurchasePrice</span>(); <span style="color: #3F7E5E">// *Point!</span>
      *     <span style="color: #553000">purchaseCB</span>.query().setPaymentCompleteFlg_Equal_True();
      * });
-     * </pre> 
+     * </pre>
      * @return The object to set up a function. (NotNull)
      */
     public HpSLCFunction<RegionCB> scalar_GreaterEqual() {
@@ -516,7 +563,6 @@ public abstract class AbstractBsRegionCQ extends AbstractConditionQuery {
      * <span style="color: #3F7E5E">//   end asc, ...</span>
      *
      * cb.query().addOrderBy_MemberStatusCode_Asc().<span style="color: #CC4747">withManualOrder</span>(<span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-     *     <span style="color: #553000">op</span>.<span style="color: #CC4747">when_GreaterEqual</span>(priorityDate); <span style="color: #3F7E5E">// e.g. 2000/01/01</span>
      *     <span style="color: #553000">op</span>.<span style="color: #CC4747">when_Equal</span>(CDef.MemberStatus.Withdrawal);
      *     <span style="color: #553000">op</span>.<span style="color: #CC4747">when_Equal</span>(CDef.MemberStatus.Formalized);
      *     <span style="color: #553000">op</span>.<span style="color: #CC4747">when_Equal</span>(CDef.MemberStatus.Provisional);

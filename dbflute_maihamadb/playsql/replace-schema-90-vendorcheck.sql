@@ -28,19 +28,20 @@ CREATE TABLE VENDOR_SYMMETRIC (
 	ENCRYPTED_DATA varbinary(max)
 );
 
-if exists (select * from sys.symmetric_keys where [name] like '%SYMMETRIC_CHECK_KEY%')
-drop symmetric key SYMMETRIC_CHECK_KEY
+if exists (select * from sys.symmetric_keys where [name] like '%SYMMETRIC_CHECK%')
+drop symmetric key SYMMETRIC_CHECK
 ;
 
-create symmetric key SYMMETRIC_CHECK_KEY
-  with algorithm = DES
-    encryption by password = 'himitsu'
+create symmetric key SYMMETRIC_CHECK
+  with algorithm = AES_256
+    encryption by password = 'seaLand!'
 ;
 
-open symmetric key SYMMETRIC_CHECK_KEY decryption by password = 'himitsu'
+-- also use similar statement at VendorSymmetricBhv_executeSymmetricOpen.sql
+open symmetric key SYMMETRIC_CHECK decryption by password = 'seaLand!'
 ;
 
 -- #df:begin##
 insert into VENDOR_SYMMETRIC(VENDOR_SYMMETRIC_ID, PLAIN_TEXT, ENCRYPTED_DATA)
- values(1, 'foo', EncryptByKey(Key_GUID('SYMMETRIC_CHECK_KEY'), N'bar'))
+ values(1, 'foo', EncryptByKey(Key_GUID('SYMMETRIC_CHECK'), N'bar'))
 -- #df:end##

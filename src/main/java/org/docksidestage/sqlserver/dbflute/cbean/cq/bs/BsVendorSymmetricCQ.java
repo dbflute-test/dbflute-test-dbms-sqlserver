@@ -79,7 +79,7 @@ public class BsVendorSymmetricCQ extends AbstractBsVendorSymmetricCQ {
       return _vendorSymmetricId; }
     protected ConditionValue xgetCValueVendorSymmetricId() { return xdfgetVendorSymmetricId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * VENDOR_SYMMETRIC_ID: {PK, NotNull, numeric(16)}
      * @return this. (NotNull)
@@ -99,7 +99,7 @@ public class BsVendorSymmetricCQ extends AbstractBsVendorSymmetricCQ {
       return _plainText; }
     protected ConditionValue xgetCValuePlainText() { return xdfgetPlainText(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * PLAIN_TEXT: {nvarchar(100)}
      * @return this. (NotNull)
@@ -119,7 +119,7 @@ public class BsVendorSymmetricCQ extends AbstractBsVendorSymmetricCQ {
       return _encryptedData; }
     protected ConditionValue xgetCValueEncryptedData() { return xdfgetEncryptedData(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * ENCRYPTED_DATA: {varbinary(2147483647)}
      * @return this. (NotNull)

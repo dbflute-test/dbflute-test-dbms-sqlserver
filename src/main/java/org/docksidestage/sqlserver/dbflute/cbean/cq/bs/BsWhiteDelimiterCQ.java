@@ -79,7 +79,7 @@ public class BsWhiteDelimiterCQ extends AbstractBsWhiteDelimiterCQ {
       return _delimiterId; }
     protected ConditionValue xgetCValueDelimiterId() { return xdfgetDelimiterId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * DELIMITER_ID: {PK, ID, NotNull, bigint identity(19)}
      * @return this. (NotNull)
@@ -99,7 +99,7 @@ public class BsWhiteDelimiterCQ extends AbstractBsWhiteDelimiterCQ {
       return _numberNullable; }
     protected ConditionValue xgetCValueNumberNullable() { return xdfgetNumberNullable(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * NUMBER_NULLABLE: {int(10)}
      * @return this. (NotNull)
@@ -119,7 +119,7 @@ public class BsWhiteDelimiterCQ extends AbstractBsWhiteDelimiterCQ {
       return _stringConverted; }
     protected ConditionValue xgetCValueStringConverted() { return xdfgetStringConverted(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * STRING_CONVERTED: {NotNull, varchar(200)}
      * @return this. (NotNull)
@@ -139,7 +139,7 @@ public class BsWhiteDelimiterCQ extends AbstractBsWhiteDelimiterCQ {
       return _stringNonConverted; }
     protected ConditionValue xgetCValueStringNonConverted() { return xdfgetStringNonConverted(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * STRING_NON_CONVERTED: {varchar(200)}
      * @return this. (NotNull)
@@ -159,7 +159,7 @@ public class BsWhiteDelimiterCQ extends AbstractBsWhiteDelimiterCQ {
       return _dateDefault; }
     protected ConditionValue xgetCValueDateDefault() { return xdfgetDateDefault(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * DATE_DEFAULT: {NotNull, datetime(23, 3)}
      * @return this. (NotNull)

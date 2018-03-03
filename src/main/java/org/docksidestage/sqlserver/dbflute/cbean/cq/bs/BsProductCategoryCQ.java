@@ -107,7 +107,7 @@ public class BsProductCategoryCQ extends AbstractBsProductCategoryCQ {
     public Map<String, Object> xdfgetProductCategoryCode_QueryDerivedReferrer_ProductCategorySelfListParameter() { return xgetSQuePmMap("productCategoryCode_QueryDerivedReferrer_ProductCategorySelfList"); }
     public String keepProductCategoryCode_QueryDerivedReferrer_ProductCategorySelfListParameter(Object pm) { return xkeepSQuePm("productCategoryCode_QueryDerivedReferrer_ProductCategorySelfList", pm); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * PRODUCT_CATEGORY_CODE: {PK, NotNull, char(3)}
      * @return this. (NotNull)
@@ -127,7 +127,7 @@ public class BsProductCategoryCQ extends AbstractBsProductCategoryCQ {
       return _productCategoryName; }
     protected ConditionValue xgetCValueProductCategoryName() { return xdfgetProductCategoryName(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * PRODUCT_CATEGORY_NAME: {NotNull, nvarchar(50)}
      * @return this. (NotNull)
@@ -147,7 +147,13 @@ public class BsProductCategoryCQ extends AbstractBsProductCategoryCQ {
       return _parentCategoryCode; }
     protected ConditionValue xgetCValueParentCategoryCode() { return xdfgetParentCategoryCode(); }
 
-    /** 
+    public Map<String, ProductCategoryCQ> getParentCategoryCode_InScopeRelation_ProductCategorySelf() { return xgetSQueMap("parentCategoryCode_InScopeRelation_ProductCategorySelf"); }
+    public String keepParentCategoryCode_InScopeRelation_ProductCategorySelf(ProductCategoryCQ sq) { return xkeepSQue("parentCategoryCode_InScopeRelation_ProductCategorySelf", sq); }
+
+    public Map<String, ProductCategoryCQ> getParentCategoryCode_NotInScopeRelation_ProductCategorySelf() { return xgetSQueMap("parentCategoryCode_NotInScopeRelation_ProductCategorySelf"); }
+    public String keepParentCategoryCode_NotInScopeRelation_ProductCategorySelf(ProductCategoryCQ sq) { return xkeepSQue("parentCategoryCode_NotInScopeRelation_ProductCategorySelf", sq); }
+
+    /**
      * Add order-by as ascend. <br>
      * PARENT_CATEGORY_CODE: {char(3), FK to PRODUCT_CATEGORY}
      * @return this. (NotNull)

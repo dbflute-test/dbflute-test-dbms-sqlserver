@@ -14,31 +14,31 @@ import org.docksidestage.sqlserver.dbflute.exentity.*;
  * <pre>
  * [primary-key]
  *     VENDOR_CHECK_ID
- * 
+ *
  * [column]
  *     VENDOR_CHECK_ID, TYPE_OF_VARCHAR, TYPE_OF_NVARCHAR, TYPE_OF_TEXT, TYPE_OF_NUMERIC_DECIMAL, TYPE_OF_NUMERIC_INTEGER, TYPE_OF_NUMERIC_BIGINT, TYPE_OF_SMALLINTEGER, TYPE_OF_INTEGER, TYPE_OF_BIGINT, TYPE_OF_MONEY, TYPE_OF_SMALLMONEY, TYPE_OF_DATETIME, TYPE_OF_SMALLDATETIME, TYPE_OF_BIT, TYPE_OF_BINARY, TYPE_OF_VARBINARY, TYPE_OF_UNIQUEIDENTIFIER, TYPE_OF_XML
- * 
+ *
  * [sequence]
  *     
- * 
+ *
  * [identity]
  *     
- * 
+ *
  * [version-no]
  *     
- * 
+ *
  * [foreign table]
  *     
- * 
+ *
  * [referrer table]
  *     
- * 
+ *
  * [foreign property]
  *     
- * 
+ *
  * [referrer property]
  *     
- * 
+ *
  * [get/set template]
  * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
  * Long vendorCheckId = entity.getVendorCheckId();
@@ -179,7 +179,7 @@ public abstract class BsVendorCheck extends AbstractEntity implements DomainEnti
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-    protected <ELEMENT> List<ELEMENT> newReferrerList() {
+    protected <ELEMENT> List<ELEMENT> newReferrerList() { // overriding to import
         return new ArrayList<ELEMENT>();
     }
 

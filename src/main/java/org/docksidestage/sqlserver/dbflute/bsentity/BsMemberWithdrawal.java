@@ -15,31 +15,31 @@ import org.docksidestage.sqlserver.dbflute.exentity.*;
  * <pre>
  * [primary-key]
  *     MEMBER_ID
- * 
+ *
  * [column]
  *     MEMBER_ID, WITHDRAWAL_REASON_CODE, WITHDRAWAL_REASON_INPUT_TEXT, WITHDRAWAL_DATETIME, REGISTER_DATETIME, REGISTER_PROCESS, REGISTER_USER, UPDATE_DATETIME, UPDATE_PROCESS, UPDATE_USER, VERSION_NO
- * 
+ *
  * [sequence]
  *     
- * 
+ *
  * [identity]
  *     
- * 
+ *
  * [version-no]
  *     VERSION_NO
- * 
+ *
  * [foreign table]
  *     MEMBER, WITHDRAWAL_REASON
- * 
+ *
  * [referrer table]
  *     
- * 
+ *
  * [foreign property]
  *     member, withdrawalReason
- * 
+ *
  * [referrer property]
  *     
- * 
+ *
  * [get/set template]
  * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
  * Integer memberId = entity.getMemberId();
@@ -85,7 +85,7 @@ public abstract class BsMemberWithdrawal extends AbstractEntity implements Domai
     /** WITHDRAWAL_REASON_CODE: {char(3), FK to WITHDRAWAL_REASON} */
     protected String _withdrawalReasonCode;
 
-    /** WITHDRAWAL_REASON_INPUT_TEXT: {text(2147483647)} */
+    /** WITHDRAWAL_REASON_INPUT_TEXT: {ntext(1073741823)} */
     protected String _withdrawalReasonInputText;
 
     /** WITHDRAWAL_DATETIME: {NotNull, datetime(23, 3)} */
@@ -178,7 +178,7 @@ public abstract class BsMemberWithdrawal extends AbstractEntity implements Domai
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-    protected <ELEMENT> List<ELEMENT> newReferrerList() {
+    protected <ELEMENT> List<ELEMENT> newReferrerList() { // overriding to import
         return new ArrayList<ELEMENT>();
     }
 
@@ -293,7 +293,7 @@ public abstract class BsMemberWithdrawal extends AbstractEntity implements Domai
     }
 
     /**
-     * [get] WITHDRAWAL_REASON_INPUT_TEXT: {text(2147483647)} <br>
+     * [get] WITHDRAWAL_REASON_INPUT_TEXT: {ntext(1073741823)} <br>
      * @return The value of the column 'WITHDRAWAL_REASON_INPUT_TEXT'. (NullAllowed even if selected: for no constraint)
      */
     public String getWithdrawalReasonInputText() {
@@ -302,7 +302,7 @@ public abstract class BsMemberWithdrawal extends AbstractEntity implements Domai
     }
 
     /**
-     * [set] WITHDRAWAL_REASON_INPUT_TEXT: {text(2147483647)} <br>
+     * [set] WITHDRAWAL_REASON_INPUT_TEXT: {ntext(1073741823)} <br>
      * @param withdrawalReasonInputText The value of the column 'WITHDRAWAL_REASON_INPUT_TEXT'. (NullAllowed: null update allowed for no constraint)
      */
     public void setWithdrawalReasonInputText(String withdrawalReasonInputText) {

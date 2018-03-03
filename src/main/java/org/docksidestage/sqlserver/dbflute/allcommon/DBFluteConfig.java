@@ -61,8 +61,10 @@ public class DBFluteConfig {
     protected boolean _emptyStringParameterAllowed = false;
     protected boolean _overridingQueryAllowed = true;
     protected boolean _nonSpecifiedColumnAccessAllowed = true;
+    protected boolean _specifyColumnRequired = false;
     protected boolean _columnNullObjectAllowed = false;
     protected boolean _columnNullObjectGearedToSpecify = false;
+    protected boolean _datetimePrecisionTruncationOfCondition = false;
     protected boolean _disableSelectIndex;
     protected boolean _queryUpdateCountPreCheck = false;
 
@@ -280,6 +282,21 @@ public class DBFluteConfig {
     }
 
     // ===================================================================================
+    //                                                              SpecifyColumn Required
+    //                                                              ======================
+    public boolean isSpecifyColumnRequired() {
+        return _specifyColumnRequired;
+    }
+
+    public void setSpecifyColumnRequired(boolean specifyColumnRequired) {
+        assertUnlocked();
+        if (_log.isInfoEnabled()) {
+            _log.info("...Setting specifyColumnRequired: " + specifyColumnRequired);
+        }
+        _specifyColumnRequired = specifyColumnRequired;
+    }
+
+    // ===================================================================================
     //                                                                  Column Null Object
     //                                                                  ==================
     public boolean isColumnNullObjectAllowed() {
@@ -314,6 +331,26 @@ public class DBFluteConfig {
             _log.info("...Setting columnNullObjectGearedToSpecify: " + columnNullObjectGearedToSpecify);
         }
         _columnNullObjectGearedToSpecify = columnNullObjectGearedToSpecify;
+    }
+
+    // ===================================================================================
+    //                                                                 Date-time Precision
+    //                                                                 ===================
+    public boolean isDatetimePrecisionTruncationOfCondition() {
+        return _datetimePrecisionTruncationOfCondition;
+    }
+
+    /**
+     * Set whether it truncates date-time precision of condition value or not. <br>
+     * This configuration is only for ConditionBean.
+     * @param datetimePrecisionTruncationOfCondition The determination, true or false.
+     */
+    public void setDatetimePrecisionTruncationOfCondition(boolean datetimePrecisionTruncationOfCondition) {
+        assertUnlocked();
+        if (_log.isInfoEnabled()) {
+            _log.info("...Setting datetimePrecisionTruncationOfCondition: " + datetimePrecisionTruncationOfCondition);
+        }
+        _datetimePrecisionTruncationOfCondition = datetimePrecisionTruncationOfCondition;
     }
 
     // ===================================================================================
@@ -729,7 +766,7 @@ public class DBFluteConfig {
     //                                                                          ==========
     /**
      * Register the basic value type. <br>
-     * This setting is shared per DBMS in the same class loader. 
+     * This setting is shared per DBMS in the same class loader.
      * @param keyType The type as key. (NotNull)
      * @param valueType The basic value type. (NotNull)
      */

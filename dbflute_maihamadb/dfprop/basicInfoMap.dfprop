@@ -3,25 +3,27 @@
 #
 # The basic information for the tasks of DBFlute.
 # You should specify before your first generating.
-# 
+#
 # Core Properties:
 # o database: (Required)
 # o targetLanguage: (Required)
 # o targetContainer: (Required)
 # o packageBase: (Required)
-# 
+#
 # Adjustment Properties:
 # o generateOutputDirectory: (NotRequired - Default Java:'../src/main/java' CSharp:'../source')
 # o resourceOutputDirectory: (NotRequired - Default '../resources')
 # o isTableNameCamelCase: (NotRequired - Default false)
 # o isColumnNameCamelCase: (NotRequired - Default false)
 # o projectPrefix: (NotRequired - Default '')
+# o allcommonPrefix: (NotRequired - Default '')
 # o classAuthor: (NotRequired - Default 'DBFlute(AutoGenerator)')
 # o sourceFileEncoding: (NotRequired - Default 'UTF-8')
 # o sourceCodeLineSeparator: (NotRequired - Default no setting)
 # o applicationBehaviorMap: (NotRequired - Default map:{})
-# o outputPackageAdjustmentMap: (NotRequired - Default map:{})
-# 
+# o generationGapileMap: (NotRequired - Default map:{})
+# o dbfluteSystemFinalTimeZone: (NotRequired - Default null)
+#
 # *The line that starts with '#' means comment-out.
 #
 map:{
@@ -35,6 +37,8 @@ map:{
     #    h2, derby, (sqlite, firebird, msaccess)
     # 
     ; database = sqlserver
+    # you can set for SQLServer LocalDB
+    #; subTypeOfDatabase = localdb
     # - - - - - - - - - -/
 
     # /- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -50,11 +54,10 @@ map:{
     # /- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     # o targetContainer: (Required)
     #  The target DI container.
-    #  If your target language is 'csharp', you can specify 'seasar' only.
     #  Your possible choices are:
-    # 
-    #       seasar, spring, guice, cdi
-    # 
+    #
+    #       spring, guice, seasar, cdi, lasta_di
+    #
     ; targetContainer = seasar
     # - - - - - - - - - -/
 

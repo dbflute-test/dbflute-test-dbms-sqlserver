@@ -1058,8 +1058,8 @@ public abstract class BsWhiteDelimiterBhv extends AbstractBehaviorWritable<White
     /**
      * Prepare the all facade executor of outside-SQL to execute it.
      * <pre>
-     * <span style="color: #3F7E5E">// main style</span> 
-     * whiteDelimiterBhv.outideSql().selectEntity(pmb); <span style="color: #3F7E5E">// optional</span> 
+     * <span style="color: #3F7E5E">// main style</span>
+     * whiteDelimiterBhv.outideSql().selectEntity(pmb); <span style="color: #3F7E5E">// optional</span>
      * whiteDelimiterBhv.outideSql().selectList(pmb); <span style="color: #3F7E5E">// ListResultBean</span>
      * whiteDelimiterBhv.outideSql().selectPage(pmb); <span style="color: #3F7E5E">// PagingResultBean</span>
      * whiteDelimiterBhv.outideSql().selectPagedListOnly(pmb); <span style="color: #3F7E5E">// ListResultBean</span>
@@ -1067,7 +1067,7 @@ public abstract class BsWhiteDelimiterBhv extends AbstractBehaviorWritable<White
      * whiteDelimiterBhv.outideSql().execute(pmb); <span style="color: #3F7E5E">// int (updated count)</span>
      * whiteDelimiterBhv.outideSql().call(pmb); <span style="color: #3F7E5E">// void (pmb has OUT parameters)</span>
      *
-     * <span style="color: #3F7E5E">// traditional style</span> 
+     * <span style="color: #3F7E5E">// traditional style</span>
      * whiteDelimiterBhv.outideSql().traditionalStyle().selectEntity(path, pmb, entityType);
      * whiteDelimiterBhv.outideSql().traditionalStyle().selectList(path, pmb, entityType);
      * whiteDelimiterBhv.outideSql().traditionalStyle().selectPage(path, pmb, entityType);
@@ -1075,7 +1075,7 @@ public abstract class BsWhiteDelimiterBhv extends AbstractBehaviorWritable<White
      * whiteDelimiterBhv.outideSql().traditionalStyle().selectCursor(path, pmb, handler);
      * whiteDelimiterBhv.outideSql().traditionalStyle().execute(path, pmb);
      *
-     * <span style="color: #3F7E5E">// options</span> 
+     * <span style="color: #3F7E5E">// options</span>
      * whiteDelimiterBhv.outideSql().removeBlockComment().selectList()
      * whiteDelimiterBhv.outideSql().removeLineComment().selectList()
      * whiteDelimiterBhv.outideSql().formatSql().selectList()

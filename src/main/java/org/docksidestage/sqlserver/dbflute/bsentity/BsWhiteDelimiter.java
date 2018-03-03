@@ -14,31 +14,31 @@ import org.docksidestage.sqlserver.dbflute.exentity.*;
  * <pre>
  * [primary-key]
  *     DELIMITER_ID
- * 
+ *
  * [column]
  *     DELIMITER_ID, NUMBER_NULLABLE, STRING_CONVERTED, STRING_NON_CONVERTED, DATE_DEFAULT
- * 
+ *
  * [sequence]
  *     
- * 
+ *
  * [identity]
  *     DELIMITER_ID
- * 
+ *
  * [version-no]
  *     
- * 
+ *
  * [foreign table]
  *     
- * 
+ *
  * [referrer table]
  *     
- * 
+ *
  * [foreign property]
  *     
- * 
+ *
  * [referrer property]
  *     
- * 
+ *
  * [get/set template]
  * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
  * Long delimiterId = entity.getDelimiterId();
@@ -109,7 +109,7 @@ public abstract class BsWhiteDelimiter extends AbstractEntity implements DomainE
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-    protected <ELEMENT> List<ELEMENT> newReferrerList() {
+    protected <ELEMENT> List<ELEMENT> newReferrerList() { // overriding to import
         return new ArrayList<ELEMENT>();
     }
 

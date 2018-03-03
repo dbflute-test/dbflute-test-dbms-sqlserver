@@ -79,7 +79,7 @@ public class BsMemberLoginCQ extends AbstractBsMemberLoginCQ {
       return _memberLoginId; }
     protected ConditionValue xgetCValueMemberLoginId() { return xdfgetMemberLoginId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * MEMBER_LOGIN_ID: {PK, ID, NotNull, bigint identity(19)}
      * @return this. (NotNull)
@@ -99,7 +99,13 @@ public class BsMemberLoginCQ extends AbstractBsMemberLoginCQ {
       return _memberId; }
     protected ConditionValue xgetCValueMemberId() { return xdfgetMemberId(); }
 
-    /** 
+    public Map<String, MemberCQ> getMemberId_InScopeRelation_Member() { return xgetSQueMap("memberId_InScopeRelation_Member"); }
+    public String keepMemberId_InScopeRelation_Member(MemberCQ sq) { return xkeepSQue("memberId_InScopeRelation_Member", sq); }
+
+    public Map<String, MemberCQ> getMemberId_NotInScopeRelation_Member() { return xgetSQueMap("memberId_NotInScopeRelation_Member"); }
+    public String keepMemberId_NotInScopeRelation_Member(MemberCQ sq) { return xkeepSQue("memberId_NotInScopeRelation_Member", sq); }
+
+    /**
      * Add order-by as ascend. <br>
      * MEMBER_ID: {NotNull, int(10), FK to MEMBER}
      * @return this. (NotNull)
@@ -119,7 +125,7 @@ public class BsMemberLoginCQ extends AbstractBsMemberLoginCQ {
       return _loginDatetime; }
     protected ConditionValue xgetCValueLoginDatetime() { return xdfgetLoginDatetime(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * LOGIN_DATETIME: {NotNull, datetime(23, 3)}
      * @return this. (NotNull)
@@ -139,7 +145,7 @@ public class BsMemberLoginCQ extends AbstractBsMemberLoginCQ {
       return _mobileLoginFlg; }
     protected ConditionValue xgetCValueMobileLoginFlg() { return xdfgetMobileLoginFlg(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * MOBILE_LOGIN_FLG: {NotNull, int(10), classification=Flg}
      * @return this. (NotNull)
@@ -159,7 +165,13 @@ public class BsMemberLoginCQ extends AbstractBsMemberLoginCQ {
       return _loginMemberStatusCode; }
     protected ConditionValue xgetCValueLoginMemberStatusCode() { return xdfgetLoginMemberStatusCode(); }
 
-    /** 
+    public Map<String, MemberStatusCQ> getLoginMemberStatusCode_InScopeRelation_MemberStatus() { return xgetSQueMap("loginMemberStatusCode_InScopeRelation_MemberStatus"); }
+    public String keepLoginMemberStatusCode_InScopeRelation_MemberStatus(MemberStatusCQ sq) { return xkeepSQue("loginMemberStatusCode_InScopeRelation_MemberStatus", sq); }
+
+    public Map<String, MemberStatusCQ> getLoginMemberStatusCode_NotInScopeRelation_MemberStatus() { return xgetSQueMap("loginMemberStatusCode_NotInScopeRelation_MemberStatus"); }
+    public String keepLoginMemberStatusCode_NotInScopeRelation_MemberStatus(MemberStatusCQ sq) { return xkeepSQue("loginMemberStatusCode_NotInScopeRelation_MemberStatus", sq); }
+
+    /**
      * Add order-by as ascend. <br>
      * LOGIN_MEMBER_STATUS_CODE: {NotNull, char(3), FK to MEMBER_STATUS, classification=MemberStatus}
      * @return this. (NotNull)

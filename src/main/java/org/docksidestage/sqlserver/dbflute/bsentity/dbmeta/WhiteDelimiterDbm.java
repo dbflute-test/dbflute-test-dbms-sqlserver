@@ -67,11 +67,11 @@ public class WhiteDelimiterDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnDelimiterId = cci("DELIMITER_ID", "DELIMITER_ID", null, null, Long.class, "delimiterId", null, true, true, true, "bigint identity", 19, 0, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnNumberNullable = cci("NUMBER_NULLABLE", "NUMBER_NULLABLE", null, null, Integer.class, "numberNullable", null, false, false, false, "int", 10, 0, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnStringConverted = cci("STRING_CONVERTED", "STRING_CONVERTED", null, null, String.class, "stringConverted", null, false, false, true, "varchar", 200, 0, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnStringNonConverted = cci("STRING_NON_CONVERTED", "STRING_NON_CONVERTED", null, null, String.class, "stringNonConverted", null, false, false, false, "varchar", 200, 0, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnDateDefault = cci("DATE_DEFAULT", "DATE_DEFAULT", null, null, java.sql.Timestamp.class, "dateDefault", null, false, false, true, "datetime", 23, 3, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnDelimiterId = cci("DELIMITER_ID", "DELIMITER_ID", null, null, Long.class, "delimiterId", null, true, true, true, "bigint identity", 19, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnNumberNullable = cci("NUMBER_NULLABLE", "NUMBER_NULLABLE", null, null, Integer.class, "numberNullable", null, false, false, false, "int", 10, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnStringConverted = cci("STRING_CONVERTED", "STRING_CONVERTED", null, null, String.class, "stringConverted", null, false, false, true, "varchar", 200, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnStringNonConverted = cci("STRING_NON_CONVERTED", "STRING_NON_CONVERTED", null, null, String.class, "stringNonConverted", null, false, false, false, "varchar", 200, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnDateDefault = cci("DATE_DEFAULT", "DATE_DEFAULT", null, null, java.sql.Timestamp.class, "dateDefault", null, false, false, true, "datetime", 23, 3, null, null, false, null, null, null, null, null, false);
 
     /**
      * DELIMITER_ID: {PK, ID, NotNull, bigint identity(19)}

@@ -1,19 +1,21 @@
 # /---------------------------------------------------------------------------
-# documentDefinitionMap: (NotRequired - Default map:{})
+# documentMap: (NotRequired - Default map:{})
 #
-# o documentOutputDirectory (NotRequired - Default './output/doc')
-# o aliasDelimiterInDbComment (NotRequired - Default '')
-# o isDbCommentOnAliasBasis (NotRequired - Default false)
-# o isEntityJavaDocDbCommentValid (NotRequired - Default false)
-# o isEntityDBMetaDbCommentValid (NotRequired - Default false)
-# o schemaHtmlFileName (NotRequired - Default 'schema-[project-name].html')
-# o isSuppressSchemaHtmlOutsideSql (NotRequired - Default false)
-# o historyHtmlFileName (NotRequired - Default 'history-[project-name].html')
-# o isCheckColumnDefOrderDiff (NotRequired - Default false)
-# o isCheckDbCommentDiff (NotRequired - Default false)
-# o isCheckProcedureDiff (NotRequired - Default false)
-# o loadDataReverseMap (NotRequired - Default map:{})
-# o schemaSyncCheckMap (NotRequired - Default map:{})
+# o documentOutputDirectory: (NotRequired - Default './output/doc')
+# o aliasDelimiterInDbComment: (NotRequired - Default '')
+# o isDbCommentOnAliasBasis: (NotRequired - Default false)
+# o isEntityJavaDocDbCommentValid: (NotRequired - Default true)
+# o isEntityDBMetaDbCommentValid: (NotRequired - Default false)
+# o schemaHtmlFileName: (NotRequired - Default 'schema-[project-name].html')
+# o isSuppressSchemaHtmlOutsideSql: (NotRequired - Default false)
+# o isSuppressSchemaHtmlProcedure: (NotRequired - Default false)
+# o historyHtmlFileName: (NotRequired - Default 'history-[project-name].html')
+# o isCheckColumnDefOrderDiff: (NotRequired - Default false)
+# o isCheckDbCommentDiff: (NotRequired - Default false)
+# o isCheckProcedureDiff: (NotRequired - Default false)
+# o loadDataReverseMap: (NotRequired - Default map:{})
+# o schemaSyncCheckMap: (NotRequired - Default map:{})
+# o propertiesHtmlMap: (NotRequired - Default map:{})
 #
 # Example:
 # map:{
@@ -24,20 +26,27 @@
 #     ; isEntityDBMetaDbCommentValid = true
 #     ; schemaHtmlFileName = xxx.html
 #     ; isSuppressSchemaHtmlOutsideSql = false
+#     ; isSuppressSchemaHtmlProcedure = false
 #     ; historyHtmlFileName = xxx.html
 #     ; isCheckColumnDefOrderDiff = true
 #     ; isCheckDbCommentDiff = true
 #     ; isCheckProcedureDiff = true
 #     ; loadDataReverseMap = map:{
 #         ; recordLimit = -1
-#         ; isContainsCommonColumn = true
-#         ; isOutputToPlaySql = true
+#         ; isReplaceSchemaDirectUse = true
+#         ; isOverrideExistingDataFile = false
+#         ; isSynchronizeOriginDate = false
 #     }
 #     ; schemaSyncCheckMap = map:{
 #         ; url = jdbc:...
 #         ; schema = EXAMPLEDB
 #         ; user = exampuser
 #         ; password = exampword
+#     }
+#     ; propertiesHtmlMap = map:{
+#         ; ApplicationProperties = map:{
+#             ; rootFile = ../src/main/resources/application_ja.properties
+#         }
 #     }
 # }
 #

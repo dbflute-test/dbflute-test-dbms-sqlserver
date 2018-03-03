@@ -190,7 +190,7 @@ public class WxGearedCipherSQLServerTest extends UnitContainerTestCase {
         try {
             conn = dataSource.getConnection();
             st = conn.createStatement();
-            String sql = "open symmetric key SYMMETRIC_CHECK_KEY decryption by PASSWORD = 'himitsu'";
+            String sql = "open symmetric key SYMMETRIC_CHECK decryption by PASSWORD = 'seaLand!'";
             log("...Opening: " + ln() + sql);
             st.execute(sql);
         } finally {

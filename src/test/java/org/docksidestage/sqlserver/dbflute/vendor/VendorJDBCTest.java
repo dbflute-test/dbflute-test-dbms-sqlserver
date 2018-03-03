@@ -46,6 +46,7 @@ public class VendorJDBCTest extends UnitContainerTestCase {
     // ===================================================================================
     //                                                                       Query Timeout
     //                                                                       =============
+    // #thinking green if single execution, but red if whole execution by jflute
     public void test_QueryTimeout_insert() throws Exception {
         cannonball(new CannonballRun() {
             public void drive(CannonballCar car) {

@@ -21,6 +21,11 @@ public abstract class UnitContainerTestCase extends ContainerTestCase {
 
     private BehaviorSelector _behaviorSelector;
 
+    @Override
+    protected boolean isUseTestCaseLooseBinding() {
+        return true;
+    }
+
     protected void deleteAll(Class<? extends BehaviorWritable> clazz) {
         BehaviorWritable bhv = _behaviorSelector.select(clazz);
         ConditionBean cb = bhv.newConditionBean();

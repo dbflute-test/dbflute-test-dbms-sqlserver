@@ -1,0 +1,43 @@
+map:{
+    ; 2018/03/03 15:24:17 = map:{
+        ; diffDate = 2018/03/03 15:24:17
+        ; tableDiff = map:{
+            ; MEMBER_WITHDRAWAL = map:{
+                ; tableName = MEMBER_WITHDRAWAL
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; WITHDRAWAL_REASON_INPUT_TEXT = map:{
+                        ; columnName = WITHDRAWAL_REASON_INPUT_TEXT
+                        ; diffType = CHANGE
+                        ; dbTypeDiff = map:{
+                            ; next = ntext
+                            ; previous = text
+                        }
+                        ; columnSizeDiff = map:{
+                            ; next = 1073741823
+                            ; previous = 2147483647
+                        }
+                    }
+                }
+            }
+            ; SUMMARY_WITHDRAWAL = map:{
+                ; tableName = SUMMARY_WITHDRAWAL
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; WITHDRAWAL_REASON_INPUT_TEXT = map:{
+                        ; columnName = WITHDRAWAL_REASON_INPUT_TEXT
+                        ; diffType = CHANGE
+                        ; dbTypeDiff = map:{
+                            ; next = ntext
+                            ; previous = text
+                        }
+                        ; columnSizeDiff = map:{
+                            ; next = 1073741823
+                            ; previous = 2147483647
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

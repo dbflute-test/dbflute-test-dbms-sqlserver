@@ -14,31 +14,31 @@ import org.docksidestage.sqlserver.dbflute.exentity.*;
  * <pre>
  * [primary-key]
  *     VENDOR_SYMMETRIC_ID
- * 
+ *
  * [column]
  *     VENDOR_SYMMETRIC_ID, PLAIN_TEXT, ENCRYPTED_DATA
- * 
+ *
  * [sequence]
  *     
- * 
+ *
  * [identity]
  *     
- * 
+ *
  * [version-no]
  *     
- * 
+ *
  * [foreign table]
  *     
- * 
+ *
  * [referrer table]
  *     
- * 
+ *
  * [foreign property]
  *     
- * 
+ *
  * [referrer property]
  *     
- * 
+ *
  * [get/set template]
  * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
  * Long vendorSymmetricId = entity.getVendorSymmetricId();
@@ -99,7 +99,7 @@ public abstract class BsVendorSymmetric extends AbstractEntity implements Domain
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-    protected <ELEMENT> List<ELEMENT> newReferrerList() {
+    protected <ELEMENT> List<ELEMENT> newReferrerList() { // overriding to import
         return new ArrayList<ELEMENT>();
     }
 

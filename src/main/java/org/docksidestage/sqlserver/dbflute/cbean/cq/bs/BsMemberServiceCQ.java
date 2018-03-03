@@ -79,7 +79,7 @@ public class BsMemberServiceCQ extends AbstractBsMemberServiceCQ {
       return _memberServiceId; }
     protected ConditionValue xgetCValueMemberServiceId() { return xdfgetMemberServiceId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * MEMBER_SERVICE_ID: {PK, ID, NotNull, int identity(10)}
      * @return this. (NotNull)
@@ -99,7 +99,13 @@ public class BsMemberServiceCQ extends AbstractBsMemberServiceCQ {
       return _memberId; }
     protected ConditionValue xgetCValueMemberId() { return xdfgetMemberId(); }
 
-    /** 
+    public Map<String, MemberCQ> getMemberId_InScopeRelation_Member() { return xgetSQueMap("memberId_InScopeRelation_Member"); }
+    public String keepMemberId_InScopeRelation_Member(MemberCQ sq) { return xkeepSQue("memberId_InScopeRelation_Member", sq); }
+
+    public Map<String, MemberCQ> getMemberId_NotInScopeRelation_Member() { return xgetSQueMap("memberId_NotInScopeRelation_Member"); }
+    public String keepMemberId_NotInScopeRelation_Member(MemberCQ sq) { return xkeepSQue("memberId_NotInScopeRelation_Member", sq); }
+
+    /**
      * Add order-by as ascend. <br>
      * MEMBER_ID: {UQ, NotNull, int(10), FK to MEMBER}
      * @return this. (NotNull)
@@ -119,7 +125,7 @@ public class BsMemberServiceCQ extends AbstractBsMemberServiceCQ {
       return _servicePointCount; }
     protected ConditionValue xgetCValueServicePointCount() { return xdfgetServicePointCount(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * SERVICE_POINT_COUNT: {NotNull, int(10)}
      * @return this. (NotNull)
@@ -139,7 +145,13 @@ public class BsMemberServiceCQ extends AbstractBsMemberServiceCQ {
       return _serviceRankCode; }
     protected ConditionValue xgetCValueServiceRankCode() { return xdfgetServiceRankCode(); }
 
-    /** 
+    public Map<String, ServiceRankCQ> getServiceRankCode_InScopeRelation_ServiceRank() { return xgetSQueMap("serviceRankCode_InScopeRelation_ServiceRank"); }
+    public String keepServiceRankCode_InScopeRelation_ServiceRank(ServiceRankCQ sq) { return xkeepSQue("serviceRankCode_InScopeRelation_ServiceRank", sq); }
+
+    public Map<String, ServiceRankCQ> getServiceRankCode_NotInScopeRelation_ServiceRank() { return xgetSQueMap("serviceRankCode_NotInScopeRelation_ServiceRank"); }
+    public String keepServiceRankCode_NotInScopeRelation_ServiceRank(ServiceRankCQ sq) { return xkeepSQue("serviceRankCode_NotInScopeRelation_ServiceRank", sq); }
+
+    /**
      * Add order-by as ascend. <br>
      * SERVICE_RANK_CODE: {NotNull, char(3), FK to SERVICE_RANK}
      * @return this. (NotNull)
@@ -159,7 +171,7 @@ public class BsMemberServiceCQ extends AbstractBsMemberServiceCQ {
       return _registerDatetime; }
     protected ConditionValue xgetCValueRegisterDatetime() { return xdfgetRegisterDatetime(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * REGISTER_DATETIME: {NotNull, datetime(23, 3)}
      * @return this. (NotNull)
@@ -179,7 +191,7 @@ public class BsMemberServiceCQ extends AbstractBsMemberServiceCQ {
       return _registerUser; }
     protected ConditionValue xgetCValueRegisterUser() { return xdfgetRegisterUser(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * REGISTER_USER: {NotNull, nvarchar(200)}
      * @return this. (NotNull)
@@ -199,7 +211,7 @@ public class BsMemberServiceCQ extends AbstractBsMemberServiceCQ {
       return _registerProcess; }
     protected ConditionValue xgetCValueRegisterProcess() { return xdfgetRegisterProcess(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * REGISTER_PROCESS: {NotNull, nvarchar(200)}
      * @return this. (NotNull)
@@ -219,7 +231,7 @@ public class BsMemberServiceCQ extends AbstractBsMemberServiceCQ {
       return _updateDatetime; }
     protected ConditionValue xgetCValueUpdateDatetime() { return xdfgetUpdateDatetime(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * UPDATE_DATETIME: {NotNull, datetime(23, 3)}
      * @return this. (NotNull)
@@ -239,7 +251,7 @@ public class BsMemberServiceCQ extends AbstractBsMemberServiceCQ {
       return _updateUser; }
     protected ConditionValue xgetCValueUpdateUser() { return xdfgetUpdateUser(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * UPDATE_USER: {NotNull, nvarchar(200)}
      * @return this. (NotNull)
@@ -259,7 +271,7 @@ public class BsMemberServiceCQ extends AbstractBsMemberServiceCQ {
       return _updateProcess; }
     protected ConditionValue xgetCValueUpdateProcess() { return xdfgetUpdateProcess(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * UPDATE_PROCESS: {NotNull, nvarchar(200)}
      * @return this. (NotNull)
@@ -279,7 +291,7 @@ public class BsMemberServiceCQ extends AbstractBsMemberServiceCQ {
       return _versionNo; }
     protected ConditionValue xgetCValueVersionNo() { return xdfgetVersionNo(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * VERSION_NO: {NotNull, bigint(19)}
      * @return this. (NotNull)

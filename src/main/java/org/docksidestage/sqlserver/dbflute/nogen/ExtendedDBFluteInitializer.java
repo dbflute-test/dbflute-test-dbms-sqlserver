@@ -27,7 +27,7 @@ public class ExtendedDBFluteInitializer extends DBFluteInitializer {
         final ColumnInfo encryptedData = VendorSymmetricDbm.getInstance().columnEncryptedData();
         manager.addFunctionFilter(encryptedData, new CipherFunctionFilter() {
             public String encrypt(String valueExp) {
-                String exp = "EncryptByKey(Key_GUID('SYMMETRIC_CHECK_KEY'), %1$s)";
+                String exp = "EncryptByKey(Key_GUID('SYMMETRIC_CHECK'), %1$s)";
                 return String.format(exp, valueExp);
             }
 

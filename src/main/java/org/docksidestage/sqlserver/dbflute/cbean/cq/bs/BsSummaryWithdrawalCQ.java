@@ -79,7 +79,7 @@ public class BsSummaryWithdrawalCQ extends AbstractBsSummaryWithdrawalCQ {
       return _memberId; }
     protected ConditionValue xgetCValueMemberId() { return xdfgetMemberId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * MEMBER_ID: {NotNull, int(10)}
      * @return this. (NotNull)
@@ -99,7 +99,7 @@ public class BsSummaryWithdrawalCQ extends AbstractBsSummaryWithdrawalCQ {
       return _memberName; }
     protected ConditionValue xgetCValueMemberName() { return xdfgetMemberName(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * MEMBER_NAME: {nvarchar(200)}
      * @return this. (NotNull)
@@ -119,7 +119,7 @@ public class BsSummaryWithdrawalCQ extends AbstractBsSummaryWithdrawalCQ {
       return _withdrawalReasonCode; }
     protected ConditionValue xgetCValueWithdrawalReasonCode() { return xdfgetWithdrawalReasonCode(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * WITHDRAWAL_REASON_CODE: {char(3)}
      * @return this. (NotNull)
@@ -139,7 +139,7 @@ public class BsSummaryWithdrawalCQ extends AbstractBsSummaryWithdrawalCQ {
       return _withdrawalReasonText; }
     protected ConditionValue xgetCValueWithdrawalReasonText() { return xdfgetWithdrawalReasonText(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * WITHDRAWAL_REASON_TEXT: {text(2147483647)}
      * @return this. (NotNull)
@@ -159,16 +159,16 @@ public class BsSummaryWithdrawalCQ extends AbstractBsSummaryWithdrawalCQ {
       return _withdrawalReasonInputText; }
     protected ConditionValue xgetCValueWithdrawalReasonInputText() { return xdfgetWithdrawalReasonInputText(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
-     * WITHDRAWAL_REASON_INPUT_TEXT: {text(2147483647)}
+     * WITHDRAWAL_REASON_INPUT_TEXT: {ntext(1073741823)}
      * @return this. (NotNull)
      */
     public BsSummaryWithdrawalCQ addOrderBy_WithdrawalReasonInputText_Asc() { regOBA("WITHDRAWAL_REASON_INPUT_TEXT"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * WITHDRAWAL_REASON_INPUT_TEXT: {text(2147483647)}
+     * WITHDRAWAL_REASON_INPUT_TEXT: {ntext(1073741823)}
      * @return this. (NotNull)
      */
     public BsSummaryWithdrawalCQ addOrderBy_WithdrawalReasonInputText_Desc() { regOBD("WITHDRAWAL_REASON_INPUT_TEXT"); return this; }
@@ -179,7 +179,7 @@ public class BsSummaryWithdrawalCQ extends AbstractBsSummaryWithdrawalCQ {
       return _withdrawalDatetime; }
     protected ConditionValue xgetCValueWithdrawalDatetime() { return xdfgetWithdrawalDatetime(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * WITHDRAWAL_DATETIME: {NotNull, datetime(23, 3)}
      * @return this. (NotNull)
@@ -199,7 +199,7 @@ public class BsSummaryWithdrawalCQ extends AbstractBsSummaryWithdrawalCQ {
       return _memberStatusCode; }
     protected ConditionValue xgetCValueMemberStatusCode() { return xdfgetMemberStatusCode(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * MEMBER_STATUS_CODE: {char(3), classification=MemberStatus}
      * @return this. (NotNull)
@@ -219,7 +219,7 @@ public class BsSummaryWithdrawalCQ extends AbstractBsSummaryWithdrawalCQ {
       return _memberStatusName; }
     protected ConditionValue xgetCValueMemberStatusName() { return xdfgetMemberStatusName(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * MEMBER_STATUS_NAME: {nvarchar(50)}
      * @return this. (NotNull)
@@ -239,7 +239,7 @@ public class BsSummaryWithdrawalCQ extends AbstractBsSummaryWithdrawalCQ {
       return _maxPurchasePrice; }
     protected ConditionValue xgetCValueMaxPurchasePrice() { return xdfgetMaxPurchasePrice(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * MAX_PURCHASE_PRICE: {int(10)}
      * @return this. (NotNull)

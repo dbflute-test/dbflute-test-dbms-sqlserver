@@ -68,7 +68,7 @@ public class ${table.camelizedName}Dbm extends AbstractDBMeta {
 #set ($tableMetaSettings = ${table.indexSettings.settings.index.dbflute.get($table.name)})
 #foreach ($col in $table.columnList)
 #if ($col.isNormalColumn)
-#set ($javaNative = ${col.type})
+#if (${col.type} == "keyword" || ${col.type} == "text")#set ($javaNative = "String")#else#set ($javaNative = ${col.type})#end
 #elseif ($col.isRefColumn)
 #set ($javaNative = ${col.camelizedName})
 #end
@@ -104,12 +104,12 @@ public class ${table.camelizedName}Dbm extends AbstractDBMeta {
     //                                                                         ===========
 #foreach ($col in $table.columnList)
 #if ($col.isNormalColumn)
-#set ($javaNative = ${col.type})
+#if (${col.type} == "keyword" || ${col.type} == "text")#set ($javaNative = "String")#else#set ($javaNative = ${col.type})#end
 #elseif ($col.isRefColumn)
 #set ($javaNative = ${col.camelizedName})
 #end
 #if ($tableMetaSettings.properties.get($col.name).array)#set($arrayType = "[]")#else#set($arrayType = "")#end
-    protected final ColumnInfo _column${col.camelizedName} = cci("${col.name}", "${col.name}", null, null, ${javaNative}${arrayType}.class, "${col.uncapCamelName}", null, false, false, false, "${col.type}", 0, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _column${col.camelizedName} = cci("${col.name}", "${col.name}", null, null, ${javaNative}${arrayType}.class, "${col.uncapCamelName}", null, false, false, false, "${col.type}", 0, 0, null, null, false, null, null, null, null, null, false);
 #end
 
 #foreach ($col in $table.columnList)

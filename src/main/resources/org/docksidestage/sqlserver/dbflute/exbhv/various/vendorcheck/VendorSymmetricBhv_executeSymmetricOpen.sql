@@ -1,3 +1,3 @@
 -- !df:pmb!
 -- !!AutoDetect!!
-open symmetric key SYMMETRIC_CHECK_KEY decryption by PASSWORD = 'himitsu'
+open symmetric key SYMMETRIC_CHECK decryption by PASSWORD = 'seaLand!'
