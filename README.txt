@@ -34,7 +34,9 @@ reconfigure
 go
 alter database maihamadb set containment = partial
 go
-create user maihamadb with password = 'maihama+DB'
+create login maihamadb with password = 'maihamadb', check_policy = off
+go
+create user maihamadb for login maihamadb
 go
 exec sp_addrolemember 'db_ddladmin','maihamadb'
 go
@@ -51,8 +53,7 @@ docker stop mssqlflute
 docker rm mssqlflute
 _/_/_/_/_/_/_/_/_/_/
 
-And make local-password.txt at dfprop directory, which contains password 'maihama+DB'.
-You can execute ReplaceSchema.
+An you can execute ReplaceSchema.
 
 
 # ========================================================================================
