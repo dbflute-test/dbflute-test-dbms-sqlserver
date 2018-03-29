@@ -10,6 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.dbflute.bhv.core.context.mapping.MappingDateTimeZoneProvider;
 import org.dbflute.bhv.core.supplement.SequenceCacheKeyGenerator;
+import org.dbflute.cbean.garnish.SpecifyColumnRequiredExceptDeterminer;
 import org.dbflute.cbean.cipher.GearedCipherManager;
 import org.dbflute.cbean.sqlclause.SqlClauseCreator;
 import org.dbflute.dbmeta.name.SqlNameFilter;
@@ -62,6 +63,7 @@ public class DBFluteConfig {
     protected boolean _overridingQueryAllowed = true;
     protected boolean _nonSpecifiedColumnAccessAllowed = true;
     protected boolean _specifyColumnRequired = false;
+    protected SpecifyColumnRequiredExceptDeterminer _specifyColumnRequiredExceptDeterminer;
     protected boolean _columnNullObjectAllowed = false;
     protected boolean _columnNullObjectGearedToSpecify = false;
     protected boolean _datetimePrecisionTruncationOfCondition = false;
@@ -294,6 +296,18 @@ public class DBFluteConfig {
             _log.info("...Setting specifyColumnRequired: " + specifyColumnRequired);
         }
         _specifyColumnRequired = specifyColumnRequired;
+    }
+
+    public SpecifyColumnRequiredExceptDeterminer getSpecifyColumnRequiredExceptDeterminer() {
+        return _specifyColumnRequiredExceptDeterminer;
+    }
+
+    public void setSpecifyColumnRequiredExceptDeterminer(SpecifyColumnRequiredExceptDeterminer specifyColumnRequiredExceptDeterminer) {
+        assertUnlocked();
+        if (_log.isInfoEnabled()) {
+            _log.info("...Setting specifyColumnRequiredExceptDeterminer: " + specifyColumnRequiredExceptDeterminer);
+        }
+        _specifyColumnRequiredExceptDeterminer = specifyColumnRequiredExceptDeterminer;
     }
 
     // ===================================================================================

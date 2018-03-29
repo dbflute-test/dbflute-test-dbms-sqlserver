@@ -13,7 +13,7 @@
 	<inceptionYear>2014</inceptionYear>
 
 	<properties>
-		<dbflute.version>1.1.6</dbflute.version>
+		<dbflute.version>1.1.7</dbflute.version>
 		<seasar.version>2.4.46</seasar.version>
 		<sqlserver.jdbc.version>1.0.0</sqlserver.jdbc.version>
 		<utflute.version>0.8.5</utflute.version>

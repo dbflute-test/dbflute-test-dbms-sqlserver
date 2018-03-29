@@ -21,7 +21,6 @@ docker run -e 'ACCEPT_EULA=Y' -e 'MSSQL_SA_PASSWORD=MSSQL@ps' \
    -p 1433:1433 --name mssqlflute \
    -d microsoft/mssql-server-linux:2017-latest
 
-(begin batch)
 docker exec -it mssqlflute "bash"
 /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'MSSQL@ps'
 create database maihamadb
@@ -46,7 +45,6 @@ exec sp_addrolemember 'db_datawriter','maihamadb'
 go
 grant execute on SCHEMA::dbo to maihamadb
 go
-(end batch)
 
 [remove]
 docker stop mssqlflute
