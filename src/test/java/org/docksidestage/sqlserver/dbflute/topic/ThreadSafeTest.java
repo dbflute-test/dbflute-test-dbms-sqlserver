@@ -122,7 +122,7 @@ public class ThreadSafeTest extends UnitContainerTestCase {
             public Execution<List<Member>> create() {
                 return new Execution<List<Member>>() {
                     public List<Member> execute() {
-                        xprepareAccessContext();
+                        initializeTestCaseAccessContext();
                         TransactionResource transaction = beginNewTransaction();
                         try {
                             final long threadId = Thread.currentThread().getId();

@@ -58,12 +58,12 @@ public abstract class BsVendorCheckBhv extends AbstractBehaviorWritable<VendorCh
     //                                                                          Definition
     //                                                                          ==========
     /*df:beginQueryPath*/
-    public static final String PATH_various_vendorcheck_callProcReturnResultSetMore = "various:vendorcheck:callProcReturnResultSetMore";
     public static final String PATH_various_vendorcheck_selectDoubleByteOnSql = "various:vendorcheck:selectDoubleByteOnSql";
-    public static final String PATH_various_vendorcheck_selectSimpleTableFunction = "various:vendorcheck:selectSimpleTableFunction";
-    public static final String PATH_various_vendorcheck_selectSimpleVendorCheck = "various:vendorcheck:selectSimpleVendorCheck";
-    public static final String PATH_various_vendorcheck_selectVendorCheckDecimalSum = "various:vendorcheck:selectVendorCheckDecimalSum";
+    public static final String PATH_various_vendorcheck_callProcReturnResultSetMore = "various:vendorcheck:callProcReturnResultSetMore";
     public static final String PATH_various_vendorcheck_selectVendorCheckIntegerSum = "various:vendorcheck:selectVendorCheckIntegerSum";
+    public static final String PATH_various_vendorcheck_selectSimpleVendorCheck = "various:vendorcheck:selectSimpleVendorCheck";
+    public static final String PATH_various_vendorcheck_selectSimpleTableFunction = "various:vendorcheck:selectSimpleTableFunction";
+    public static final String PATH_various_vendorcheck_selectVendorCheckDecimalSum = "various:vendorcheck:selectVendorCheckDecimalSum";
     /*df:endQueryPath*/
 
     // ===================================================================================
